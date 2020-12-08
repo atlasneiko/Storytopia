@@ -44,6 +44,13 @@ class UserProfile extends React.Component {
 							/>
 						</label>
 						<br />
+						<label>
+							About:
+							<textarea
+								value={this.state.about}
+								onChange={this.update("about")}
+							/>
+						</label>
 						<button type="submit">Edit Profile</button>
 					</form>
 				</div>
@@ -52,7 +59,11 @@ class UserProfile extends React.Component {
 			profile = (
 				<div className="profile">
 					<h1>Username: {this.state.username}</h1>
-					<p>Email: {this.state.email}</p>
+					<h4>Email: {this.state.email}</h4>
+					<p>
+						About: <br />
+						{this.state.about}
+					</p>
 				</div>
 			);
 		}
