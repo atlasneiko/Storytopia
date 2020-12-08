@@ -4,6 +4,8 @@ class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = this.props.user;
+		console.log(this.state);
+		console.log(this.props.currentUserId);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -13,36 +15,46 @@ class UserProfile extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.action(this.state);
+		this.props.update(this.state);
 	}
 	render() {
-		const profile = () => {
-			if (this.state.id === this.props.currentUserId) {
-				<form id="profile" onSubmit={this.handleSubmit}>
-					<label>
-						Username:
-						<input
-							type="text"
-							value={this.state.username}
-							onChange={this.update(user.username)}
-						/>
-					</label>
-					<label>
-						Password:
-						<input
-							type="password"
-							value={this.state.username}
-							onChange={this.update(user.username)}
-						/>
-					</label>
-				</form>;
-			} else {
+		let profile;
+		if (this.state.id === this.props.currentUserId) {
+			profile = (
+				<div>
+					<form id="profile" onSubmit={this.handleSubmit}>
+						<label>
+							Username:
+							<input
+								type="text"
+								value={this.state.username}
+								onChange={this.update("username")}
+							/>
+						</label>
+						<br />
+						<label>
+							Email:
+							<input
+								type="text"
+								value={this.state.email}
+								onChange={this.update("email")}
+							/>
+						</label>
+						<br />
+						<button type="submit">Edit Profile</button>
+					</form>
+				</div>
+			);
+		} else {
+			profile = (
 				<div className="profile">
 					<h1>{this.state.username}</h1>
 					<p>{this.state.email}</p>
-				</div>;
-			}
-		};
+				</div>
+			);
+		}
+
+		return profile;
 	}
 }
 export default UserProfile;
