@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 const mSTP = (state, ownProps) => ({
 	errors: state.errors.session,
 	formTypes: "Sign Up",
-	navLink: <Link to="/signup">Sign Up </Link>,
+	navLink: (
+		<Link className="form-link" to="/login">
+			Log in
+		</Link>
+	),
 });
 
 const mDTP = (dispatch) => ({
