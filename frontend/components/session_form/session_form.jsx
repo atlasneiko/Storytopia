@@ -1,5 +1,5 @@
 import React from "react";
-
+import DemoButton from "../webpage/demo/demo_button_container";
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
 		return (
-			<ul>
+			<ul id="session-errors">
 				{this.props.errors.map((error, i) => (
 					<li key={`error-${i}`}>{error}</li>
 				))}
@@ -72,6 +72,8 @@ class SessionForm extends React.Component {
 					{this.props.navLink}
 					<button type="submit">{this.props.formTypes}</button>
 				</form>
+				<DemoButton />
+				{this.renderErrors()}
 			</div>
 		);
 	}

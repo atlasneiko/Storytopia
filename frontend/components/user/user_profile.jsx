@@ -19,7 +19,10 @@ class UserProfile extends React.Component {
 	}
 	render() {
 		let profile;
-		if (this.state.id === this.props.currentUserId) {
+		if (
+			this.state.id === this.props.currentUserId &&
+			this.props.currentUserId !== 10
+		) {
 			profile = (
 				<div>
 					<form id="profile" onSubmit={this.handleSubmit}>
@@ -48,8 +51,8 @@ class UserProfile extends React.Component {
 		} else {
 			profile = (
 				<div className="profile">
-					<h1>{this.state.username}</h1>
-					<p>{this.state.email}</p>
+					<h1>Username: {this.state.username}</h1>
+					<p>Email: {this.state.email}</p>
 				</div>
 			);
 		}
