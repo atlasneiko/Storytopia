@@ -1,5 +1,5 @@
 import React from "react";
-
+import DemoButton from "../webpage/demo/demo_button_container";
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
 			username: "",
 			password: "",
 			email: "",
+			about: "",
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -22,7 +23,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
 		return (
-			<ul>
+			<ul id="session-errors">
 				{this.props.errors.map((error, i) => (
 					<li key={`error-${i}`}>{error}</li>
 				))}
@@ -44,6 +45,16 @@ class SessionForm extends React.Component {
 						/>
 					</label>
 					<br />
+					<label>
+						Password
+						<br />
+						<input
+							type="password"
+							value={this.state.password}
+							onChange={this.update("password")}
+						/>
+					</label>
+					<br />
 					{this.props.formTypes === "Sign Up" ? (
 						<>
 							<label>
@@ -56,22 +67,23 @@ class SessionForm extends React.Component {
 								/>
 							</label>
 							<br />
+							<label>
+								About
+								<br />
+								<textarea
+									value={this.state.about}
+									onChange={this.update("about")}
+								/>
+							</label>
+							<br />
 						</>
 					) : null}
 
-					<label>
-						Password
-						<br />
-						<input
-							type="password"
-							value={this.state.password}
-							onChange={this.update("password")}
-						/>
-					</label>
-					<br />
 					{this.props.navLink}
 					<button type="submit">{this.props.formTypes}</button>
 				</form>
+				<DemoButton />
+				{this.renderErrors()}
 			</div>
 		);
 	}

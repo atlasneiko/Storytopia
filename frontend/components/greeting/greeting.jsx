@@ -30,8 +30,15 @@ export default ({ currentUser, logout }) => {
 
 	const message = () => (
 		<div className="message">
-			<h2>Hi, {currentUser.username}!</h2>
-			<button onClick={logout}>Log out</button>
+			<h2>
+				Welcome back,
+				<Link to={`/users/${currentUser.id}`}>
+					{currentUser.username}
+				</Link>
+			</h2>
+			<button onClick={logout} id="logout">
+				Log out
+			</button>
 		</div>
 	);
 	return currentUser ? message() : links();
