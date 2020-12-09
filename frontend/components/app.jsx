@@ -6,17 +6,15 @@ import SignUpFormContainer from "./session_form/signup_form_container";
 import UserProfileContainer from "./user/user_profile_container";
 import Header from "./webpage/header";
 import UserIndexContainer from "./user/user_index_container";
+
 export default () => (
 	<div>
 		<Header />
+
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
-			<ProtectedRoute
-				exact
-				path="/users/:userId"
-				component={UserProfileContainer}
-			/>
+			<Route exact path="/users/:userId" component={UserProfileContainer} />
 			<Route path="/" component={UserIndexContainer} />
 		</Switch>
 	</div>
