@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export default ({ currentUser, logout }) => {
+export default ({ currentUser, logout, loggedIn }) => {
 	const location = useLocation();
 	const login = (
 		<Link to="/login" id="login">
@@ -31,15 +31,13 @@ export default ({ currentUser, logout }) => {
 	const message = () => (
 		<div className="message">
 			<h2>
-				Welcome back,
-				<Link to={`/users/${currentUser.id}`}>
-					{currentUser.username}
-				</Link>
+				Hello,
+				<Link to={`/users/${currentUser.id}`}>{currentUser.username}</Link>
 			</h2>
 			<button onClick={logout} id="logout">
 				Log out
 			</button>
 		</div>
 	);
-	return currentUser ? message() : links();
+	return loggedIn ? message() : links();
 };

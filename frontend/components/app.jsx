@@ -8,7 +8,7 @@ import Header from "./webpage/header";
 import UserIndexContainer from "./user/user_index_container";
 
 export default () => (
-	<div>
+	<div className="container">
 		<Header />
 
 		<Switch>
