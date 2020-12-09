@@ -151,20 +151,35 @@ body {
 	padding: 10px;
 }
 #users-index {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid darkgrey;
+	width: 300px;
+
 	.user-index-item {
 		padding: 10px;
+		margin: 0 5px;
 		text-decoration: none;
+		text-align: center;
+		width: 40px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: black;
 		.user-icon {
+			font-size: 2.5em;
 		}
 	}
-	border: 1px solid darkgrey;
-	margin: 50px auto;
-	width: 500px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	list-style-type: none;
-	list-style-position: inside;
+
+	ul {
+		margin: 50px auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		list-style-type: none;
+		list-style-position: inside;
+	}
 }
 #demo-button {
 	border-radius: 3px;

@@ -9,11 +9,14 @@ class UserIndx extends React.Component {
 		const { users } = this.props;
 		// console.log(users[0]);
 		return (
-			<ul id="users-index">
-				{users.map((user) => (
-					<UserIndexItem user={user} key={`user-index-${user.id}`} />
-				))}
-			</ul>
+			<div id="users-index">
+				<h3 id="users-index-title">LATEST FROM FOLLOWING</h3>
+					<ul >
+					{users.map((user) => (
+						<UserIndexItem user={user} key={`user-index-${user.id}`} />
+					))}
+				</ul>
+			</div>
 		);
 	}
 }
