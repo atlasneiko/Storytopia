@@ -12,11 +12,7 @@ export default () => (
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
-			<ProtectedRoute
-				exact
-				path="/users/:userId"
-				component={UserProfileContainer}
-			/>
+			<Route exact path="/users/:userId" component={UserProfileContainer} />
 			<Route path="/" component={UserIndexContainer} />
 		</Switch>
 	</div>

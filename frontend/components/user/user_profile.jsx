@@ -4,9 +4,12 @@ class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = this.props.user;
-		console.log(this.state);
-		console.log(this.props.currentUserId);
 		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	componentDidMount() {
+		// console.log(this.props.user);
+		this.props.getUser(this.props.profileId);
+		// console.log(this.props.user);
 	}
 
 	update(field) {
@@ -16,59 +19,66 @@ class UserProfile extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.update(this.state);
+		this.props.history.push("/");
 	}
-	render() {
-		let profile;
-		if (
-			this.state.id === this.props.currentUserId &&
-			this.props.currentUserId !== 10
-		) {
-			profile = (
-				<div>
-					<form id="profile" onSubmit={this.handleSubmit}>
-						<label>
-							Username:
-							<input
-								type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-							/>
-						</label>
-						<br />
-						<label>
-							Email:
-							<input
-								type="text"
-								value={this.state.email}
-								onChange={this.update("email")}
-							/>
-						</label>
-						<br />
-						<label>
-							About:
-							<textarea
-								value={this.state.about}
-								onChange={this.update("about")}
-							/>
-						</label>
-						<button type="submit">Edit Profile</button>
-					</form>
-				</div>
+
+	profile() {
+		const { user, currentUserId, profileId } = this.props;
+		if (currentUserId == profileId && currentUserId !== 10) {
+			return (
+				<form onSubmit={this.handleSubmit}>
+					<label>
+						Username:
+						<input
+							type="text"
+							value={this.state.username}
+							onChange={this.update("username")}
+						/>
+					</label>
+					<br />
+					{/* <label>
+						Password:
+						<input
+							type="password"
+							value={this.state.password}
+							onChange={this.update("password")}
+						/>
+					</label>
+					<br /> */}
+					<label>
+						Email:
+						<input
+							type="text"
+							value={this.state.email}
+							onChange={this.update("email")}
+						/>
+					</label>
+					<br />
+					<label>
+						About
+						<textarea
+							value={this.state.about}
+							onChange={this.update("about")}
+						/>
+					</label>
+					<br />
+					<button type="submit">Edit Profile</button>
+				</form>
 			);
 		} else {
-			profile = (
-				<div className="profile">
-					<h1>Username: {this.state.username}</h1>
-					<h4>Email: {this.state.email}</h4>
-					<p>
-						About: <br />
-						{this.state.about}
-					</p>
+			return (
+				<div>
+					<h1>Username: {user.username}</h1>
+					<h3>Email: {user.email}</h3>
+					<h4>About: {user.about}</h4>
 				</div>
 			);
 		}
+	}
 
-		return profile;
+	render() {
+		console.log(this.state);
+		return !this.props.user ? null : this.profile();
 	}
 }
 export default UserProfile;
