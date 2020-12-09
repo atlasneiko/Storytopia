@@ -33,7 +33,9 @@ class SessionForm extends React.Component {
 	render() {
 		return (
 			<div id="session-form">
+				{this.renderErrors()}
 				<h1>{this.props.formTypes}</h1>
+				{this.props.navLink}
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Username
@@ -79,11 +81,9 @@ class SessionForm extends React.Component {
 						</>
 					) : null}
 
-					{this.props.navLink}
 					<button type="submit">{this.props.formTypes}</button>
 				</form>
 				<DemoButton />
-				{this.renderErrors()}
 			</div>
 		);
 	}
