@@ -1,10 +1,16 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import UserDropdown from "../user_dropdown/user_dropdown_container";
-import { icons } from "../../../../util/icon_util";
-const currIcon = icons[Math.floor(Math.random() * icons.length)];
+import {
+	icons,
+	bellIcon,
+	searchIcon,
+	bookmarkIcon,
+} from "../../../../util/icon_util";
 
+const currIcon = icons[Math.floor(Math.random() * icons.length)];
 export default ({ currentUser, logout, loggedIn }) => {
+	const location = useLocation();
 	const greeting = () => {
 		let date = new Date();
 		let hour = date.getHours();
@@ -28,7 +34,6 @@ export default ({ currentUser, logout, loggedIn }) => {
 		</Link>
 	);
 
-	const location = useLocation();
 	const links = () => {
 		if (location.pathname === "/login") {
 			return <nav className="nav-links">{signup}</nav>;
@@ -46,10 +51,12 @@ export default ({ currentUser, logout, loggedIn }) => {
 
 	const message = () => (
 		<div className="message">
+			<div id="nav-util">
+				{bookmarkIcon}
+				{bellIcon}
+			</div>
 			<h2>{greeting()}</h2>
-			{/* <button onClick={logout} id="logout">
-				Log out
-			</button> */}
+
 			<UserDropdown currIcon={currIcon} />
 		</div>
 	);

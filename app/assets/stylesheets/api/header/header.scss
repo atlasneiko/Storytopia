@@ -78,6 +78,22 @@
 			background-color: #2d424a;
 			color: lightgray;
 		}
+		#nav-util {
+			font-size: 1.5em;
+			position: fixed;
+			right: 160px;
+			top: 87px;
+			display: flex;
+			justify-content: space-between;
+			color: grey;
+			width: 65px;
+			.bookmark-icon {
+				cursor: pointer;
+			}
+			.bell-icon {
+				cursor: pointer;
+			}
+		}
 	}
 	.logo {
 		text-decoration: none;
