@@ -40,15 +40,16 @@
 	}
 	.message {
 		position: absolute;
-		right: 0%;
+		right: 5%;
 		top: 40px;
 		display: flex;
 		flex-direction: row;
-		width: 400px;
+		width: 600px;
 		justify-content: space-between;
 		h2 {
 			position: relative;
 			text-align: center;
+			left: 180px;
 			padding: 5px 10px;
 			margin: 0;
 			font-weight: 500;
@@ -80,10 +81,10 @@
 		}
 		#nav-util {
 			font-size: 1.5em;
-			position: fixed;
-			right: 160px;
-			top: 87px;
+			position: relative;
 			display: flex;
+			top: 40px;
+			left: 30px;
 			justify-content: space-between;
 			color: grey;
 			width: 65px;

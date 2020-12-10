@@ -51,11 +51,11 @@ export default ({ currentUser, logout, loggedIn }) => {
 
 	const message = () => (
 		<div className="message">
+			<h2>{greeting()}</h2>
 			<div id="nav-util">
 				{bookmarkIcon}
 				{bellIcon}
 			</div>
-			<h2>{greeting()}</h2>
 
 			<UserDropdown currIcon={currIcon} />
 		</div>
