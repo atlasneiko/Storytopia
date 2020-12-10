@@ -57,8 +57,7 @@
 				flex-direction: row;
 				justify-content: space-around;
 				h2 {
-					margin: 0;
-					padding: 0;
+					display: none;
 				}
 				#logout {
 					width: 70px;
@@ -95,13 +94,11 @@
 		flex-direction: column;
 		align-items: center;
 		#user-dropdown-toggle {
-			right: 55px;
-			top: 50px;
 		}
 		#user-dropdown-nav {
 			position: fixed;
-			top: 115px;
-			right: 1px;
+			top: 150px;
+			right: 35px;
 		}
 	}
 }
