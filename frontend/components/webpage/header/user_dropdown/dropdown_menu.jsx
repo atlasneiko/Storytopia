@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import { icons } from "../../../../util/icon_util";
-export default ({ user, logout }) => {
+export default ({ user, logout, currIcon }) => {
 	const [isShow, setIsShow] = useState(false);
 	const handleClick = () => setIsShow(!isShow);
 	const dropdownRef = useRef(null);
-	const currIcon = () => {
-		icons[Math.floor(Math.random() * icons.length)];
-	};
 	useEffect(() => {
 		const pageClick = (event) => {
 			if (
@@ -25,10 +21,11 @@ export default ({ user, logout }) => {
 			window.removeEventListener("click", pageClick);
 		};
 	}, [isShow]);
+
 	const dropdownMenu = () => (
 		<nav ref={dropdownRef}>
 			<div>
-				{currIcon()}
+				{currIcon}
 				<h5>{user.username}</h5>
 				<p>{user.email}</p>
 			</div>

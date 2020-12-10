@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import UserDropdown from "../user_dropdown/user_dropdown_container";
+import { icons } from "../../../../util/icon_util";
+const currIcon = icons[Math.floor(Math.random() * icons.length)];
+
 export default ({ currentUser, logout, loggedIn }) => {
 	const greeting = () => {
 		let date = new Date();
@@ -13,7 +16,6 @@ export default ({ currentUser, logout, loggedIn }) => {
 			return "Good evening, ";
 		}
 	};
-
 	const login = (
 		<Link to="/login" id="login">
 			Login
@@ -51,7 +53,7 @@ export default ({ currentUser, logout, loggedIn }) => {
 			<button onClick={logout} id="logout">
 				Log out
 			</button>
-			<UserDropdown />
+			<UserDropdown currIcon={currIcon} />
 		</div>
 	);
 
