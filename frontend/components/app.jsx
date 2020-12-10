@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from "./session_form/signup_form_container";
 import UserProfileContainer from "./user/user_profile_container";
-import Header from "./webpage/header";
+import Header from "./webpage/header/header";
 import UserIndexContainer from "./user/user_index_container";
 import WrongLink from "./webpage/404";
 export default () => (

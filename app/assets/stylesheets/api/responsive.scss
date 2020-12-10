@@ -3,7 +3,7 @@
 .container {
 	display: grid;
 	grid-template-rows: 0.7fr 1.2fr 1.2fr 1fr 0.5fr;
-	grid-template-columns: 0.2fr 1.5fr 1.5fr 1fr 0.2fr;
+	grid-template-columns: 0.5fr 1.5fr 1.5fr 1fr 0.5fr;
 	height: 100vh;
 	grid-gap: 15px;
 	grid-template-areas:
@@ -15,8 +15,10 @@
 
 @media only screen and (max-width: 1200px) {
 	.container {
+		grid-template-columns: 0.3fr 1.5fr 1.5fr 1fr 0.3fr;
 		#header {
 			display: flex;
+			justify-content: space-between;
 			.nav-links {
 				position: inherit;
 			}
