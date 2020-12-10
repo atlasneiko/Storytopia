@@ -24,7 +24,7 @@ class UserProfile extends React.Component {
 
 	profile() {
 		const { user, currentUserId, profileId } = this.props;
-		if (currentUserId == profileId && currentUserId !== 10) {
+		if (currentUserId == profileId && currentUserId !== 40) {
 			return (
 				<div className="profile-form">
 					<form onSubmit={this.handleSubmit}>
