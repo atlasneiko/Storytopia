@@ -12,6 +12,21 @@
 		". main main . ."
 		". . . . . ";
 }
+
+@media only screen and (max-width: 1200px) {
+	.container {
+		#header {
+			display: flex;
+			.nav-links {
+				position: inherit;
+			}
+			.logo {
+				margin-left: 40px;
+			}
+		}
+	}
+}
+
 @media only screen and (max-width: 800px) {
 	.container {
 		display: flex;
@@ -20,11 +35,10 @@
 	}
 	#header {
 		// margin: 0 auto;
-		display: flex;
-		flex-direction: column;
 		align-items: center;
+		flex-direction: column;
 		.nav-links {
-			position: inherit;
+			// position: inherit;
 			width: 60vw;
 			display: flex;
 			flex-direction: row;
@@ -55,6 +69,7 @@
 			width: 60vw;
 			font-size: 1em;
 			text-align: center;
+			margin: 0;
 			h1 {
 				font-size: 1.8em;
 			}
