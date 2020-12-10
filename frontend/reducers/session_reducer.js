@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions"
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_DEMO } from "../actions/session_actions"
 const _nullUser = {
   currentUser: { id: null }
 }
@@ -10,6 +10,8 @@ const sessionReducer = (state = _nullUser, action) => {
       return { currentUser: { id: action.currentUser.id } };
     case LOGOUT_CURRENT_USER:
       return _nullUser;
+    case RECEIVE_DEMO:
+      return { currentUser: { id: "demo" } }
     default:
       return state;
   }

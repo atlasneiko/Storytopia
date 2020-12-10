@@ -5,7 +5,10 @@ import Greeting from "./greeting";
 const mapStateToProps = ({
   session: { currentUser },
   entities: { users },
-}) => ({ currentUser: users[currentUser.id] });
+}) => ({
+  currentUser: users[currentUser.id],
+  loggedIn: Boolean(currentUser.id)
+});
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),

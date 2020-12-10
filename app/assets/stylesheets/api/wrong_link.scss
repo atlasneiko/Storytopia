@@ -1,0 +1,34 @@
+#wrong-link {
+	grid-area: main;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #131917;
+
+	#cloud-rain {
+		color: #2d424a;
+		font-size: 7em;
+		transform: rotateX(30deg);
+	}
+	#ban {
+		color: #612a11;
+		font-size: 4em;
+	}
+
+	button {
+		border: 0;
+		background-color: #5f6468;
+		font-size: 2em;
+		color: lightgray;
+		border-radius: 3px;
+	}
+	h1 {
+		margin-bottom: 0;
+		margin-top: 30px;
+	}
+	h2 {
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+}

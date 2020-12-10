@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.action(this.state);
+		// this.props.history.push("/");
 	}
 
 	update(field) {
@@ -35,7 +36,7 @@ class SessionForm extends React.Component {
 			<div id="session-form">
 				{this.renderErrors()}
 				<h1>{this.props.formTypes}</h1>
-				{this.props.navLink}
+				{/* {this.props.navLink} */}
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Username
@@ -77,13 +78,12 @@ class SessionForm extends React.Component {
 									onChange={this.update("about")}
 								/>
 							</label>
-							<br />
 						</>
 					) : null}
 
 					<button type="submit">{this.props.formTypes}</button>
+					<DemoButton />
 				</form>
-				<DemoButton />
 			</div>
 		);
 	}

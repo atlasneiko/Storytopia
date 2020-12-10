@@ -1,5 +1,5 @@
 import React from "react";
-
+import WrongLink from "../webpage/404";
 class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
@@ -26,48 +26,44 @@ class UserProfile extends React.Component {
 		const { user, currentUserId, profileId } = this.props;
 		if (currentUserId == profileId && currentUserId !== 10) {
 			return (
-				<form onSubmit={this.handleSubmit}>
-					<label>
-						Username:
-						<input
-							type="text"
-							value={this.state.username}
-							onChange={this.update("username")}
-						/>
-					</label>
-					<br />
-					{/* <label>
-						Password:
-						<input
-							type="password"
-							value={this.state.password}
-							onChange={this.update("password")}
-						/>
-					</label>
-					<br /> */}
-					<label>
-						Email:
-						<input
-							type="text"
-							value={this.state.email}
-							onChange={this.update("email")}
-						/>
-					</label>
-					<br />
-					<label>
-						About
-						<textarea
-							value={this.state.about}
-							onChange={this.update("about")}
-						/>
-					</label>
-					<br />
-					<button type="submit">Edit Profile</button>
-				</form>
+				<div className="profile-form">
+					<form onSubmit={this.handleSubmit}>
+						<label>
+							Username:
+							<br />
+							<input
+								type="text"
+								value={this.state.username}
+								onChange={this.update("username")}
+							/>
+						</label>
+						<br />
+						<label>
+							Email:
+							<br />
+							<input
+								type="text"
+								value={this.state.email}
+								onChange={this.update("email")}
+							/>
+						</label>
+						<br />
+						<label>
+							About
+							<br />
+							<textarea
+								value={this.state.about}
+								onChange={this.update("about")}
+							/>
+						</label>
+						<br />
+						<button type="submit">Edit Profile</button>
+					</form>
+				</div>
 			);
 		} else {
 			return (
-				<div>
+				<div className="profile">
 					<h1>Username: {user.username}</h1>
 					<h3>Email: {user.email}</h3>
 					<h4>About: {user.about}</h4>
@@ -77,8 +73,7 @@ class UserProfile extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
-		return !this.props.user ? null : this.profile();
+		return !this.props.user ? <WrongLink /> : this.profile();
 	}
 }
 export default UserProfile;
