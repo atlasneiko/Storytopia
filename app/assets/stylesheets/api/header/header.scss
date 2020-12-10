@@ -11,9 +11,9 @@
 	.nav-links {
 		// border: 1px solid black;
 		border-bottom: none;
-		position: absolute;
-		right: 3%;
-		top: 70px;
+		position: fixed;
+		right: 10%;
+		top: 65px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;

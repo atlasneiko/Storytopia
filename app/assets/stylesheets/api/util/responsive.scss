@@ -5,6 +5,8 @@
 	grid-template-rows: 0.7fr 1.2fr 1.2fr 1fr 0.5fr;
 	grid-template-columns: 0.5fr 1.5fr 1.5fr 1fr 0.5fr;
 	height: 100vh;
+	width: 80vw;
+	margin: 0 auto;
 	grid-gap: 15px;
 	grid-template-areas:
 		"header header header header header"
@@ -15,12 +17,14 @@
 
 @media only screen and (max-width: 1200px) {
 	.container {
+		width: 100vw;
 		grid-template-columns: 0.3fr 1.5fr 1.5fr 1fr 0.3fr;
 		#header {
 			display: flex;
 			justify-content: space-between;
 			.nav-links {
-				position: inherit;
+				position: fixed;
+				right: 2%;
 			}
 			.logo {
 				margin-left: 40px;
@@ -34,46 +38,46 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-	#header {
-		// margin: 0 auto;
-		align-items: center;
-		flex-direction: column;
-		.nav-links {
-			// position: inherit;
-			width: 60vw;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			align-items: flex-end;
-		}
-		.message {
-			position: inherit;
-			width: 100vw;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			h2 {
+		#header {
+			// margin: 0 auto;
+			align-items: center;
+			flex-direction: column;
+			.nav-links {
+				position: inherit;
+				width: 60vw;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: flex-end;
+			}
+			.message {
+				position: inherit;
+				width: 100vw;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				h2 {
+					margin: 0;
+					padding: 0;
+				}
+				#logout {
+					width: 70px;
+					padding: 0;
+					top: 4px;
+					font-weight: 600;
+					background-color: #b4786b;
+					padding: 2px 3px;
+					border: 0;
+				}
+			}
+			.logo {
+				width: 60vw;
+				font-size: 1em;
+				text-align: center;
 				margin: 0;
-				padding: 0;
-			}
-			#logout {
-				width: 70px;
-				padding: 0;
-				top: 4px;
-				font-weight: 600;
-				background-color: #b4786b;
-				padding: 2px 3px;
-				border: 0;
-			}
-		}
-		.logo {
-			width: 60vw;
-			font-size: 1em;
-			text-align: center;
-			margin: 0;
-			h1 {
-				font-size: 1.8em;
+				h1 {
+					font-size: 1.8em;
+				}
 			}
 		}
 	}
