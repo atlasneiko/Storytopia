@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-User.create(username: 'demo', password:"demoOne2", email:"atlasneiko@gmail.com", about:"Welcome to Storytopia")
 40.times do 
   User.create(
     username: Faker::Internet.username(specifier: 5..8),
@@ -15,3 +14,4 @@ User.create(username: 'demo', password:"demoOne2", email:"atlasneiko@gmail.com",
     email: Faker::Internet.email
   )
 end
+User.create(username: 'demo', password:"demoOne2", email:"atlasneiko@gmail.com", about:"Welcome to Storytopia")
