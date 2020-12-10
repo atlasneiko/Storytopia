@@ -12,7 +12,6 @@
 #
 class Story < ApplicationRecord
   validates :title, :subtitle, :user_id, :body, presence: true
-  validates [:title, :subtitle], uniqueness: true
 
   belongs_to :user
 end
