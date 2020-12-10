@@ -11,9 +11,9 @@
 	.nav-links {
 		// border: 1px solid black;
 		border-bottom: none;
-		position: absolute;
-		right: 3%;
-		top: 70px;
+		position: fixed;
+		right: 10%;
+		top: 65px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -40,18 +40,20 @@
 	}
 	.message {
 		position: absolute;
-		right: 4%;
+		right: 0%;
 		top: 40px;
 		display: flex;
 		flex-direction: row;
+		width: 400px;
+		justify-content: space-between;
 		h2 {
 			position: relative;
 			text-align: center;
 			padding: 5px 10px;
 			margin: 0;
 			font-weight: 500;
-			font-size: 0.9em;
-			color: rgb(70, 70, 70);
+			font-size: 1.4em;
+			color: #5f6468;
 			a {
 				padding-left: 5px;
 				font-weight: 550;
@@ -75,6 +77,22 @@
 			border-radius: 3px;
 			background-color: #2d424a;
 			color: lightgray;
+		}
+		#nav-util {
+			font-size: 1.5em;
+			position: fixed;
+			right: 160px;
+			top: 87px;
+			display: flex;
+			justify-content: space-between;
+			color: grey;
+			width: 65px;
+			.bookmark-icon {
+				cursor: pointer;
+			}
+			.bell-icon {
+				cursor: pointer;
+			}
 		}
 	}
 	.logo {
