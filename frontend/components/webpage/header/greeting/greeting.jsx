@@ -9,11 +9,11 @@ export default ({ currentUser, logout, loggedIn }) => {
 		let date = new Date();
 		let hour = date.getHours();
 		if (hour >= 5 && hour <= 12) {
-			return "Good morning, ";
+			return "Good morning. ";
 		} else if (hour > 12 && hour < 18) {
-			return "Good afternoon, ";
+			return "Good afternoon. ";
 		} else {
-			return "Good evening, ";
+			return "Good evening. ";
 		}
 	};
 	const login = (
@@ -46,13 +46,10 @@ export default ({ currentUser, logout, loggedIn }) => {
 
 	const message = () => (
 		<div className="message">
-			<h2>
-				{greeting()}
-				<Link to={`/users/${currentUser.id}`}>{currentUser.username}</Link>
-			</h2>
-			<button onClick={logout} id="logout">
+			<h2>{greeting()}</h2>
+			{/* <button onClick={logout} id="logout">
 				Log out
-			</button>
+			</button> */}
 			<UserDropdown currIcon={currIcon} />
 		</div>
 	);

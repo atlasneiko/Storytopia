@@ -23,11 +23,18 @@ export default ({ user, logout, currIcon }) => {
 	}, [isShow]);
 
 	const dropdownMenu = () => (
-		<nav ref={dropdownRef}>
-			<div>
-				{currIcon}
-				<h5>{user.username}</h5>
-				<p>{user.email}</p>
+		<nav ref={dropdownRef} id="user-dropdown-nav">
+			<div id="dropdown-triangle">
+				<div></div>
+			</div>
+			<div id="user-dropdown-info">
+				<h2>{currIcon}</h2>
+				<div>
+					<p id="dropdown-username">{user.username}</p>
+					<Link to={`/users/${user.id}`} id="dropdown-profile-link">
+						<p>@{user.username}</p>
+					</Link>
+				</div>
 			</div>
 			<ul>
 				<li>
@@ -43,13 +50,18 @@ export default ({ user, logout, currIcon }) => {
 					<Link to={`/users/${user.id}`}>profile</Link>
 				</li>
 				<li>
+					<Link to={`/users/${user.id}`}>
+						<p id="contact-me">get in touch 0w0</p>
+					</Link>
+				</li>
+				<li>
 					<button onClick={logout}>Log out</button>
 				</li>
 			</ul>
 		</nav>
 	);
 	return (
-		<div id="user-dropdown">
+		<div id="user-dropdown-div">
 			<button onClick={handleClick} id="user-dropdown-toggle">
 				{currIcon}
 			</button>

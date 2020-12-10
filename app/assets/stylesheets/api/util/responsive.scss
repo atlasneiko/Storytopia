@@ -86,4 +86,21 @@
 			bottom: 15%;
 		}
 	}
+	#user-dropdown-div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		#user-dropdown-nav {
+			position: fixed;
+			top: 149px;
+			right: 1px;
+		}
+	}
+}
+@media only screen and (max-width: 300px) {
+	#user-dropdown-div {
+		#user-dropdown-nav {
+			top: 190px;
+		}
+	}
 }
