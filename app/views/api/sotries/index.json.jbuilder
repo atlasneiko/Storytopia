@@ -1,5 +1,5 @@
 @stories.each do |story|
   json.set! story.id do 
-    json.partial! 'api/stories/story'
+    json.extract! story, :title, :subtitle, :user_id
   end
 end
