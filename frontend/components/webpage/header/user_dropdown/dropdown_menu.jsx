@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { icons } from "../../../../util/icon_util";
-
 export default ({ user, logout }) => {
 	const [isShow, setIsShow] = useState(false);
 	const handleClick = () => setIsShow(!isShow);
@@ -54,7 +53,9 @@ export default ({ user, logout }) => {
 	);
 	return (
 		<div id="user-dropdown">
-			<button onClick={handleClick} id="user-dropdown-toggle"></button>
+			<button onClick={handleClick} id="user-dropdown-toggle">
+				{currIcon}
+			</button>
 			{isShow ? dropdownMenu() : null}
 		</div>
 	);
