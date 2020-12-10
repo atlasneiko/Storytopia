@@ -7,6 +7,7 @@ import UserProfileContainer from "./user/user_profile_container";
 import Header from "./webpage/header/header";
 import UserIndexContainer from "./user/user_index_container";
 import WrongLink from "./webpage/404";
+
 export default () => (
 	<div className="container">
 		<Header />

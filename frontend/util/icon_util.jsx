@@ -7,8 +7,24 @@ import {
 	faRainbow,
 	faFeatherAlt,
 	faSnowflake,
+	faBookmark,
+	faSearch,
+	faBell,
+	faEllipsisH,
+	far,
 } from "@fortawesome/free-solid-svg-icons";
+export const searchIcon = (
+	<FontAwesomeIcon icon={faSearch} className="search-icon" />
+);
+export const bookmarkIcon = (
+	<FontAwesomeIcon icon={faBookmark} className="bookmark-icon" />
+);
+export const bellIcon = <FontAwesomeIcon icon={faBell} className="bell-icon" />;
+export const dotsIcon = (
+	<FontAwesomeIcon icon={faEllipsisH} className="dots-icon" />
+);
 
+//random icons start
 export const colors = ["#131917", "#2d424a", "#5f6468", "#b4786b", "#612a11"];
 export const icons = [
 	<FontAwesomeIcon
@@ -42,3 +58,4 @@ export const icons = [
 		style={{ color: colors[Math.floor(Math.random() * colors.length)] }}
 	/>,
 ];
+//random icons end
