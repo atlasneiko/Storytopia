@@ -48,7 +48,7 @@ export default ({ user, match }) => {
 		<li>
 			<Link to={`/users/${user.id}`} className="user-index-item">
 				{icons[Math.floor(Math.random() * icons.length)]}
-				{user.username}
+				<p>{user.username}</p>
 			</Link>
 		</li>
 	);
