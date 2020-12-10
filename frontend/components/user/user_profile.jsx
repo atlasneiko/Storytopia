@@ -1,5 +1,5 @@
 import React from "react";
-
+import WrongLink from "../webpage/404";
 class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
@@ -38,15 +38,6 @@ class UserProfile extends React.Component {
 							/>
 						</label>
 						<br />
-						{/* <label>
-						Password:
-						<input
-							type="password"
-							value={this.state.password}
-							onChange={this.update("password")}
-						/>
-					</label>
-					<br /> */}
 						<label>
 							Email:
 							<br />
@@ -82,8 +73,7 @@ class UserProfile extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
-		return !this.props.user ? null : this.profile();
+		return !this.props.user ? <WrongLink /> : this.profile();
 	}
 }
 export default UserProfile;
