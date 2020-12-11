@@ -1,13 +1,10 @@
 import React from "react";
 import WrongLink from "../../webpage/404";
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 class UserShow extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			user: this.props.user,
-		};
-
+		this.state = this.props.user;
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -21,7 +18,7 @@ class UserShow extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.update(this.state.user);
+		this.props.update(this.state);
 		this.props.history.push("/");
 	}
 
@@ -36,7 +33,7 @@ class UserShow extends React.Component {
 							<br />
 							<input
 								type="text"
-								value={this.state.user.username}
+								value={this.state.username}
 								onChange={this.update("username")}
 							/>
 						</label>
@@ -46,7 +43,7 @@ class UserShow extends React.Component {
 							<br />
 							<input
 								type="text"
-								value={this.state.user.email}
+								value={this.state.email}
 								onChange={this.update("email")}
 							/>
 						</label>
@@ -55,7 +52,7 @@ class UserShow extends React.Component {
 							About
 							<br />
 							<textarea
-								value={this.state.user.about}
+								value={this.state.about}
 								onChange={this.update("about")}
 							/>
 						</label>
@@ -84,4 +81,4 @@ class UserShow extends React.Component {
 		}
 	}
 }
-export default UserShow;
+export default withRouter(UserShow);
