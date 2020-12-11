@@ -1,5 +1,5 @@
 class Api::StoriesController < ApplicationController
-  befor_action :required_logged_in, except: [:index, :show]
+  before_action :required_logged_in, except: [:index, :show]
 
   def index 
     @stories = Story.all
