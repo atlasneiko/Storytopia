@@ -15,4 +15,28 @@ ActiveRecord::Schema.define(version: 2020_12_10_220629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "stories", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "subtitle", null: false
+    t.integer "user_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title", "subtitle"], name: "index_stories_on_title_and_subtitle", unique: true
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "about"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
 end
