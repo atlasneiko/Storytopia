@@ -5,7 +5,6 @@ export const RECEIVE_STORY = 'RECEIVE_STORY';
 export const RECEIVE_STORY_ERRORS = 'RECEIVE_STORY_ERRORS';
 export const DELETE_STORY = "DELETE_STORY"
 
-
 const receiveAllStories = stories => ({
   type: RECEIVE_ALL_STORIES,
   stories
