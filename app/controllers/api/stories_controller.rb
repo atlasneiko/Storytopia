@@ -1,13 +1,13 @@
-class Api::StoriesController < ApplicationController
-  before_action :required_logged_in, only: [:create, :update, :destroy]
+class Api::SotriesController < ApplicationController
+  befor_action :required_logged_in, except: [:index, :show]
 
   def index 
-    @stories = Stories.all
-    render "api/stories/index"
+    @stories = Story.all
+    render 'api/stories/show'
   end
 
   def show
-    @story = Stories.find_by(id: params[:id])
+    @story = Story.find_by(id: params[:id])
     if @story
       render 'api/stories/show'
     else
@@ -15,7 +15,7 @@ class Api::StoriesController < ApplicationController
     end
   end
 
-  def create 
+  def create
     @story = Story.new(story_params)
     if @story.save
       render 'api/stories/show'
@@ -24,17 +24,30 @@ class Api::StoriesController < ApplicationController
     end
   end
 
-  def update 
-    @story = story.find_by(id: params[:id])
-    if @story && @story.update(story_params)
-      render 'api/users/show'
+  def update
+    @story = current_user.stories.find_by(id: params[:id])
+    if @story 
+      if @story.update(story_params)
+        render 'api/stories/show'
+      else
+        render json: @story.errors.full_messages, status: 422
+      end
     else
-      render json: @story.errors.full_messages, status: 422
+      render json["You can not edit this story."]
+    end
+  end
+
+  def destroy
+    @story = current_user.stories.find_by(id: params[:id])
+    if @story.destroy
+      render 'api/stories/show'
+    else
+      render json["You cannot delete this story."]
     end
   end
 
   private
   def story_params
-    params.require(:story).permit(:user_id, :title, :subtitle, :body)
+    params.require(:story).permit(:title, :subtitle, :user_id, :body)
   end
 end
