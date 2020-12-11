@@ -4,6 +4,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
 export const RECEIVE_DEMO = 'RECEIVE_DEMO'
+export const ERASE_SESSION_ERRORS = 'ERASE_SESSION_ERRORS';
 
 export const receiveDemo = () => ({
   type: RECEIVE_DEMO
@@ -21,6 +22,10 @@ export const logoutCurrentUser = () => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
+})
+
+export const eraseSessionErrors = () => ({
+  type: ERASE_SESSION_ERRORS
 })
 
 export const signup = user => dispatch => (

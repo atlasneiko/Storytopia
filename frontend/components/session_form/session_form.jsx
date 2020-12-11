@@ -12,6 +12,11 @@ class SessionForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	componentWillUnmount() {
+		console.log("unmount");
+		this.props.eraseSessionErrors();
+	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.action(this.state);
@@ -45,6 +50,7 @@ class SessionForm extends React.Component {
 							type="text"
 							value={this.state.username}
 							onChange={this.update("username")}
+							autoComplete="username"
 						/>
 					</label>
 					<br />
@@ -55,6 +61,7 @@ class SessionForm extends React.Component {
 							type="password"
 							value={this.state.password}
 							onChange={this.update("password")}
+							autoComplete="current-password"
 						/>
 					</label>
 					<br />
