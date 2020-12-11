@@ -20,6 +20,6 @@ User.create(username: 'demo', password:"demoOne2", email:"atlasneiko@gmail.com",
     title: Faker::Books::Lovecraft.sentence(word_count: 3, random_words_to_add: 1),
     subtitle: Faker::Books::Lovecraft.tome,
     user_id: rand(1..41),
-    body: Faker::Books::Lovecraft.paragraphs(number: rand(10..40)).join("<br />")
+    body: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)).join("<br />")
   )
 end
