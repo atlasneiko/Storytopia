@@ -6,7 +6,6 @@ class UserShow extends React.Component {
 		super(props);
 		this.state = {
 			user: this.props.user,
-			errors: this.props.errors,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,13 +24,7 @@ class UserShow extends React.Component {
 		this.props.update(this.state.user);
 		this.props.history.push("/");
 	}
-	renderError() {
-		if (this.props.errors.length === 0) {
-			return null;
-		} else {
-			return <WrongLink />;
-		}
-	}
+
 	profile() {
 		const { user, currentUserId, profileId } = this.props;
 		if (currentUserId == profileId && currentUserId !== 41) {
@@ -81,15 +74,14 @@ class UserShow extends React.Component {
 			);
 		}
 	}
-	// return <Redirect to='/somewhere'/>;
 	render() {
-		console.log(this.state.errors);
-		console.log(this.props.user);
-		console.log(this.props);
-		if (this.state.errors.length !== 0) {
+		console.log("profileId", this.props.profileId);
+		console.log("user", this.props.user);
+		if (this.props.profileId === "redirect") {
 			return <WrongLink />;
+		} else {
+			return this.props.user ? this.profile() : null;
 		}
-		return this.props.user ? this.profile() : this.renderError();
 	}
 }
 export default UserShow;

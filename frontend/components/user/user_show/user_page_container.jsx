@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) =>
 		// user: state.entites.users[ownProps.match.params.userId],
 		users: state.entities.users,
 		pageUserId: ownProps.match.params.userId,
+		errors: state.errors.user,
 	});
 
 const mDTP = (dispatch) => ({

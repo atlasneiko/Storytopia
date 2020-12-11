@@ -15,7 +15,7 @@ require 'faker'
   )
 end
 User.create(username: 'demo', password:"demoOne2", email:"atlasneiko@gmail.com", about:"Welcome to Storytopia")
-50.times do
+120.times do
   Story.create(
     title: Faker::Books::Lovecraft.sentence(word_count: 3, random_words_to_add: 1),
     subtitle: Faker::Books::Lovecraft.tome,
