@@ -1,5 +1,6 @@
 import React from "react";
 import WrongLink from "../webpage/404";
+import { Redirect } from "react-router-dom";
 class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +25,7 @@ class UserProfile extends React.Component {
 
 	profile() {
 		const { user, currentUserId, profileId } = this.props;
-		if (currentUserId == profileId && currentUserId !== 40) {
+		if (currentUserId == profileId && currentUserId !== 41) {
 			return (
 				<div className="profile-form">
 					<form onSubmit={this.handleSubmit}>
@@ -71,9 +72,19 @@ class UserProfile extends React.Component {
 			);
 		}
 	}
-
+	// return <Redirect to='/somewhere'/>;
 	render() {
-		return !this.props.user ? <WrongLink /> : this.profile();
+		
+		let res;
+		if (this.props.user !== undefined) {
+			res = this.profile();
+		} else {
+			if (this.props.errors !== []) {
+				this.props.eraseUserErrors();
+				res = <WrongLink />;
+			}
+		}
+		return res;
 	}
 }
 export default UserProfile;

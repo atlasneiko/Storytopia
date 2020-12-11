@@ -7,7 +7,7 @@ const mSTP = (state, ownProps) => {
 	const users = Object.values(state.entities.users);
 
 	return {
-		users: users.slice(users.length - 9, users.length),
+		users: users.slice(users.length - 10, users.length - 1),
 	};
 };
 
