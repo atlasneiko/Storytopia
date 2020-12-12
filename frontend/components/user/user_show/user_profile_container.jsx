@@ -8,8 +8,6 @@ import {
 } from "../../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
-	console.log("ownprops", ownProps);
-
 	return {
 		currentUserId: state.session.currentUser.id,
 		profileId: ownProps.user ? ownProps.user.id : "redirect",

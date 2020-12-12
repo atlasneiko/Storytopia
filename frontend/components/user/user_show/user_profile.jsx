@@ -72,8 +72,6 @@ class UserShow extends React.Component {
 		}
 	}
 	render() {
-		console.log("profileId", this.props.profileId);
-		console.log("user", this.props.user);
 		if (this.props.profileId === "redirect") {
 			return <WrongLink />;
 		} else {

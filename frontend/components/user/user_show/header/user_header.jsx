@@ -1,21 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBroom } from "@fortawesome/free-solid-svg-icons";
+
 class UserHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		// this.state = this.props.user;
 	}
-	render() {
+	header() {
+		const { user } = this.props;
 		return (
-			// this.props.user === undefined ?
 			<header>
-				{/* <h2>{this.props.user.username}</h2>
-				<h4>{this.props.user.stories.length}</h4> */}
+				<h1>{user.username}</h1>
+				<h4>{user.stories.length} stories</h4>
+				<h4># of followers</h4>
+				<Link to={`/users/${user.id}`}>About</Link>
 				<nav>
-					<Link to="/">home</Link>
+					<Link to="/">
+						<FontAwesomeIcon icon={faBroom} />
+					</Link>
 				</nav>
 			</header>
 		);
+	}
+	render() {
+		return this.props.user === undefined ? null : this.header();
 	}
 }
 
