@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { icons } from "../../../util/icon_util";
+import { icons } from "../../../../util/icon_util";
 export default ({ story, user }) => {
 	let readTime = story.body.split(" ").length / 100;
 	if (readTime < 2) {
@@ -15,8 +15,8 @@ export default ({ story, user }) => {
 		readTime = "15+ mins";
 	}
 	const icon = icons[Math.floor(Math.random() * icons.length)];
-	console.log("story", story);
-	console.log("user", user);
+	// console.log("story", story);
+	// console.log("user", user);
 
 	return (
 		<li>
