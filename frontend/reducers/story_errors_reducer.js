@@ -14,7 +14,7 @@ export default (state = [], action) => {
     case RECEIVE_STORY:
       return [];
     case RECEIVE_ALL_STORIES:
-      return action.errors;
+      return [];
     default:
       return state;
   }

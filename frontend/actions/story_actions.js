@@ -5,6 +5,7 @@ export const RECEIVE_STORY = 'RECEIVE_STORY';
 export const RECEIVE_STORY_ERRORS = 'RECEIVE_STORY_ERRORS';
 export const DELETE_STORY = "DELETE_STORY"
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS"
+
 const receiveAllStories = stories => ({
   type: RECEIVE_ALL_STORIES,
   stories
@@ -26,7 +27,7 @@ const deleteStory = storyId => ({
 })
 
 export const fetchAllStories = () => dispatch => (
-  StoryAPI.fetchAllStories
+  StoryAPI.fetchAllStories()
     .then(
       stories => dispatch(receiveAllStories(stories)),
       err => dispatch(receiveErrors(err.responseJSON))

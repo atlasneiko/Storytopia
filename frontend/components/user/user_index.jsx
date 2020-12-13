@@ -2,9 +2,9 @@ import React from "react";
 import UserIndexItem from "./user_index_item";
 
 class UserIndx extends React.Component {
-	componentDidMount() {
-		this.props.getAllUsers();
-	}
+	// componentDidMount() {
+	// 	this.props.getAllUsers();
+	// }
 	render() {
 		const { users } = this.props;
 		// console.log(users[0]);

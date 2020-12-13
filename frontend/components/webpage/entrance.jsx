@@ -3,10 +3,11 @@ import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../../util/route_utils";
 
 import Header from "./header/header";
-import UserIndexContainer from "../user/user_index_container";
+// import UserIndexContainer from "../user/user_index_container";
 import LoginFormContainer from "../session_form/login_form_container";
 import SignUpFormContainer from "../session_form/signup_form_container";
 import WrongLink from "./404";
+import Main from "./main/main_container";
 
 export default () => (
 	<div className="container">
@@ -14,7 +15,7 @@ export default () => (
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
-			<Route path="/" exact component={UserIndexContainer} />
+			<Route path="/" exact component={Main} />
 			<Route path="/" component={WrongLink} />
 		</Switch>
 	</div>
