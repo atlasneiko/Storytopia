@@ -9,27 +9,19 @@ export default ({ stories, users }) => {
 			);
 		}
 		return (
-			<div>
-				<h1>The fives</h1>
-				<ul>
-					{theFives.map((story, i) => {
-						if (i === 0) {
-							return (
-								<div key={`the-five-${i}`}>
-									<TheFiveItem story={story} user={users[story.userId]} />
-								</div>
-							);
-						} else {
-							return (
-								<TheFiveItem
-									story={story}
-									user={users[story.userId]}
-									key={`the-five-${i}`}
-								/>
-							);
-						}
-					})}
-				</ul>
+			<div id="the-fives">
+				{/* <h1>The fives</h1> */}
+				{theFives.map((story, i) => {
+					return (
+						<div id={`the-fives-${i}`}>
+							<TheFiveItem
+								story={story}
+								user={users[story.userId]}
+								key={`the-five-${i}`}
+							/>
+						</div>
+					);
+				})}
 			</div>
 		);
 	} else {

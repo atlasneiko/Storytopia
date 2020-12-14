@@ -3,6 +3,7 @@ import UserIndexContainer from "../../user/user_index_container";
 import TheFives from "./the_fives/the_fives";
 import TheSixes from "./the_hot_sixes/the_hot_sixes";
 import TheFeed from "./the_feed/the_feed";
+import Footer from "../footer/footer";
 class Main extends React.Component {
 	constructor(props) {
 		super(props);
@@ -15,11 +16,12 @@ class Main extends React.Component {
 	render() {
 		const { users, stories } = this.props;
 		return (
-			<div>
+			<div id="main">
 				<UserIndexContainer users={users} />
 				<TheFives users={users} stories={stories} />
 				<TheSixes users={users} stories={stories} />
 				<TheFeed users={users} stories={stories} />
+				<Footer />
 			</div>
 		);
 	}

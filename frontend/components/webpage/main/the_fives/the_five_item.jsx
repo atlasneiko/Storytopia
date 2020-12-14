@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { icons } from "../../../../util/icon_util";
-export default ({ story, user }) => {
+export default ({ story, user, key }) => {
 	let readTime = story.body.split(" ").length / 100;
 	if (readTime < 2) {
 		readTime = "2 mins";

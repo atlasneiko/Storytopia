@@ -4,14 +4,14 @@ import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 
 import WrongLink from "./webpage/404";
 import Entrance from "./webpage/entrance";
-import UserPageContainer from "./user/user_show/user_page_container"
+import UserPageContainer from "./user/user_show/user_page_container";
 // import LoginFormContainer from "./session_form/login_form_container";
 // import SignUpFormContainer from "./session_form/signup_form_container";
 // import Header from "./webpage/header/header";
 // import UserIndexContainer from "./user/user_index_container";
 
 export default () => (
-	<div className="container">
+	<div>
 		{/* <Header /> */}
 		{/* <UserIndexContainer /> */}
 		<Switch>

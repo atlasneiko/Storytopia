@@ -35,7 +35,7 @@ export default function TheFeed({ stories, users }) {
 	if (storyArr.length > 0 && Object.keys(users).length > 1) {
 		console.log(pageNumber);
 		return (
-			<div>
+			<div id="feed">
 				{currFeedArr.map((storyIdx) => (
 					<FeedItem
 						key={`feed-${storyIdx}`}

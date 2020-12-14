@@ -1,0 +1,13 @@
+#entrance {
+	display: grid;
+	grid-template-columns: 0.5fr 1.2fr 1.2fr 1fr 0.5fr; //space || main || spacwe
+	grid-template-rows: 100px 1fr; //header ||main
+	height: auto;
+	width: 100vw;
+	margin: 0 auto;
+	grid-gap: 15px;
+	grid-template-areas:
+		"header header header header header"
+		"main main main main main";
+	border: 1px solid gray;
+}

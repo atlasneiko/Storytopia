@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBroom } from "@fortawesome/free-solid-svg-icons";
 
 export default () => (
-	<div id="header">
+	<div id="entrance-header">
 		<Link to="/" className="logo">
 			<h1>
 				<span>

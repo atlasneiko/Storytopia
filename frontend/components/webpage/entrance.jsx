@@ -10,7 +10,7 @@ import WrongLink from "./404";
 import Main from "./main/main_container";
 
 export default () => (
-	<div className="container">
+	<div id="entrance">
 		<Header />
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />

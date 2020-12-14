@@ -11,11 +11,13 @@ class UserIndx extends React.Component {
 		return (
 			<div id="users-index">
 				<h3 id="users-index-title">LATEST FROM FOLLOWING</h3>
-					<ul >
-					{users.map((user) => (
-						<UserIndexItem user={user} key={`user-index-${user.id}`} />
+				<div id="user-index-list">
+					{users.map((user, i) => (
+						<div id={`user-item-${i}`}>
+							<UserIndexItem user={user} key={`user-index-${user.id}`} />
+						</div>
 					))}
-				</ul>
+				</div>
 			</div>
 		);
 	}
