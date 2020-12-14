@@ -1,0 +1,46 @@
+#session-form-page {
+	grid-area: main;
+	border: 1px solid gray;
+	max-width: 600px;
+	width: 70%;
+	height: 550px;
+	margin: 0 auto;
+	box-shadow: 2px 2px gray;
+	#session-form-header {
+		a {
+			width: 100%;
+			display: block;
+			margin-top: 10px;
+			margin-left: 95%;
+		}
+		h1 {
+			text-align: center;
+			font-weight: 500;
+		}
+	}
+	#session-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		label {
+			text-align: center;
+			height: 70px;
+		}
+		.session-error {
+			color: red;
+			margin: 0;
+		}
+
+		#session-buttons {
+			width: 50%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			margin-bottom: 50px;
+		}
+	}
+}
+
+#demo-button {
+	cursor: pointer;
+}
