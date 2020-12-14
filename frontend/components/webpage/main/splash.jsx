@@ -1,5 +1,5 @@
 import React from "react";
-const quotes = [
+const quoteArr = [
 	<div className="splash-quote">
 		<h4>
 			“There is a certain part of all of us that lives outside of time. Perhaps
@@ -171,113 +171,138 @@ const quotes = [
 		<br />
 		<p>– E.E. Cummings</p>
 	</div>,
-	// 23.  – Eleanor Roosevelt
+	// 23.
 	<div className="splash-quote">
-		<h4>“Today is the oldest you’ve ever been, and the youngest you’ll ever be again.”</h4>
+		<h4>
+			“Today is the oldest you’ve ever been, and the youngest you’ll ever be
+			again.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– Eleanor Roosevelt</p>
 	</div>,
-	// 24. “Aging seems to be the only available way to live a long life.” – Daniel Francois Esprit Auber
+	// 24.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>“Aging seems to be the only available way to live a long life.”</h4>
 		<br />
-		<p></p>
+		<p>– Daniel Francois Esprit Auber</p>
 	</div>,
-	// 25. “As we grow old, the beauty steals inward.” – Ralph Waldo Emerson
+	// 25.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>“As we grow old, the beauty steals inward.”</h4>
 		<br />
-		<p></p>
+		<p>– Ralph Waldo Emerson</p>
 	</div>,
-	// 26. “We don’t stop playing because we grow old; we grow old because we stop playing.” – George Bernard Shaw
+	// 26.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“We don’t stop playing because we grow old; we grow old because we stop
+			playing.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– George Bernard Shaw</p>
 	</div>,
-	// 27. “We grow neither better nor worse as we get old, but more like ourselves.” – May Lamberton Becker
+	// 27.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“We grow neither better nor worse as we get old, but more like ourselves.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– May Lamberton Becker</p>
 	</div>,
-	// 28. “Grow old along with me! The best is yet to be.” – Robert Browning
+	// 28.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>“Grow old along with me! The best is yet to be.”</h4>
 		<br />
-		<p></p>
+		<p>– Robert Browning</p>
 	</div>,
-	// 29. “How old would you be if you didn’t know how old you are?” – Satchel Paige
+	// 29.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>“How old would you be if you didn’t know how old you are?” </h4>
 		<br />
-		<p></p>
+		<p>– Satchel Paige</p>
 	</div>,
-	// 30. “Do not regret growing older. It is a privilege denied to many.” – Unknown
+	// 30.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>“Do not regret growing older. It is a privilege denied to many.”</h4>
 		<br />
-		<p></p>
+		<p>– Unknown</p>
 	</div>,
-	// 31. “You are never too old to set another goal or to dream a new dream.” – C.S. Lewis
+	// 31.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“You are never too old to set another goal or to dream a new dream.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– C.S. Lewis</p>
 	</div>,
-	// 32. “Strength and beauty are the blessings of youth; temperance, however, is the flower of old age.” – Democritus
+	// 32.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“Strength and beauty are the blessings of youth; temperance, however, is
+			the flower of old age.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– Democritus</p>
 	</div>,
-	// 33. “To exist is to change, to change is to mature, to mature is to go on creating oneself endlessly.” – Henri Bergson
+	// 33.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“To exist is to change, to change is to mature, to mature is to go on
+			creating oneself endlessly.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– Henri Bergson</p>
 	</div>,
-	// 32. “Aging is not lost youth but a new stage of opportunity and strength.” – Betty Friedan
+	// 32.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“Aging is not lost youth but a new stage of opportunity and strength.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– Betty Friedan</p>
 	</div>,
-	// 35. “Some day you will be old enough to start reading fairy tales again.” – C.S. Lewis
+	// 35.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“Some day you will be old enough to start reading fairy tales again.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– C.S. Lewis</p>
 	</div>,
-	// 36. “Nothing makes a woman look so old as trying desperately hard to look young.” – Coco Chanel
+	// 37.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“As you grow older, you will discover that you have two hands, one for
+			helping yourself, the other for helping others.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– Audrey Hepburn</p>
 	</div>,
-	// 37. “As you grow older, you will discover that you have two hands, one for helping yourself, the other for helping others.” – Audrey Hepburn
+	// 38.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>“The trick to aging gracefully is to enjoy it.”</h4>
 		<br />
-		<p></p>
+		<p>– Unknown</p>
 	</div>,
-	// 38. “The trick to aging gracefully is to enjoy it.” – Unknown
+	// 39.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“Nobody grows old merely by living a number of years. We grow old by
+			deserting our ideas. Years may wrinkle the skin, but to give up enthusiasm
+			wrinkles the soul.”
+		</h4>
 		<br />
-		<p></p>
+		<p>– Samuel Ullman</p>
 	</div>,
-	// 39. “Nobody grows old merely by living a number of years. We grow old by deserting our ideas. Years may wrinkle the skin, but to give up enthusiasm wrinkles the soul.” – Samuel Ullman
+	// 40.
 	<div className="splash-quote">
-		<h4></h4>
+		<h4>
+			“The turning point in the process of growing up is when you discover the
+			core of strength within you that survives all hurt.”
+		</h4>
 		<br />
-		<p></p>
-	</div>,
-	// 40. “The turning point in the process of growing up is when you discover the core of strength within you that survives all hurt.” – Max Lerner
-	<div className="splash-quote">
-		<h4></h4>
-		<br />
-		<p></p>
+		<p>– Max Lerner</p>
 	</div>,
 ];
-export default () => <div id="splash"></div>;
+const quote = quoteArr[Math.floor(Math.random() * quoteArr.length)];
+export default () => <div id="splash">{quote}</div>;
