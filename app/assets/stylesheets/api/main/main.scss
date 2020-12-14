@@ -74,7 +74,14 @@
 	grid-template-columns: 1fr 1fr;
 	height: 500px;
 	list-style-type: none;
-
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		margin: 0;
+	}
 	// width: 100vw;
 	// margin: 0 auto;
 	grid-gap: 2px;
@@ -107,10 +114,12 @@
 
 #the-sixes {
 	grid-area: the-sixes;
-
+	h1 {
+		margin: 0;
+	}
 	ul {
 		list-style-type: none;
-
+		height: 300px;
 		border: 1px solid gray;
 		display: grid;
 		grid-template-rows: 1fr 1fr;
@@ -119,6 +128,18 @@
 		grid-template-areas:
 			"six-1 six-2 six-3"
 			"six-4 six-5 six6";
+
+		margin: 0;
+		padding-inline-start: 0;
+		.sixes-item {
+			height: 110px;
+			p,
+			h2,
+			h3,
+			h4 {
+				margin: 0;
+			}
+		}
 
 		#six-0 {
 			grid-area: six-1;
@@ -144,11 +165,37 @@
 #feed {
 	grid-area: feed;
 	list-style-type: none;
+	.feed-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 3px;
+		.feed-item-info {
+			width: 30vw;
+			.feed-item-footer {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+			}
+		}
+		.feed-item-img {
+			height: 140px;
+			width: 200px;
+			background-color: green;
+		}
+	}
 }
 
 #footer {
 	grid-area: footer;
 	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 		list-style-type: none;
+		padding-inline-start: 0;
+		li {
+			margin-right: 2vw;
+		}
 	}
 }

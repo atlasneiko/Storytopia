@@ -19,7 +19,7 @@ export default ({ story, user }) => {
 	// console.log("user", user);
 
 	return (
-		<li>
+		<li className="sixes-item">
 			{/* need to hold everyting in a Link tag */}
 			<p>
 				{user.username} {icon}
