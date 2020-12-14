@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { icons } from "../../../../util/icon_util";
+import { icons, bookmarkIcon, dotsIcon } from "../../../../util/icon_util";
+
 export default ({ story, user }) => {
 	let readTime = story.body.split(" ").length / 100;
 	if (readTime < 2) {
@@ -17,18 +18,23 @@ export default ({ story, user }) => {
 	const icon = icons[Math.floor(Math.random() * icons.length)];
 	// console.log("story", story);
 	// console.log("user", user);
+	let date = story.updatedAt.slice(0, 10).split("-");
+	[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
+	date = date.join("/");
 
 	return (
 		<li>
 			{/* need to hold everyting in a Link tag */}
 			<p>
-				{user.username} {icon}
+				{icon} {user.username}
 			</p>
 			<h2>{story.title}</h2>
 			<h3>{story.subtitle}</h3>
 			{/* need to be a link tag too */}
-			<h4>Read More</h4>
+			<p>{date}</p>
 			<p>{readTime}</p>
+			<p>{bookmarkIcon}</p>
+			<p>{dotsIcon}</p>
 		</li>
 	);
 };
