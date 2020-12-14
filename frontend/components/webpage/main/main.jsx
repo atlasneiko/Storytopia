@@ -4,6 +4,7 @@ import TheFives from "./the_fives/the_fives";
 import TheSixes from "./the_hot_sixes/the_hot_sixes";
 import TheFeed from "./the_feed/the_feed";
 import Footer from "../footer/footer";
+import Splash from "./splash";
 class Main extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,14 +15,23 @@ class Main extends React.Component {
 	}
 
 	render() {
-		const { users, stories } = this.props;
+		const { users, stories, loggedIn } = this.props;
+		console.log(loggedIn);
 		return (
 			<div id="main">
-				<UserIndexContainer users={users} />
-				<TheFives users={users} stories={stories} />
+				{loggedIn ? (
+					<div className="feed-header">
+						<TheFives users={users} stories={stories} />
+						<UserIndexContainer users={users} />
+					</div>
+				) : (
+					<Splash />
+				)}
 				<TheSixes users={users} stories={stories} />
-				<TheFeed users={users} stories={stories} />
-				<Footer />
+				<div id="feed-div">
+					<TheFeed users={users} stories={stories} />
+					<Footer />
+				</div>
 			</div>
 		);
 	}

@@ -11,17 +11,7 @@ import {
 const currIcon = icons[Math.floor(Math.random() * icons.length)];
 export default ({ currentUser, logout, loggedIn }) => {
 	const location = useLocation();
-	const greeting = () => {
-		let date = new Date();
-		let hour = date.getHours();
-		if (hour >= 5 && hour <= 12) {
-			return "Good morning. ";
-		} else if (hour > 12 && hour < 18) {
-			return "Good afternoon. ";
-		} else {
-			return "Good evening. ";
-		}
-	};
+
 	const login = (
 		<Link to="/login" id="login">
 			Login
@@ -48,16 +38,26 @@ export default ({ currentUser, logout, loggedIn }) => {
 			);
 		}
 	};
+	const greeting = () => {
+		let date = new Date();
+		let hour = date.getHours();
+		if (hour >= 5 && hour <= 12) {
+			return "Good morning. ";
+		} else if (hour > 12 && hour < 18) {
+			return "Good afternoon. ";
+		} else {
+			return "Good evening. ";
+		}
+	};
 
 	const message = () => (
 		<div className="message">
-			<h2>{greeting()}</h2>
+			{greeting()}
 			<div id="nav-util">
 				{bookmarkIcon}
 				{bellIcon}
+				<UserDropdown currIcon={currIcon} />
 			</div>
-
-			<UserDropdown currIcon={currIcon} />
 		</div>
 	);
 

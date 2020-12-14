@@ -1,26 +1,32 @@
 #entrance-header {
 	grid-area: header;
 	display: grid;
-	grid-template-columns: 1fr 3fr 1fr; //space || main || spacwe
+	grid-template-columns: 1fr 3fr; //space || main || spacwe
 	grid-template-rows: 1fr; //header ||main
 	height: auto;
 	width: 90vw;
 	margin: 0 auto;
 	grid-gap: 15px;
-	grid-template-areas: "logo .  nav ";
+	grid-template-areas: "logo nav ";
 
 	.logo {
 		grid-area: logo;
 	}
 
 	.nav-links {
+		width: 15vw;
+		margin-left: 75%;
 		grid-area: nav;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: flex-end;
 	}
-}
-#user-header {
-	grid-area: header;
+	.message {
+		grid-area: nav;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
 }

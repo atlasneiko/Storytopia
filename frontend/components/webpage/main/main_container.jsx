@@ -5,6 +5,7 @@ import Main from "./Main";
 const mSTP = (state, ownProps) => ({
 	stories: state.entities.stories,
 	users: state.entities.users,
+	loggedIn: Boolean(state.session.currentUser.id),
 });
 
 const mDTP = (dispatch) => ({

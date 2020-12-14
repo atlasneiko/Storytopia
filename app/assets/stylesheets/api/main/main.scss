@@ -6,15 +6,29 @@
 	grid-template-columns: 1.5fr 1.5fr 1fr;
 	grid-template-rows: 500px 350px 1fr;
 	height: auto;
-	width: 90vw;
+	width: 100vw;
 	margin: 0 auto;
 	grid-gap: 10px;
 	grid-template-areas:
-		"the-fives the-fives user-index"
+		"feed-header feed-header feed-header"
 		"the-sixes the-sixes the-sixes"
-		"feed feed footer";
+		"feed-div feed-div feed-div";
 
 	border: 1px solid gray;
+}
+
+.feed-header {
+	grid-area: feed-header;
+	display: grid;
+	width: 90vw;
+	grid-template-rows: 1fr;
+	grid-template-columns: 4fr 2fr;
+	grid-template-areas: "the-fives user-index";
+}
+
+#splash {
+	grid-area: feed-header;
+	background-color: #ffc017;
 }
 
 #users-index {
@@ -114,6 +128,8 @@
 
 #the-sixes {
 	grid-area: the-sixes;
+	width: 90vw;
+	margin: 0 auto;
 	h1 {
 		margin: 0;
 	}
@@ -161,8 +177,18 @@
 		}
 	}
 }
-
+#feed-div {
+	grid-area: feed-div;
+	margin: 0 auto;
+	display: grid;
+	width: 90vw;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: "feed footer";
+}
 #feed {
+	// width: 60vw;
+
 	grid-area: feed;
 	list-style-type: none;
 	.feed-item {
@@ -189,6 +215,7 @@
 }
 
 #footer {
+	// width: 30vw;
 	grid-area: footer;
 	ul {
 		display: flex;

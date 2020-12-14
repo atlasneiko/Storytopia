@@ -16,8 +16,6 @@ export default function TheFeed({ stories, users }) {
 				threshold: 1,
 			};
 			observer.current = new IntersectionObserver((entries) => {
-				console.log(entries);
-				console.log(entries[0]);
 				if (entries[0].isIntersecting) {
 					if (maxPage * pageNumber === 0 || maxPage > pageNumber)
 						setPageNumber((pre) => pre + 1);
@@ -33,7 +31,6 @@ export default function TheFeed({ stories, users }) {
 	);
 
 	if (storyArr.length > 0 && Object.keys(users).length > 1) {
-		console.log(pageNumber);
 		return (
 			<div id="feed">
 				{currFeedArr.map((storyIdx) => (

@@ -13,12 +13,8 @@ export default ({ stories, users }) => {
 				{/* <h1>The fives</h1> */}
 				{theFives.map((story, i) => {
 					return (
-						<div id={`the-fives-${i}`}>
-							<TheFiveItem
-								story={story}
-								user={users[story.userId]}
-								key={`the-five-${i}`}
-							/>
+						<div key={`the-five-${i}`} id={`the-fives-${i}`}>
+							<TheFiveItem story={story} user={users[story.userId]} />
 						</div>
 					);
 				})}
