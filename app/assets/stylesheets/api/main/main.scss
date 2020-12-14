@@ -171,7 +171,9 @@
 		justify-content: space-between;
 		margin-bottom: 3px;
 		.feed-item-info {
-			width: 30vw;
+			width: 40vw;
+			min-width: 300px;
+
 			.feed-item-footer {
 				display: flex;
 				flex-direction: row;
@@ -181,7 +183,7 @@
 		.feed-item-img {
 			height: 140px;
 			width: 200px;
-			background-color: green;
+			border: 1px solid gray;
 		}
 	}
 }

@@ -11,7 +11,7 @@ class UserHeader extends React.Component {
 	header() {
 		const { user } = this.props;
 		return (
-			<header>
+			<header id="user-header">
 				<h1>{user.username}</h1>
 				<h4>{user.stories.length} stories</h4>
 				<h4># of followers</h4>
