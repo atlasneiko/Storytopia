@@ -4,3 +4,4 @@ class ChangeStoryTitleUniqueness < ActiveRecord::Migration[5.2]
     add_index :stories, [:title, :subtitle], unique: true
   end
 end
+// 
