@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import FeedItem from "./the_feed_item";
+
 export default function TheFeed({ stories, users }) {
 	const [pageNumber, setPageNumber] = useState(0);
 	const [currFeedArr, setCurrFeed] = useState([0, 1, 2, 3, 4]);

@@ -1,4 +1,5 @@
 import React from "react";
+import { globeIcon } from "../../../util/icon_util";
 const quoteArr = [
 	<div className="splash-quote">
 		<h4>
@@ -305,4 +306,8 @@ const quoteArr = [
 	</div>,
 ];
 const quote = quoteArr[Math.floor(Math.random() * quoteArr.length)];
-export default () => <div id="splash">{quote}</div>;
+export default () => (
+	<div id="splash">
+		{quote} {globeIcon}
+	</div>
+);

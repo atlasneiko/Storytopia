@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { icons, bookmarkIcon, dotsIcon } from "../../../../util/icon_util";
+import { RandomImg, imgArr } from "../../../../util/img_utils";
 
 export default ({ story, user }) => {
 	let readTime = story.body.split(" ").length / 100;
@@ -21,7 +22,6 @@ export default ({ story, user }) => {
 	let date = story.updatedAt.slice(0, 10).split("-");
 	[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 	date = date.join("/");
-
 	return (
 		<li className="feed-item">
 			{/* need to hold everyting in a Link tag */}
@@ -39,7 +39,9 @@ export default ({ story, user }) => {
 					<p>{dotsIcon}</p>
 				</div>
 			</div>
-			<div className="feed-item-img"></div>
+			<div className="feed-item-img">
+				<img src={imgArr[story.imgId]} alt="ghibli img" />
+			</div>
 		</li>
 	);
 };

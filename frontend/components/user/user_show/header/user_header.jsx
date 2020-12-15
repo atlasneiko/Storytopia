@@ -12,10 +12,12 @@ class UserHeader extends React.Component {
 		const { user } = this.props;
 		return (
 			<header id="user-header">
-				<h1>{user.username}</h1>
-				<h4>{user.stories.length} stories</h4>
-				<h4># of followers</h4>
-				<Link to={`/users/${user.id}`}>About</Link>
+				<div className="user-h-info">
+					<h1>{user.username}</h1>
+					<h4>{user.stories.length} stories</h4>
+					<h4># of followers</h4>
+					<Link to={`/users/${user.id}`}>About</Link>
+				</div>
 				<nav>
 					<Link to="/">
 						<FontAwesomeIcon icon={faBroom} />

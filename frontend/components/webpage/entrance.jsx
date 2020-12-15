@@ -3,18 +3,25 @@ import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../../util/route_utils";
 
 import Header from "./header/header";
+import UserHeaderContainer from "../user/user_show/header/user_header_container";
 // import UserIndexContainer from "../user/user_index_container";
 import LoginFormContainer from "../session_form/login_form_container";
 import SignUpFormContainer from "../session_form/signup_form_container";
 import WrongLink from "./404";
 import Main from "./main/main_container";
+import UserPageContainer from "../user/user_show/user_page_container";
 
 export default () => (
 	<div id="entrance">
-		<Header />
+		<Switch>
+			<Route path="/users/:userId" component={UserHeaderContainer} />
+			<Route path="/" component={Header} />
+		</Switch>
+		{/* <Header /> */}
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
+			<Route exact path="/users/:userId" component={UserPageContainer} />
 			<Route path="/" exact component={Main} />
 			<Route path="/" component={WrongLink} />
 		</Switch>

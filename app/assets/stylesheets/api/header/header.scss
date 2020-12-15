@@ -31,3 +31,33 @@
 		align-items: flex-end;
 	}
 }
+
+#user-header {
+	grid-area: header;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 2fr 2fr 2fr;
+	grid-gap: 10px;
+	width: 80vw;
+	margin: 0 auto;
+	grid-template-areas: "info . nav";
+	border-bottom: 1px solid gray;
+
+	.user-h-info {
+		grid-area: info;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: baseline;
+		margin-top: 25px;
+	}
+	nav {
+		grid-area: nav;
+		a {
+			margin-left: 85%;
+			font-size: 2vw;
+			display: block;
+			margin-top: 35px;
+		}
+	}
+}

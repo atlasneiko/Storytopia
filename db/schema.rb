@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_220629) do
     t.string "subtitle", null: false
     t.integer "user_id", null: false
     t.text "body", null: false
+    t.integer "img_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title", "subtitle"], name: "index_stories_on_title_and_subtitle", unique: true

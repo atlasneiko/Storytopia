@@ -13,8 +13,8 @@ class UserPage extends React.Component {
 	render() {
 		const user = this.props.users[this.props.pageUserId];
 		return (
-			<div>
-				<UserHeaderContainer user={user} />
+			<div className="user-page">
+				{/* <UserHeaderContainer user={user} /> */}
 				<UserShowContainer user={user} />
 				<UserStoryIndex user={user} />
 			</div>

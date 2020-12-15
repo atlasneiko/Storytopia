@@ -1,5 +1,6 @@
 import TheFiveItem from "./the_five_item";
 import React from "react";
+import { imgArr } from "../../../../util/img_utils";
 export default ({ stories, users }) => {
 	if (stories !== {} && Object.keys(users).length > 1) {
 		const theFives = [];
@@ -11,13 +12,14 @@ export default ({ stories, users }) => {
 		return (
 			<div id="the-fives">
 				{/* <h1>The fives</h1> */}
-				{theFives.map((story, i) => {
-					return (
-						<div key={`the-five-${i}`} id={`the-fives-${i}`}>
-							<TheFiveItem story={story} user={users[story.userId]} />
+				{theFives.map((story, i) => (
+					<div key={`the-five-${i}`} id={`the-fives-${i}`}>
+						<TheFiveItem story={story} user={users[story.userId]} />
+						<div>
+							<img src={imgArr[story.imgId]} alt="ghibli img" />
 						</div>
-					);
-				})}
+					</div>
+				))}
 			</div>
 		);
 	} else {

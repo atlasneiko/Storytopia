@@ -1,4 +1,5 @@
-export default imgArr = [
+import React from "react";
+export const imgArr = [
   "https://www.ghibli.jp/gallery/tanuki001.jpg",
   "https://www.ghibli.jp/gallery/tanuki002.jpg",
   "https://www.ghibli.jp/gallery/tanuki003.jpg",
@@ -969,4 +970,8 @@ export default imgArr = [
   "https://www.ghibli.jp/gallery/chihiro050.jpg",
 ]
 
+export const RandomImg = () => {
+  const randomImgUrl = imgArr[Math.floor(Math.random() * imgArr.length)]
 
+  return <img src={randomImgUrl} alt="random ghibli image" />
+}

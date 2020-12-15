@@ -1,0 +1,22 @@
+.user-page {
+	grid-area: main;
+	width: 80vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-areas: "profile profile-index .";
+}
+
+.profile {
+	grid-area: profile;
+	top: 200px;
+	width: 65%;
+	height: 150px;
+	margin: 0 auto;
+	position: sticky;
+}
+
+.profile-index {
+	grid-area: profile-index;
+}

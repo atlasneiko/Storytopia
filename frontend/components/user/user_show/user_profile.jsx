@@ -1,6 +1,7 @@
 import React from "react";
 import WrongLink from "../../webpage/404";
 import { withRouter } from "react-router-dom";
+import { icons } from "../../../util/icon_util";
 class UserShow extends React.Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +25,7 @@ class UserShow extends React.Component {
 
 	profile() {
 		const { user, currentUserId, profileId } = this.props;
-		if (currentUserId == profileId && currentUserId !== 41) {
+		if (currentUserId == profileId && currentUserId !== 1) {
 			return (
 				<div className="profile-form">
 					<form onSubmit={this.handleSubmit}>
@@ -64,6 +65,7 @@ class UserShow extends React.Component {
 		} else {
 			return (
 				<div className="profile">
+					{icons[Math.floor(Math.random() * icons.length)]}
 					<h1>Username: {user.username}</h1>
 					<h3>Email: {user.email}</h3>
 					<h4>About: {user.about}</h4>

@@ -41,6 +41,7 @@ class IndexItem extends React.Component {
 					<p>{readTime}</p>
 					<h3>{story.title}</h3>
 					<h4>{story.subtitle}</h4>
+					
 					<div>{body}</div>
 				</li>
 			);

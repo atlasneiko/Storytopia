@@ -5,6 +5,7 @@ class CreateStories < ActiveRecord::Migration[5.2]
       t.string :subtitle, null:false
       t.integer :user_id, null:false
       t.text :body, null:false
+      t.integer :img_id
       t.timestamps
     end
     add_index :stories, :user_id

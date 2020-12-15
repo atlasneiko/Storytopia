@@ -13,6 +13,7 @@ import {
 	faEllipsisH,
 	far,
 	faTimes,
+	faGlobeAmericas,
 } from "@fortawesome/free-solid-svg-icons";
 export const searchIcon = (
 	<FontAwesomeIcon icon={faSearch} className="search-icon" />
@@ -27,6 +28,9 @@ export const dotsIcon = (
 
 export const closeIcon = (
 	<FontAwesomeIcon icon={faTimes} className="close-icon" />
+);
+export const globeIcon = (
+	<FontAwesomeIcon icon={faGlobeAmericas} className="globe-icon" />
 );
 
 //random icons start

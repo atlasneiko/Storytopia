@@ -7,14 +7,16 @@ class StoryIndex extends React.Component {
 			// console.log(this.props.user.stories);
 
 			return (
-				<ul>
-					{this.props.user.stories.map((storyId) => (
-						<IndexItemContainer
-							storyId={storyId}
-							key={`story-index-${storyId}`}
-						/>
-					))}
-				</ul>
+				<div className="profile-index">
+					<ul>
+						{this.props.user.stories.map((storyId) => (
+							<IndexItemContainer
+								storyId={storyId}
+								key={`story-index-${storyId}`}
+							/>
+						))}
+					</ul>
+				</div>
 			);
 		} else {
 			return null;
