@@ -56,6 +56,7 @@ class SessionForm extends React.Component {
 							value={this.state.username}
 							onChange={this.update("username")}
 							autoComplete="username"
+							placeholder="Username"
 						/>
 						{this.props.errors.includes("Username can't be blank") ? (
 							<p className="session-error">Username can't be blank</p>
@@ -70,6 +71,7 @@ class SessionForm extends React.Component {
 							value={this.state.password}
 							onChange={this.update("password")}
 							autoComplete="current-password"
+							placeholder="Password"
 						/>
 						{this.props.errors.includes(
 							"Password is too short (minimum is 6 characters)"
@@ -89,6 +91,7 @@ class SessionForm extends React.Component {
 									type="text"
 									value={this.state.email}
 									onChange={this.update("email")}
+									placeholder="Email"
 								/>
 								{this.props.errors.includes("Email can't be blank") ? (
 									<p className="session-error">Email can't be blank</p>
@@ -101,6 +104,7 @@ class SessionForm extends React.Component {
 								<textarea
 									value={this.state.about}
 									onChange={this.update("about")}
+									placeholder="Tell people about you!"
 								/>
 							</label>
 						</>

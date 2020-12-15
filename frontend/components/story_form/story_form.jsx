@@ -1,0 +1,123 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+import { closeIcon } from "../../util/icon_util";
+
+class SessionForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = this.props.story;
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	componentWillUnmount() {
+		console.log("unmount");
+		this.props.eraseStoryErrors();
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		this.props.action(this.state);
+		this.props.history.push("/");
+	}
+
+	update(field) {
+		return (e) => this.setState({ [field]: e.target.value });
+	}
+
+	renderErrors() {
+		return (
+			<ul id="session-errors">
+				{this.props.errors.map((error, i) => (
+					<li key={`error-${i}`}>{error}</li>
+				))}
+			</ul>
+		);
+	}
+	render() {
+		console.log(this.state);
+		return (
+			<div id="story-form-page">
+				<div id="story-form-header">
+					<Link to="/">{closeIcon}</Link>
+					<h1>{this.props.formTypes}</h1>
+				</div>
+				<form onSubmit={this.handleSubmit} id="story-form">
+					<label id="story-title">
+						<input
+							type="text"
+							value={this.state.title}
+							onChange={this.update("title")}
+							autoComplete="off"
+							placeholder="Title"
+						/>
+						{this.props.errors.includes("Title can't be blank") ? (
+							<p className="story-error">Title can't be blank</p>
+						) : null}
+					</label>
+					<br />
+
+					<label id="story-subtitle">
+						<br />
+						<input
+							type="text"
+							value={this.state.subtitle}
+							onChange={this.update("subtitle")}
+							autoComplete="off"
+							placeholder="Subtitle"
+						/>
+					</label>
+					<br />
+
+					<label id="story-body">
+						<br />
+						<textarea
+							value={this.state.body}
+							onChange={this.update("body")}
+							id="story-body"
+							autoComplete="off"
+							placeholder="This is where the magic begins"
+						/>
+
+						{this.props.errors.includes("Body can't be blank") ? (
+							<p className="session-error">Body can't be blank</p>
+						) : null}
+					</label>
+					<br />
+
+					<div id="session-buttons">
+						<button type="submit">{this.props.formTypes}</button>
+					</div>
+				</form>
+			</div>
+		);
+	}
+}
+
+export default SessionForm;
+
+// {this.props.formTypes === "Sign Up" ? (
+// 						<>
+// 							<label id="session-email">
+// 								Email
+// 								<br />
+// 								<input
+// 									type="text"
+// 									value={this.state.email}
+// 									onChange={this.update("email")}
+// 								/>
+// 								{/* {this.props.errors.includes("Email can't be blank") ? (
+// 									<p className="session-error">Email can't be blank</p>
+// 								) : null} */}
+// 							</label>
+// 							<br />
+// 							<label>
+// 								About
+// 								<br />
+// 								<textarea
+// 									value={this.state.about}
+// 									onChange={this.update("about")}
+// 								/>
+// 							</label>
+// 						</>
+// 					) : null}

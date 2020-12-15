@@ -5,16 +5,13 @@ export const RECEIVE_STORY = 'RECEIVE_STORY';
 export const RECEIVE_STORY_ERRORS = 'RECEIVE_STORY_ERRORS';
 export const DELETE_STORY = "DELETE_STORY"
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS"
+export const ERASE_STORY_ERRORS = "ERASE_STORY_ERRORS"
 
 const receiveAllStories = stories => ({
   type: RECEIVE_ALL_STORIES,
   stories
 })
 
-const receiveErrors = errors => ({
-  type: RECEIVE_USER_ERRORS,
-  errors
-})
 
 const receiveStory = story => ({
   type: RECEIVE_STORY,
@@ -25,6 +22,19 @@ const deleteStory = storyId => ({
   type: DELETE_STORY,
   storyId
 })
+
+// error handling ===============================================
+
+const receiveErrors = errors => ({
+  type: RECEIVE_STORY_ERRORS,
+  errors
+})
+
+export const eraseStoryErrors = () => ({
+  type: ERASE_STORY_ERRORS
+})
+
+//================================================================
 
 export const fetchAllStories = () => dispatch => (
   StoryAPI.fetchAllStories()

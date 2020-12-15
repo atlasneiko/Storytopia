@@ -10,17 +10,24 @@ import SignUpFormContainer from "../session_form/signup_form_container";
 import WrongLink from "./404";
 import Main from "./main/main_container";
 import UserPageContainer from "../user/user_show/user_page_container";
-
+import PostStoryFormContainer from "../story_form/post_form_container";
+import EditStoryFromContainer from "../story_form/edit_form_container";
+import StoryShow from "../story_form/story_show_container";
 export default () => (
 	<div id="entrance">
 		<Switch>
 			<Route path="/users/:userId" component={UserHeaderContainer} />
+			<Route exact path="/stories/:storyId" component={UserHeaderContainer} />
 			<Route path="/" component={Header} />
 		</Switch>
 		{/* <Header /> */}
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
+			<ProtectedRoute path="/new-story" component={PostStoryFormContainer} />
+
+			<Route exact path="/stories/:storyId" component={StoryShow} />
+
 			<Route exact path="/users/:userId" component={UserPageContainer} />
 			<Route exact path="/users/:userId/about" component={UserProfileAbout} />
 			<Route path="/" exact component={Main} />
