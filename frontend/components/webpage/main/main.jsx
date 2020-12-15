@@ -16,7 +16,6 @@ class Main extends React.Component {
 
 	render() {
 		const { users, stories, loggedIn } = this.props;
-		console.log(loggedIn);
 		return (
 			<div id="main">
 				{loggedIn ? (

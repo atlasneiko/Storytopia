@@ -22,6 +22,7 @@ export default () => (
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
 			<Route exact path="/users/:userId" component={UserPageContainer} />
+			{/* <Route exact path="/users/:userId/about" component={} /> */}
 			<Route path="/" exact component={Main} />
 			<Route path="/" component={WrongLink} />
 		</Switch>

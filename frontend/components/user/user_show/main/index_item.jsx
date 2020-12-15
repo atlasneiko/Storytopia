@@ -1,5 +1,5 @@
 import React from "react";
-
+import { imgArr } from "../../../../util/img_utils";
 class IndexItem extends React.Component {
 	constructor(props) {
 		super(props);
@@ -35,13 +35,18 @@ class IndexItem extends React.Component {
 			} else {
 				readTime = "15+ mins";
 			}
+
+			const currImg = (
+				<img className="story-img" src={imgArr[story.imgId]} alt="ghibli img" />
+			);
+
 			return (
 				<li>
 					<p>{date}</p>
 					<p>{readTime}</p>
 					<h3>{story.title}</h3>
 					<h4>{story.subtitle}</h4>
-					
+					{currImg}
 					<div>{body}</div>
 				</li>
 			);

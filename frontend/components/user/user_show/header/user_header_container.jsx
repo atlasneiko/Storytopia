@@ -4,8 +4,8 @@ import UserHeader from "./user_header";
 const mSTP = (state, ownProps) => {
 	// console.log(state);
 	// console.log(ownProps);
-	console.log(ownProps);
 	return {
+		history: ownProps.history,
 		user: state.entities.users[ownProps.match.params.userId],
 	};
 };
