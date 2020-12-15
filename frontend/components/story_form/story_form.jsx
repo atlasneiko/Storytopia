@@ -18,8 +18,7 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.action(this.state);
-		this.props.history.push("/");
+		this.props.action(this.state).then((res) => this.props.history.push("/"));
 	}
 	randomImgUrl() {
 		const newImgIdx = Math.floor(Math.random() * imgArr.length);
@@ -112,29 +111,3 @@ class SessionForm extends React.Component {
 }
 
 export default SessionForm;
-
-// {this.props.formTypes === "Sign Up" ? (
-// 						<>
-// 							<label id="session-email">
-// 								Email
-// 								<br />
-// 								<input
-// 									type="text"
-// 									value={this.state.email}
-// 									onChange={this.update("email")}
-// 								/>
-// 								{/* {this.props.errors.includes("Email can't be blank") ? (
-// 									<p className="session-error">Email can't be blank</p>
-// 								) : null} */}
-// 							</label>
-// 							<br />
-// 							<label>
-// 								About
-// 								<br />
-// 								<textarea
-// 									value={this.state.about}
-// 									onChange={this.update("about")}
-// 								/>
-// 							</label>
-// 						</>
-// 					) : null}

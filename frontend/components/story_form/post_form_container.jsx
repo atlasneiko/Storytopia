@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const mSTP = (state, ownProps) => ({
 	errors: state.errors.story,
 	formTypes: "Post a Story",
+	history: ownProps.history,
 	story: {
 		title: "",
 		subtitle: "",

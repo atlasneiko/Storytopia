@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { imgArr } from "../../../../util/img_utils";
-
+import EditButtonContainer from "../../../webpage/story_edit_button/story_edit_button_container";
 class IndexItem extends React.Component {
 	constructor(props) {
 		super(props);
@@ -45,7 +45,8 @@ class IndexItem extends React.Component {
 			const currImg = (
 				<img className="story-img" src={imgArr[story.imgId]} alt="ghibli img" />
 			);
-
+			console.log("story", story);
+			console.log("storyId", story.id);
 			return (
 				<li>
 					<p>{date}</p>
@@ -54,11 +55,11 @@ class IndexItem extends React.Component {
 					{currImg}
 					<div>{body}</div>
 					<footer>
+						<p>{readTime}</p>
 						<Link to={`/stories/${story.id}`}>
 							<button>Read More</button>
 						</Link>
-
-						<p>{readTime}</p>
+						<EditButtonContainer storyId={story.id} userId={story.userId} />
 					</footer>
 				</li>
 			);
