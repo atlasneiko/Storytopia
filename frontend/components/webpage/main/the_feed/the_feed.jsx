@@ -1,12 +1,16 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import FeedItem from "./the_feed_item";
 
-export default function TheFeed({ stories, users }) {
+export default function TheFeed({
+	stories,
+	users,
+	getAllUsers,
+	fetchAllStories,
+}) {
 	const [pageNumber, setPageNumber] = useState(0);
 	const [currFeedArr, setCurrFeed] = useState([0, 1, 2, 3, 4]);
 	const storyArr = Object.values(stories);
 	const maxPage = storyArr.length / 5;
-
 	const observer = useRef();
 	const loadMore = useCallback(
 		(loader) => {
@@ -31,7 +35,7 @@ export default function TheFeed({ stories, users }) {
 		[pageNumber]
 	);
 
-	if (storyArr.length > 0 && Object.keys(users).length > 1) {
+	if (storyArr.length >= 115 && Object.keys(users).length >= 40) {
 		return (
 			<div id="feed">
 				{currFeedArr.map((storyIdx) => (

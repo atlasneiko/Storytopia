@@ -1,12 +1,7 @@
 import TheFiveItem from "./the_five_item";
 import React, { useEffect } from "react";
 import { imgArr } from "../../../../util/img_utils";
-export default ({ stories, users, fetchAllStories, getAllUsers }) => {
-	useEffect(() => {
-		fetchAllStories();
-		getAllUsers();
-		console.log("useEffect");
-	}, []);
+export default ({ stories, users }) => {
 	if (Object.keys(stories).length >= 115 && Object.keys(users).length >= 40) {
 		const theFives = [];
 		for (let i = 0; i < 5; i++) {
@@ -15,8 +10,8 @@ export default ({ stories, users, fetchAllStories, getAllUsers }) => {
 			);
 		}
 
-		console.log(stories);
-		console.log(users);
+		console.log("#stories", Object.keys(stories).length);
+		console.log("#usedrs", Object.keys(users).length);
 		return (
 			<div id="the-fives">
 				{/* <h1>The fives</h1> */}
