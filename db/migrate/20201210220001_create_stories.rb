@@ -10,5 +10,6 @@ class CreateStories < ActiveRecord::Migration[5.2]
     end
     add_index :stories, :user_id
     add_index :stories, :title, :unique => true
+    
   end
 end
