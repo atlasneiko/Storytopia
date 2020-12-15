@@ -9,6 +9,10 @@ class UserShow extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	componentDidMount() {
+		this.props.getUser(this.props.profileId);
+	}
+
 	componentWillUnmount() {
 		this.props.eraseUserErrors();
 	}
@@ -27,7 +31,7 @@ class UserShow extends React.Component {
 		const { user, currentUserId, profileId } = this.props;
 		if (currentUserId == profileId && currentUserId !== 1) {
 			return (
-				<div className="profile-form">
+				<div className="profile-about">
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							Username:
@@ -64,7 +68,7 @@ class UserShow extends React.Component {
 			);
 		} else {
 			return (
-				<div className="profile">
+				<div className="profile-about">
 					{icons[Math.floor(Math.random() * icons.length)]}
 					<h1>Username: {user.username}</h1>
 					<h3>Email: {user.email}</h3>
@@ -73,8 +77,11 @@ class UserShow extends React.Component {
 			);
 		}
 	}
+
 	render() {
-		if (this.props.profileId === "redirect") {
+		// console.log(this.props);
+		// console.log();
+		if (this.props.profileId === undefined) {
 			return <WrongLink />;
 		} else {
 			return this.props.user ? this.profile() : null;

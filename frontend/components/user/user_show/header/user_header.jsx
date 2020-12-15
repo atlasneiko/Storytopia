@@ -16,7 +16,7 @@ class UserHeader extends React.Component {
 					<h1>{user.username}</h1>
 					<h4>{user.stories.length} stories</h4>
 					<h4># of followers</h4>
-					<Link to={`/users/${user.id}`}>About</Link>
+					<Link to={`/users/${user.id}/about`}>About</Link>
 				</div>
 				<nav>
 					<Link to="/">

@@ -1,6 +1,6 @@
 import React from "react";
 import UserIndexContainer from "../../user/user_index_container";
-import TheFives from "./the_fives/the_fives";
+import TheFivesContainer from "./the_fives/the_fives_container";
 import TheSixes from "./the_hot_sixes/the_hot_sixes";
 import TheFeed from "./the_feed/the_feed";
 import Footer from "../footer/footer";
@@ -16,23 +16,28 @@ class Main extends React.Component {
 
 	render() {
 		const { users, stories, loggedIn } = this.props;
-		return (
-			<div id="main">
-				{loggedIn ? (
-					<div className="feed-header">
-						<TheFives users={users} stories={stories} />
-						<UserIndexContainer users={users} />
+
+		if (stories !== {}) {
+			return (
+				<div id="main">
+					{loggedIn ? (
+						<div className="feed-header">
+							<TheFivesContainer />
+							<UserIndexContainer users={users} />
+						</div>
+					) : (
+						<Splash />
+					)}
+					<TheSixes users={users} stories={stories} />
+					<div id="feed-div">
+						<TheFeed users={users} stories={stories} />
+						<Footer />
 					</div>
-				) : (
-					<Splash />
-				)}
-				<TheSixes users={users} stories={stories} />
-				<div id="feed-div">
-					<TheFeed users={users} stories={stories} />
-					<Footer />
 				</div>
-			</div>
-		);
+			);
+		} else {
+			return null;
+		}
 	}
 }
 

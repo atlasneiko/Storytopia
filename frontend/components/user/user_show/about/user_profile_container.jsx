@@ -10,8 +10,8 @@ import {
 const mSTP = (state, ownProps) => {
 	return {
 		currentUserId: state.session.currentUser.id,
-		profileId: ownProps.user ? ownProps.user.id : "redirect",
-		user: ownProps.user,
+		profileId: ownProps.match.params.userId,
+		user: state.entities.users[ownProps.match.params.userId],
 	};
 };
 
