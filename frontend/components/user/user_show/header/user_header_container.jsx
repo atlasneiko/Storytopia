@@ -16,9 +16,6 @@ const mSTP = (state, ownProps) => {
 	} else {
 		user = state.entities.users[ownProps.match.params.userId];
 	}
-	console.log("users", state.entities.users);
-	console.log("ownProps", ownProps);
-	console.log("story", story);
 	return {
 		history: ownProps.history,
 		user: user,

@@ -24,8 +24,12 @@ export default () => (
 		<Switch>
 			<AuthRoute exact path="/login" component={LoginFormContainer} />
 			<AuthRoute exact path="/signup" component={SignUpFormContainer} />
-			<ProtectedRoute path="/new-story" component={PostStoryFormContainer} />
 
+			<ProtectedRoute path="/new-story" component={PostStoryFormContainer} />
+			<ProtectedRoute
+				path="/stories/:storyId/edit"
+				component={EditStoryFromContainer}
+			/>
 			<Route exact path="/stories/:storyId" component={StoryShow} />
 
 			<Route exact path="/users/:userId" component={UserPageContainer} />

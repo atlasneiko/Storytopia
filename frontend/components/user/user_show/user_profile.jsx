@@ -25,53 +25,15 @@ class UserShow extends React.Component {
 
 	profile() {
 		const { user, currentUserId, profileId } = this.props;
-		// if (currentUserId == profileId && currentUserId !== 1) {
-		// 	return (
-		// 		<div className="profile-form">
-		// 			<form onSubmit={this.handleSubmit}>
-		// 				<label>
-		// 					Username:
-		// 					<br />
-		// 					<input
-		// 						type="text"
-		// 						value={this.state.username}
-		// 						onChange={this.update("username")}
-		// 					/>
-		// 				</label>
-		// 				<br />
-		// 				<label>
-		// 					Email:
-		// 					<br />
-		// 					<input
-		// 						type="text"
-		// 						value={this.state.email}
-		// 						onChange={this.update("email")}
-		// 					/>
-		// 				</label>
-		// 				<br />
-		// 				<label>
-		// 					About
-		// 					<br />
-		// 					<textarea
-		// 						value={this.state.about}
-		// 						onChange={this.update("about")}
-		// 					/>
-		// 				</label>
-		// 				<br />
-		// 				<button type="submit">Edit Profile</button>
-		// 			</form>
-		// 		</div>
-		// 	);
-		// } else {
-			return (
-				<div className="profile">
-					{icons[Math.floor(Math.random() * icons.length)]}
-					<h1>Username: {user.username}</h1>
-					<h3>Email: {user.email}</h3>
-					<h4>About: {user.about}</h4>
-				</div>
-			);
-		// }
+
+		return (
+			<div className="profile">
+				{icons[Math.floor(Math.random() * icons.length)]}
+				<h1>Username: {user.username}</h1>
+				<h3>Email: {user.email}</h3>
+				<h4>About: {user.about}</h4>
+			</div>
+		);
 	}
 	render() {
 		if (this.props.profileId === "redirect") {
