@@ -1,0 +1,262 @@
+#main {
+	grid-area: main;
+	border: 1px solid gray;
+
+	display: grid;
+	grid-template-columns: 1.5fr 1.5fr 1fr;
+	grid-template-rows: 500px 350px 1fr;
+	height: auto;
+	width: 100vw;
+	margin: 0 auto;
+	grid-gap: 10px;
+	grid-template-areas:
+		"feed-header feed-header feed-header"
+		"the-sixes the-sixes the-sixes"
+		"feed-div feed-div feed-div";
+
+	border: 1px solid gray;
+}
+
+.feed-header {
+	grid-area: feed-header;
+	display: grid;
+	width: 90vw;
+	margin: 0 auto;
+	grid-template-rows: 1fr;
+	grid-template-columns: 4fr 2fr;
+	grid-template-areas: "the-fives user-index";
+}
+
+#splash {
+	grid-area: feed-header;
+	background-color: #ffc017;
+}
+
+#users-index {
+	grid-area: user-index;
+	border: 1px solid gray;
+	#user-index-list {
+		list-style-type: none;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		height: auto;
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		grid-gap: 2px;
+		grid-template-areas:
+			"uii1 uii2 uii3"
+			"uii4 uii5 uii6"
+			"uii7 uii8 uii9";
+
+		#user-item-0 {
+			grid-area: uii1;
+		}
+		#user-item-1 {
+			grid-area: uii2;
+		}
+		#user-item-2 {
+			grid-area: uii3;
+		}
+		#user-item-3 {
+			grid-area: uii4;
+		}
+		#user-item-4 {
+			grid-area: uii5;
+		}
+		#user-item-5 {
+			grid-area: uii6;
+		}
+
+		#user-item-6 {
+			grid-area: uii7;
+		}
+		#user-item-7 {
+			grid-area: uii8;
+		}
+		#user-item-8 {
+			grid-area: uii9;
+		}
+	}
+}
+
+#the-fives {
+	grid-area: the-fives;
+	border: 1px solid gray;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	height: 500px;
+	list-style-type: none;
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		margin: 0;
+	}
+	// width: 100vw;
+	// margin: 0 auto;
+	grid-gap: 5px;
+	grid-template-areas:
+		"big s1"
+		"big s2"
+		"big s3"
+		"big s4";
+	div {
+		height: 120px;
+		overflow: hidden;
+	}
+	#the-fives-0 {
+		grid-area: big;
+		height: auto;
+		div {
+			height: auto;
+		}
+		img {
+			overflow: hidden;
+			height: 372px;
+			width: auto;
+			margin: 0 auto;
+		}
+	}
+	#the-fives-1 {
+		grid-area: s1;
+	}
+	#the-fives-2 {
+		grid-area: s2;
+	}
+	#the-fives-3 {
+		grid-area: s3;
+	}
+	#the-fives-4 {
+		grid-area: s4;
+	}
+
+	#the-fives-1,
+	#the-fives-2,
+	#the-fives-3,
+	#the-fives-4 {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		li {
+			width: 100%;
+		}
+		div {
+			overflow: hidden;
+			img {
+				height: 100%;
+				width: 221px;
+			}
+		}
+	}
+}
+
+#the-sixes {
+	grid-area: the-sixes;
+	width: 90vw;
+	margin: 0 auto;
+	h1 {
+		margin: 0;
+	}
+	ul {
+		list-style-type: none;
+		height: 300px;
+		border: 1px solid gray;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 2px;
+		grid-template-areas:
+			"six-1 six-2 six-3"
+			"six-4 six-5 six6";
+
+		margin: 0;
+		padding-inline-start: 0;
+		.sixes-item {
+			height: 110px;
+			p,
+			h2,
+			h3,
+			h4 {
+				margin: 0;
+			}
+		}
+
+		#six-0 {
+			grid-area: six-1;
+		}
+		#six-1 {
+			grid-area: six-2;
+		}
+		#six-2 {
+			grid-area: six-3;
+		}
+		#six-3 {
+			grid-area: six-4;
+		}
+		#six-4 {
+			grid-area: six-5;
+		}
+		#six-5 {
+			grid-area: six-6;
+		}
+	}
+}
+#feed-div {
+	grid-area: feed-div;
+	margin: 0 auto;
+	display: grid;
+	width: 90vw;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: "feed footer";
+}
+#feed {
+	// width: 60vw;
+
+	grid-area: feed;
+	list-style-type: none;
+	.feed-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 3px;
+		.feed-item-info {
+			width: 40vw;
+			min-width: 300px;
+
+			.feed-item-footer {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+			}
+		}
+		.feed-item-img {
+			border: 1px solid gray;
+			img {
+				height: auto;
+				width: 200px;
+			}
+		}
+	}
+}
+
+#footer {
+	// width: 30vw;
+	grid-area: footer;
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		list-style-type: none;
+		padding-inline-start: 0;
+		li {
+			margin-right: 2vw;
+		}
+	}
+}

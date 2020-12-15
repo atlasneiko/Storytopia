@@ -12,6 +12,8 @@ import {
 	faBell,
 	faEllipsisH,
 	far,
+	faTimes,
+	faGlobeAmericas,
 } from "@fortawesome/free-solid-svg-icons";
 export const searchIcon = (
 	<FontAwesomeIcon icon={faSearch} className="search-icon" />
@@ -22,6 +24,13 @@ export const bookmarkIcon = (
 export const bellIcon = <FontAwesomeIcon icon={faBell} className="bell-icon" />;
 export const dotsIcon = (
 	<FontAwesomeIcon icon={faEllipsisH} className="dots-icon" />
+);
+
+export const closeIcon = (
+	<FontAwesomeIcon icon={faTimes} className="close-icon" />
+);
+export const globeIcon = (
+	<FontAwesomeIcon icon={faGlobeAmericas} className="globe-icon" />
 );
 
 //random icons start

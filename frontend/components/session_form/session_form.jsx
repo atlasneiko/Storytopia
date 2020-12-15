@@ -1,5 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import DemoButton from "../webpage/demo/demo_button_container";
+import { closeIcon } from "../../util/icon_util";
+
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -38,12 +42,13 @@ class SessionForm extends React.Component {
 	}
 	render() {
 		return (
-			<div id="session-form">
-				{this.renderErrors()}
-				<h1>{this.props.formTypes}</h1>
-				{/* {this.props.navLink} */}
-				<form onSubmit={this.handleSubmit}>
-					<label>
+			<div id="session-form-page">
+				<div id="session-form-header">
+					<Link to="/">{closeIcon}</Link>
+					<h1>{this.props.formTypes}</h1>
+				</div>
+				<form onSubmit={this.handleSubmit} id="session-form">
+					<label id="session-username">
 						Username
 						<br />
 						<input
@@ -52,9 +57,12 @@ class SessionForm extends React.Component {
 							onChange={this.update("username")}
 							autoComplete="username"
 						/>
+						{this.props.errors.includes("Username can't be blank") ? (
+							<p className="session-error">Username can't be blank</p>
+						) : null}
 					</label>
 					<br />
-					<label>
+					<label id="session-password">
 						Password
 						<br />
 						<input
@@ -63,11 +71,18 @@ class SessionForm extends React.Component {
 							onChange={this.update("password")}
 							autoComplete="current-password"
 						/>
+						{this.props.errors.includes(
+							"Password is too short (minimum is 6 characters)"
+						) ? (
+							<p className="session-error">
+								Password is too short (minimum is 6 characters)
+							</p>
+						) : null}
 					</label>
 					<br />
 					{this.props.formTypes === "Sign Up" ? (
 						<>
-							<label>
+							<label id="session-email">
 								Email
 								<br />
 								<input
@@ -75,6 +90,9 @@ class SessionForm extends React.Component {
 									value={this.state.email}
 									onChange={this.update("email")}
 								/>
+								{this.props.errors.includes("Email can't be blank") ? (
+									<p className="session-error">Email can't be blank</p>
+								) : null}
 							</label>
 							<br />
 							<label>
@@ -87,9 +105,16 @@ class SessionForm extends React.Component {
 							</label>
 						</>
 					) : null}
+					<div id="session-buttons">
+						<button type="submit">{this.props.formTypes}</button>
+						<DemoButton />
+					</div>
 
-					<button type="submit">{this.props.formTypes}</button>
-					<DemoButton />
+					{this.props.errors.includes("invalid credentials") ? (
+						<p className="session-error" className="session-error">
+							invalid credentials
+						</p>
+					) : null}
 				</form>
 			</div>
 		);

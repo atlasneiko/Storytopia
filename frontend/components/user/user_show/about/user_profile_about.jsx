@@ -1,16 +1,20 @@
 import React from "react";
-import WrongLink from "../webpage/404";
-import { Redirect } from "react-router-dom";
-class UserProfile extends React.Component {
+import WrongLink from "../../../webpage/404";
+import { withRouter } from "react-router-dom";
+import { icons } from "../../../../util/icon_util";
+class UserShow extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = this.props.user;
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+
 	componentDidMount() {
-		// console.log(this.props.user);
 		this.props.getUser(this.props.profileId);
-		// console.log(this.props.user);
+	}
+
+	componentWillUnmount() {
+		this.props.eraseUserErrors();
 	}
 
 	update(field) {
@@ -25,9 +29,9 @@ class UserProfile extends React.Component {
 
 	profile() {
 		const { user, currentUserId, profileId } = this.props;
-		if (currentUserId == profileId && currentUserId !== 41) {
+		if (currentUserId == profileId && currentUserId !== 1) {
 			return (
-				<div className="profile-form">
+				<div className="profile-about">
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							Username:
@@ -64,7 +68,8 @@ class UserProfile extends React.Component {
 			);
 		} else {
 			return (
-				<div className="profile">
+				<div className="profile-about">
+					{icons[Math.floor(Math.random() * icons.length)]}
 					<h1>Username: {user.username}</h1>
 					<h3>Email: {user.email}</h3>
 					<h4>About: {user.about}</h4>
@@ -72,19 +77,15 @@ class UserProfile extends React.Component {
 			);
 		}
 	}
-	// return <Redirect to='/somewhere'/>;
+
 	render() {
-		
-		let res;
-		if (this.props.user !== undefined) {
-			res = this.profile();
+		// console.log(this.props);
+		// console.log();
+		if (this.props.profileId === undefined) {
+			return <WrongLink />;
 		} else {
-			if (this.props.errors !== []) {
-				this.props.eraseUserErrors();
-				res = <WrongLink />;
-			}
+			return this.props.user ? this.profile() : null;
 		}
-		return res;
 	}
 }
-export default UserProfile;
+export default withRouter(UserShow);

@@ -1,15 +1,17 @@
 import React from "react";
 import UserProfile from "./user_profile";
 import { connect } from "react-redux";
-import { update, getUser, eraseUserErrors } from "../../actions/user_actions";
+import {
+	update,
+	getUser,
+	eraseUserErrors,
+} from "../../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
 	return {
-		profileId: ownProps.match.params.userId,
 		currentUserId: state.session.currentUser.id,
-		user: state.entities.users[ownProps.match.params.userId],
-		errors: state.errors.user,
-		// missing: Number.isInteger()
+		profileId: ownProps.user ? ownProps.user.id : "redirect",
+		user: ownProps.user,
 	};
 };
 

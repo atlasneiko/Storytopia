@@ -12,9 +12,9 @@ export default (state = [], action) => {
     case DELETE_STORY:
       return action.errors;
     case RECEIVE_STORY:
-      return action.errors;
+      return [];
     case RECEIVE_ALL_STORIES:
-      return action.errors;
+      return [];
     default:
       return state;
   }

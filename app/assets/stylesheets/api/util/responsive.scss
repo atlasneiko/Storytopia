@@ -16,96 +16,9 @@
 }
 
 @media only screen and (max-width: 1200px) {
-	.container {
-		width: 100vw;
-		grid-template-columns: 0.3fr 1.5fr 1.5fr 1fr 0.3fr;
-		#header {
-			display: flex;
-			justify-content: space-between;
-			.nav-links {
-				position: fixed;
-				right: 2%;
-			}
-			.logo {
-				margin-left: 40px;
-			}
-		}
-	}
 }
 
 @media only screen and (max-width: 800px) {
-	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		#header {
-			// margin: 0 auto;
-			align-items: center;
-			flex-direction: column;
-			.nav-links {
-				position: inherit;
-				width: 60vw;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-around;
-				align-items: flex-end;
-			}
-			.message {
-				position: inherit;
-				width: 100vw;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-around;
-				h2 {
-					display: none;
-				}
-				#logout {
-					width: 70px;
-					padding: 0;
-					top: 4px;
-					font-weight: 600;
-					background-color: #b4786b;
-					padding: 2px 3px;
-					border: 0;
-				}
-			}
-			.logo {
-				width: 60vw;
-				font-size: 1em;
-				text-align: center;
-				margin: 0;
-				h1 {
-					font-size: 1.8em;
-				}
-			}
-		}
-	}
-	#demo-button {
-		margin-top: 10px;
-		margin-bottom: 15px;
-	}
-	#session-form {
-		#session-errors {
-			bottom: 15%;
-		}
-	}
-	#user-dropdown-div {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		#user-dropdown-toggle {
-		}
-		#user-dropdown-nav {
-			position: fixed;
-			top: 150px;
-			right: 35px;
-		}
-	}
 }
 @media only screen and (max-width: 300px) {
-	#user-dropdown-div {
-		#user-dropdown-nav {
-			top: 190px;
-		}
-	}
 }

@@ -4,7 +4,7 @@ export default (state = [], action) => {
   switch (action.type) {
     case RECEIVE_USER_ERRORS:
       return action.errors
-    case RECEIVE_USER_ERRORS:
+    case ERASE_USER_ERRORS:
       return []
     case UPDATE_USER:
       return [];
