@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { fetchAllStories } from "../../../actions/story_actions";
 import { getAllUsers } from "../../../actions/user_actions";
-import Main from "./Main";
+import Main from "./main";
 const mSTP = (state, ownProps) => ({
 	stories: state.entities.stories,
 	users: state.entities.users,
