@@ -25,4 +25,3 @@ class UserIndx extends React.Component {
 }
 
 export default UserIndx;
-//
