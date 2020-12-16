@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Clap < ApplicationRecord
-
-
+  validates :user_id, :story_id, :clap_count, presence: true
+  belongs_to :story
+  belongs_to :user
 end
