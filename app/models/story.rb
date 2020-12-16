@@ -7,6 +7,7 @@
 #  subtitle   :string           not null
 #  user_id    :integer          not null
 #  body       :text             not null
+#  img_id     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
