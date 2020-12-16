@@ -1,21 +1,21 @@
 import React from "react";
-import { connect } from "react-redux";
-import {
-	eraseClapErrors,
-	createClap,
-	updateClap,
-} from "../../../actions/clap_actions";
+import { clapIcon } from "../../../util/icon_util";
 
-const mSTP = (state, ownProps) => ({
-	user: state.entities.users[state.session.currentUser.id],
-	story: ownProps.story,
-	claps: state.entities.claps,
-});
+class ClapButton extends React.Component {
+	constructor(props) {
+		super(props);
+		// this.handleClick = this.handleClick.bind(this);
+	}
+	handleClick = () => {
+		if (this.props.typeForm === "create") {
+			this.props.createClap(this.props.clap);
+		} else {
+			this.props.updateClap(this.props.clap);
+		}
+	};
+	render() {
+		return this.props.clap ? <button onClick={}>{clapIcon}</button> : null;
+	}
+}
 
-const mDTP = (dispatch) => ({
-	eraseClapErrors: () => dispatch(eraseClapErrors()),
-	createClap: (clap) => dispatch(createClap(clap)),
-	updateClap: (clap) => dispatch(updateClap(clap)),
-});
-
-export default connect(mSTP, mDTP)();
+export default ClapButton;

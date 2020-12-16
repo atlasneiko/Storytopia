@@ -37,8 +37,8 @@ export const fetchAllClaps = () => dispatch => (
 )
 
 //show
-export const fetchClap = () => dispatch => (
-  ClapAPI.fetchClaps()
+export const fetchClap = (clapId) => dispatch => (
+  ClapAPI.fetchClaps(clapId)
     .then(
       clap => dispatch(receiveClap(clap)),
       err => dispatch(receiveErrors(err.responseJSON))
