@@ -41,9 +41,9 @@ class IndexItem extends React.Component {
 			} else {
 				readTime = "15+ mins";
 			}
-
+			const imgNum = story.imgId || 152;
 			const currImg = (
-				<img className="story-img" src={imgArr[story.imgId]} alt="ghibli img" />
+				<img className="story-img" src={imgArr[imgNum]} alt="ghibli img" />
 			);
 			console.log("story", story);
 			console.log("storyId", story.id);

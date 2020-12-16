@@ -16,11 +16,10 @@ export default ({ stories, users }) => {
 				{/* <h1>The fives</h1> */}
 				{theFives.map((story, i) => (
 					<div key={`the-five-${i}`} id={`the-fives-${i}`}>
-					
-							<TheFiveItem story={story} user={users[story.userId]} />
-							<div>
-								<img src={imgArr[story.imgId]} alt="ghibli img" />
-							</div>
+						<TheFiveItem story={story} user={users[story.userId]} />
+						<div>
+							<img src={imgArr[story.imgId]} alt="ghibli img" />
+						</div>
 					</div>
 				))}
 			</div>

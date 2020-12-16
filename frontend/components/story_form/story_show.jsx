@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { icons, bookmarkIcon, dotsIcon } from "../../util/icon_util";
+import { imgArr } from "../../util/img_utils";
+
 export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 	useEffect(() => {
 		fetchStory(storyId);
 		getAllUsers();
 	}, []);
 
-	// console.log("story", story);
+	console.log("story", story);
 	// console.log("users", users);
 	const icon = icons[Math.floor(Math.random() * icons.length)];
 	if (Object.keys(users).length > 1 && !!story) {
@@ -36,7 +38,7 @@ export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 		} else {
 			readTime = "15+ mins";
 		}
-
+		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
 		return (
 			<div>
 				<h1>{story.title}</h1>
@@ -47,6 +49,7 @@ export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 					{bookmarkIcon}
 					{dotsIcon}
 				</div>
+				{image}
 				<article className="story-show-body">{body}</article>
 				<footer>
 					<p>like!</p>
