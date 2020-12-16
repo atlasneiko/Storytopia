@@ -24,3 +24,10 @@ end
     body: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)).join("<br />")
   )
 end
+600.times do 
+  Clap.create(
+    user_id: rand(1..41),
+    story_id: rand(1..200),
+    clap_count: rand(1..20)
+  )
+end
