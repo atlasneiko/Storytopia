@@ -1,7 +1,7 @@
 export const createClap = (clap) => (
   $.ajax({
     method: "post",
-    url: `/api/clpas`,
+    url: `/api/claps`,
     data: { clap }
   })
 )

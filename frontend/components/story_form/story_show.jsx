@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { icons, bookmarkIcon, dotsIcon } from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
+import CreateClapContainer from "../webpage/clap_button/create_clap_container";
+import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
 
 export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 	useEffect(() => {
@@ -39,6 +41,13 @@ export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 			readTime = "15+ mins";
 		}
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
+
+		const currClap = user.claps.map((clapId) => {
+			if (story.claps.includes(clapId)) {
+				return clapId;
+			}
+		})[0];
+
 		return (
 			<div>
 				<h1>{story.title}</h1>
@@ -62,6 +71,11 @@ export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 					<p>{user.about}</p>
 					<button>Follow</button>
 				</section>
+				{currClap ? (
+					<UpdateClapContainer clap={currClap} />
+				) : (
+					<CreateClapContainer storyId={story.id} />
+				)}
 			</div>
 		);
 	} else {

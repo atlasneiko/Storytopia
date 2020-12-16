@@ -27,12 +27,12 @@ class Api::ClapsController < ApplicationController
   def update
     @clap = Claps.find_by(id: params[:id])
     if @clap && @clap.update(clap_params)
-        render 'api/claps/show'
-      else
-        render json: @clap.errors.full_messages, status: 422
-      end
+      render 'api/claps/show'
+    else
+      render json: @clap.errors.full_messages, status: 422
     end
   end
+  
   
   
 

@@ -1,7 +1,9 @@
 import React from "react";
-import WrongLink from "../../webpage/404";
 import { withRouter } from "react-router-dom";
 import { icons } from "../../../util/icon_util";
+
+import WrongLink from "../../webpage/404";
+
 class UserShow extends React.Component {
 	constructor(props) {
 		super(props);
