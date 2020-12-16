@@ -25,7 +25,7 @@ class Api::ClapsController < ApplicationController
   end
 
   def update
-    @clap = Claps.find_by(id: params[:id])
+    @clap = Clap.find_by(id: params[:id])
     if @clap && @clap.update(clap_params)
       render 'api/claps/show'
     else

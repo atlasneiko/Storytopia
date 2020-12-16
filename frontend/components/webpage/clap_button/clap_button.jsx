@@ -6,11 +6,24 @@ class ClapButton extends React.Component {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
 	}
+	componentDidMount() {
+		this.props.fetchClap(this.props.clapId);
+	}
+
 	handleClick() {
 		if (this.props.typeForm === "create") {
 			this.props.createClap(this.props.clap);
 		} else {
-			this.props.updateClap(this.props.clap);
+			console.log(this.props.clap.clap_count);
+			if (this.props.clap.clap_count < 50) {
+				const output = {
+					...this.props.clap,
+					clap_count: this.props.clap.clap_count + 1,
+				};
+				this.props.updateClap(output);
+			} else {
+				console.log("no more claps");
+			}
 		}
 	}
 	render() {

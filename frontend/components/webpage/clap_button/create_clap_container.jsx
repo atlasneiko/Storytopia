@@ -7,10 +7,9 @@ import {
 	fetchClap,
 } from "../../../actions/clap_actions";
 import ClapButton from "./clap_button";
-
+console.log("create");
 const mSTP = (state, ownProps) => {
 	const userId = state.session.currentUser.id;
-	console.log("currUser", state.session.currentUser.id);
 	return {
 		clap: {
 			user_id: userId,

@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { fetchClap } from "../../actions/clap_actions";
 import { icons, bookmarkIcon, dotsIcon } from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
 import CreateClapContainer from "../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
 
-export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
+export default ({
+	storyId,
+	story,
+	users,
+	fetchStory,
+	getAllUsers,
+	currUser,
+}) => {
 	useEffect(() => {
 		fetchStory(storyId);
 		getAllUsers();
 	}, []);
 
-	console.log("story", story);
-	// console.log("users", users);
 	const icon = icons[Math.floor(Math.random() * icons.length)];
 	if (Object.keys(users).length > 1 && !!story) {
 		const user = users[story.userId];
-
 		let date = story.updatedAt.slice(0, 10).split("-");
 		[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 		date = date.join("/");
@@ -40,13 +45,12 @@ export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 		} else {
 			readTime = "15+ mins";
 		}
-		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
+		const currClap = currUser.claps.filter((clapId) =>
+			story.claps.includes(clapId)
+		)[0];
+		// console.log("currClap", currClap);
 
-		const currClap = user.claps.map((clapId) => {
-			if (story.claps.includes(clapId)) {
-				return clapId;
-			}
-		})[0];
+		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
 
 		return (
 			<div>
@@ -72,7 +76,7 @@ export default ({ storyId, story, users, fetchStory, getAllUsers }) => {
 					<button>Follow</button>
 				</section>
 				{currClap ? (
-					<UpdateClapContainer clap={currClap} />
+					<UpdateClapContainer clapId={currClap} />
 				) : (
 					<CreateClapContainer storyId={story.id} />
 				)}
