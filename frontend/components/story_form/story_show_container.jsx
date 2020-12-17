@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => ({
 	story: state.entities.stories[ownProps.match.params.storyId],
 	users: state.entities.users,
 	currUser: state.entities.users[state.session.currentUser.id],
+	errors: state.errors.clap,
 });
 
 const mDTP = (dispatch) => ({

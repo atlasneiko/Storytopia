@@ -13,6 +13,7 @@ export default ({
 	fetchStory,
 	getAllUsers,
 	currUser,
+	errors,
 }) => {
 	useEffect(() => {
 		fetchStory(storyId);
@@ -45,7 +46,15 @@ export default ({
 		} else {
 			readTime = "15+ mins";
 		}
-
+		const renderErrors = () => {
+			return (
+				<ul id="session-errors">
+					{errors.map((error, i) => (
+						<li key={`error-${i}`}>{error}</li>
+					))}
+				</ul>
+			);
+		};
 		const currClap = currUser
 			? currUser.claps.filter((clapId) => story.claps.includes(clapId))[0]
 			: undefined;
@@ -53,6 +62,7 @@ export default ({
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
 		return (
 			<div>
+				{renderErrors()}
 				<SideProfile user={user} story={story} currUser={currUser} />
 				<h1>{story.title}</h1>
 				<div className="story-show-header">
@@ -76,9 +86,13 @@ export default ({
 					<button>Follow</button>
 				</section>
 				{currClap ? (
-					<UpdateClapContainer clapId={currClap} />
+					<div>
+						<UpdateClapContainer clapId={currClap} />
+					</div>
 				) : (
-					<CreateClapContainer storyId={story.id} />
+					<div>
+						<CreateClapContainer storyId={story.id} />
+					</div>
 				)}
 			</div>
 		);

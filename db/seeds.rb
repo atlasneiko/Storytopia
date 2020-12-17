@@ -27,7 +27,8 @@ end
 600.times do 
   Clap.create(
     user_id: rand(1..41),
-    story_id: rand(1..200),
+    clapable_id: rand(1..200),
+    clapable_type: "Story",
     clap_count: rand(1..20)
   )
 end

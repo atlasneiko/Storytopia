@@ -6,15 +6,17 @@ import {
 	fetchClap,
 } from "../../../actions/clap_actions";
 import ClapButton from "./clap_button";
-console.log("update");
+// console.log("update");
 
 const mSTP = (state, ownProps) => {
 	const clap = state.entities.claps[ownProps.clapId];
+	console.log("update");
 	if (clap) {
 		const snakeClap = {
 			id: clap.id,
 			user_id: clap.userId,
-			story_id: clap.storyId,
+			clapable_id: clap.clapableId,
+			clapable_type: "Story",
 			clap_count: clap.clapCount,
 		};
 		return {

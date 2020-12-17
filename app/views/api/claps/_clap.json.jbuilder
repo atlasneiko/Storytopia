@@ -1,1 +1,1 @@
-json.extract! clap, :id, :user_id, :story_id, :clap_count
+json.extract! clap, :id, :user_id, :clapable_id, :clapable_type, :clap_count

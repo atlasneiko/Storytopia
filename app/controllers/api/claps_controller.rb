@@ -38,6 +38,6 @@ class Api::ClapsController < ApplicationController
 
   private
   def clap_params
-    params.require(:clap).permit(:user_id, :story_id, :clap_count)
+    params.require(:clap).permit(:user_id, :clapable_id, :clap_count, :clapable_type)
   end
 end

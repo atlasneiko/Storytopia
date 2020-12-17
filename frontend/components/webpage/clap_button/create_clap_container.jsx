@@ -13,8 +13,9 @@ const mSTP = (state, ownProps) => {
 		userId: userId,
 		clap: {
 			user_id: userId,
-			story_id: ownProps.storyId,
-			clapCount: 1,
+			clapable_id: ownProps.storyId,
+			clap_count: 1,
+			clapable_type: "Story",
 		},
 		typeForm: "create",
 		history: ownProps.history,
