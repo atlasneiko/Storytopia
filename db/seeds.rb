@@ -15,12 +15,20 @@ User.create(username: 'demo', password:"demoOne2", email:"atlasneiko@gmail.com",
     email: Faker::Internet.email
   )
 end
-120.times do
+200.times do
   Story.create(
     title: Faker::Books::Lovecraft.sentence(word_count: 3, random_words_to_add: 1),
     subtitle: Faker::Books::Lovecraft.tome,
     user_id: rand(1..41),
     img_id: rand(0...950),
-    body: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)).join("<br />")
+    body: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)).join("\n")
+  )
+end
+600.times do 
+  Clap.create(
+    user_id: rand(1..41),
+    clapable_id: rand(1..200),
+    clapable_type: "Story",
+    clap_count: rand(1..20)
   )
 end

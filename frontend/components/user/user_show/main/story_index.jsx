@@ -5,7 +5,6 @@ class StoryIndex extends React.Component {
 	render() {
 		if (this.props.user) {
 			// console.log(this.props.user.stories);
-
 			return (
 				<div className="profile-index">
 					<ul>

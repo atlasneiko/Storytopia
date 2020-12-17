@@ -1,0 +1,46 @@
+import React from "react";
+import { clapIcon } from "../../../util/icon_util";
+
+class ClapButton extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	}
+	componentDidMount() {
+		if (this.props.typeForm !== "create") {
+			this.props.fetchClap(this.props.clapId);
+		}
+	}
+
+	handleClick() {
+		if (this.props.typeForm === "create") {
+			this.props.createClap(this.props.clap);
+			window.location.reload();
+		} else {
+			if (this.props.clap.clap_count < 50) {
+				const output = {
+					...this.props.clap,
+					clap_count: this.props.clap.clap_count + 1,
+				};
+				this.props.updateClap(output);
+				console.log("adding claps");
+			} else {
+				console.log("no more claps");
+			}
+		}
+	}
+	render() {
+		if (this.props.clap && this.props.userId) {
+			if (this.props.clap.clap_count < 50) {
+				console.log(this.props.clap);
+				return <button onClick={() => this.handleClick()}>{clapIcon}</button>;
+			} else {
+				return <p>You have clapped 50 times for this story. Thank you!</p>;
+			}
+		} else {
+			return null;
+		}
+	}
+}
+
+export default ClapButton;

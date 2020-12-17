@@ -21,14 +21,16 @@ export default ({ story, user }) => {
 	return (
 		<li className="sixes-item">
 			{/* need to hold everyting in a Link tag */}
-			<p>
-				{user.username} {icon}
-			</p>
-			<h2>{story.title}</h2>
-			<h3>{story.subtitle}</h3>
-			{/* need to be a link tag too */}
-			<h4>Read More</h4>
-			<p>{readTime}</p>
+			<Link to={`/stories/${story.id}`}>
+				<p>
+					{user.username} {icon}
+				</p>
+				<h2>{story.title}</h2>
+				<h3>{story.subtitle}</h3>
+				{/* need to be a link tag too */}
+				<h4>Read More</h4>
+				<p>{readTime}</p>
+			</Link>
 		</li>
 	);
 };

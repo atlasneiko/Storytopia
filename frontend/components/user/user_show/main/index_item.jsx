@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { imgArr } from "../../../../util/img_utils";
+import EditButtonContainer from "../../../webpage/story_edit_button/story_edit_button_container";
 class IndexItem extends React.Component {
 	constructor(props) {
 		super(props);
@@ -15,12 +17,16 @@ class IndexItem extends React.Component {
 			[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 			date = date.join("/");
 
-			let body = story.body.split("<br />").map((paragraph, i) => (
-				<p key={`${story.id}-${i}`}>
-					{paragraph}
-					<br />
-				</p>
-			));
+			let body = story.body.split("\n").map((paragraph, i) => {
+				if (i === 0) {
+					return (
+						<p key={`${story.id}-${i}`}>
+							{paragraph}
+							<br />
+						</p>
+					);
+				}
+			});
 
 			let readTime = story.body.split(" ").length / 100;
 
@@ -35,19 +41,24 @@ class IndexItem extends React.Component {
 			} else {
 				readTime = "15+ mins";
 			}
-
+			const imgNum = story.imgId || 152;
 			const currImg = (
-				<img className="story-img" src={imgArr[story.imgId]} alt="ghibli img" />
+				<img className="story-img" src={imgArr[imgNum]} alt="ghibli img" />
 			);
-
 			return (
 				<li>
 					<p>{date}</p>
-					<p>{readTime}</p>
 					<h3>{story.title}</h3>
 					<h4>{story.subtitle}</h4>
 					{currImg}
 					<div>{body}</div>
+					<footer>
+						<p>{readTime}</p>
+						<Link to={`/stories/${story.id}`}>
+							<button>Read More</button>
+						</Link>
+						<EditButtonContainer storyId={story.id} userId={story.userId} />
+					</footer>
 				</li>
 			);
 		} else {

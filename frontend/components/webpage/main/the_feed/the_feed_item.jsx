@@ -24,21 +24,23 @@ export default ({ story, user }) => {
 	date = date.join("/");
 	return (
 		<li className="feed-item">
-			{/* need to hold everyting in a Link tag */}
-			<div className="feed-item-info">
-				<p>
-					{icon} {user.username}
-				</p>
-				<h2>{story.title}</h2>
-				<h3>{story.subtitle}</h3>
-				{/* need to be a link tag too */}
-				<div className="feed-item-footer">
-					<p>{date}</p>
-					<p>{readTime}</p>
-					<p>{bookmarkIcon}</p>
-					<p>{dotsIcon}</p>
+			<Link to={`/stories/${story.id}`}>
+				{/* need to hold everyting in a Link tag */}
+				<div className="feed-item-info">
+					<p>
+						{icon} {user.username}
+					</p>
+					<h2>{story.title}</h2>
+					<h3>{story.subtitle}</h3>
+					{/* need to be a link tag too */}
+					<div className="feed-item-footer">
+						<p>{date}</p>
+						<p>{readTime}</p>
+						<p>{bookmarkIcon}</p>
+						<p>{dotsIcon}</p>
+					</div>
 				</div>
-			</div>
+			</Link>
 			<div className="feed-item-img">
 				<img src={imgArr[story.imgId]} alt="ghibli img" />
 			</div>

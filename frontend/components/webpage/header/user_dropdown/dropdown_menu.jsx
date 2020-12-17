@@ -38,7 +38,9 @@ export default ({ user, logout, currIcon }) => {
 			</div>
 			<ul>
 				<li>
-					<p>write a story</p>
+					<Link to="/new-story">
+						<p>write a story</p>
+					</Link>
 				</li>
 				<li>
 					<p>stories</p>
