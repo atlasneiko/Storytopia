@@ -14,6 +14,5 @@ class Clap < ApplicationRecord
   validates :user_id, :clap_count, presence: true
 
   belongs_to :clapable, polymorphic: true
-  # belongs_to :story
   belongs_to :user
 end

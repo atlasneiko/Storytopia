@@ -20,6 +20,7 @@ class User < ApplicationRecord
   validates :password, length:{minimum: 6}, allow_nil: true
 
   has_many :stories
+  has_many :comments
   has_many :claps
 
   has_many :users_following,
