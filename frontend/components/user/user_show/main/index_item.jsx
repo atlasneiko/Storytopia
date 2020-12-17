@@ -17,7 +17,7 @@ class IndexItem extends React.Component {
 			[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 			date = date.join("/");
 
-			let body = story.body.split("<br />").map((paragraph, i) => {
+			let body = story.body.split("\n").map((paragraph, i) => {
 				if (i === 0) {
 					return (
 						<p key={`${story.id}-${i}`}>
@@ -45,8 +45,6 @@ class IndexItem extends React.Component {
 			const currImg = (
 				<img className="story-img" src={imgArr[imgNum]} alt="ghibli img" />
 			);
-			console.log("story", story);
-			console.log("storyId", story.id);
 			return (
 				<li>
 					<p>{date}</p>

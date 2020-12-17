@@ -21,7 +21,7 @@ end
     subtitle: Faker::Books::Lovecraft.tome,
     user_id: rand(1..41),
     img_id: rand(0...950),
-    body: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)).join("<br />")
+    body: Faker::Books::Lovecraft.paragraphs(number: rand(2..5)).join("\n")
   )
 end
 600.times do 

@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 
 import { closeIcon, shuffleIcon } from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
+import DeleteButtonContainer from "./story_delete_button/delete_button_container";
 
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log("constructor", this.props.story);
 		this.state = this.props.story;
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
 		if (this.props.formTypes === "Edit this Story") {
-			console.log("DidMount");
 			this.props.fetchStory(this.props.storyId);
 			if (this.props.story) {
 				this.setState({ img_id: this.props.story.imgId });
@@ -22,8 +21,17 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	componentDidUpdate() {
+		if (
+			this.props.formTypes === "Edit this Story" &&
+			this.state.title === "" &&
+			this.props.story.title !== ""
+		) {
+			this.setState({ ...this.props.story, img_id: this.props.story.imgId });
+		}
+	}
+
 	componentWillUnmount() {
-		// console.log("unmount");
 		this.props.eraseStoryErrors();
 	}
 
@@ -50,13 +58,13 @@ class SessionForm extends React.Component {
 		);
 	}
 	render() {
-		console.log("post fetch story", this.state);
 		if (this.props.story) {
 			return (
 				<div id="story-form-page">
 					<div id="story-form-header">
 						<Link to="/">{closeIcon}</Link>
 						<h1>{this.props.formTypes}</h1>
+						<DeleteButtonContainer storyId={this.props.story.id} />
 					</div>
 					<form onSubmit={this.handleSubmit} id="story-form">
 						{/* story title */}
@@ -99,7 +107,8 @@ class SessionForm extends React.Component {
 						{/* story body */}
 
 						<label id="story-body">
-							<br />
+							<p>word count: {this.state.body.split(" ").length}</p>
+
 							<textarea
 								value={this.state.body}
 								onChange={this.update("body")}

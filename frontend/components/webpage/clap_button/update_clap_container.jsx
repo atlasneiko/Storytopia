@@ -18,6 +18,7 @@ const mSTP = (state, ownProps) => {
 			clap_count: clap.clapCount,
 		};
 		return {
+			userId: state.session.currentUser.id,
 			clap: snakeClap,
 			clapId: ownProps.clapId,
 			typeForm: "update",

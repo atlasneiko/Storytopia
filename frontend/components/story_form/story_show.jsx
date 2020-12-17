@@ -25,13 +25,12 @@ export default ({
 		[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 		date = date.join("/");
 
-		let body = story.body.split("<br />").map((paragraph, i) => (
+		let body = story.body.split("\n").map((paragraph, i) => (
 			<p key={`${story.id}-${i}`}>
 				{paragraph}
 				<br />
 			</p>
 		));
-
 		let readTime = story.body.split(" ").length / 100;
 
 		if (readTime < 2) {
@@ -45,13 +44,12 @@ export default ({
 		} else {
 			readTime = "15+ mins";
 		}
-		const currClap = currUser.claps.filter((clapId) =>
-			story.claps.includes(clapId)
-		)[0];
-		// console.log("currClap", currClap);
 
+		const currClap = currUser
+			? currUser.claps.filter((clapId) => story.claps.includes(clapId))[0]
+			: undefined;
+		console.log("currClap", currClap);
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
-
 		return (
 			<div>
 				<h1>{story.title}</h1>

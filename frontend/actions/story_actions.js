@@ -68,7 +68,7 @@ export const editStory = story => dispatch => (
     )
 )
 export const removeStory = storyId => dispatch => (
-  StoryAPI.deleteStory
+  StoryAPI.deleteStory(storyId)
     .then(
       () => dispatch(deleteStory(storyId)),
       err => dispatch(receiveErrors(err.responseJSON))
