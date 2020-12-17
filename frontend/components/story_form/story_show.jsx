@@ -4,6 +4,7 @@ import { icons, bookmarkIcon, dotsIcon } from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
 import CreateClapContainer from "../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
+import SideProfile from "./side_profile/side_profile";
 
 export default ({
 	storyId,
@@ -52,6 +53,7 @@ export default ({
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
 		return (
 			<div>
+				<SideProfile user={user} story={story} currUser={currUser} />
 				<h1>{story.title}</h1>
 				<div className="story-show-header">
 					{icon}
