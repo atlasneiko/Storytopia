@@ -16,7 +16,9 @@ class Story < ApplicationRecord
   include Clapable
   validates :title, :body, :user_id, presence: true
   belongs_to :user
-  # has_many :claps  
+  has_many :comments
+  has_many :claps,
+    as: :clapable
   
 
 end
