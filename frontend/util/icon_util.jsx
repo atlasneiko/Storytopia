@@ -16,6 +16,7 @@ import {
 	faGlobeAmericas,
 	faRandom,
 	faSignLanguage,
+	faComment,
 } from "@fortawesome/free-solid-svg-icons";
 export const searchIcon = (
 	<FontAwesomeIcon icon={faSearch} className="search-icon" />
@@ -40,7 +41,11 @@ export const shuffleIcon = (
 
 export const clapIcon = (
 	<FontAwesomeIcon icon={faSignLanguage} className="clap-icon" />
-)
+);
+
+export const commentIcon = (
+	<FontAwesomeIcon icon={faComment} className="comment-icon" />
+);
 
 //random icons start
 export const colors = ["#131917", "#2d424a", "#5f6468", "#b4786b", "#612a11"];
