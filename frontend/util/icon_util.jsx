@@ -17,7 +17,13 @@ import {
 	faRandom,
 	faSignLanguage,
 	faComment,
+	faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
+
+export const removeIcon = (
+	<FontAwesomeIcon icon={faTrashAlt} className="remove-icon" />
+);
+
 export const searchIcon = (
 	<FontAwesomeIcon icon={faSearch} className="search-icon" />
 );

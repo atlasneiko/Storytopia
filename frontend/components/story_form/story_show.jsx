@@ -5,6 +5,7 @@ import { imgArr } from "../../util/img_utils";
 import CreateClapContainer from "../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
 import SideProfile from "./side_profile/side_profile";
+import PostCommentContainer from "../comment/comment_post_container.";
 
 export default ({
 	storyId,
@@ -58,12 +59,12 @@ export default ({
 		const currClap = currUser
 			? currUser.claps.filter((clapId) => story.claps.includes(clapId))[0]
 			: undefined;
-		console.log("currClap", currClap);
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
 		return (
 			<div id="user-show">
 				{/* {renderErrors()} */}
 				<SideProfile user={user} story={story} currUser={currUser} />
+				<PostCommentContainer storyId={story.id} username={user.username} />
 				<div className="story-show">
 					<div className="story-show-header">
 						<h1>{story.title}</h1>

@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENT_ERRORS, ERASE_COMMENT_ERRORS } from '../actions/clap_actions'
+import { RECEIVE_COMMENT_ERRORS, ERASE_COMMENT_ERRORS } from '../actions/comment_actions'
 
 export default (state = [], action) => {
   switch (action.type) {
