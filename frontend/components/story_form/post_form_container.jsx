@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => ({
 		title: "",
 		subtitle: "",
 		body: "",
-		img_id: 1,
+		img_id: 151,
 		user_id: state.session.currentUser.id,
 	},
 });
