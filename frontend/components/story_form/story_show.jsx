@@ -61,39 +61,42 @@ export default ({
 		console.log("currClap", currClap);
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
 		return (
-			<div>
-				{renderErrors()}
+			<div id="user-show">
+				{/* {renderErrors()} */}
 				<SideProfile user={user} story={story} currUser={currUser} />
-				<h1>{story.title}</h1>
-				<div className="story-show-header">
-					{icon}
-					<p>{user.username}</p>
-					<p>{date}</p>
-					{bookmarkIcon}
-					{dotsIcon}
+				<div className="story-show">
+					<div className="story-show-header">
+						<h1>{story.title}</h1>
+						{icon}
+						<p>{user.username}</p>
+						<p>{date}</p>
+						{bookmarkIcon}
+						{dotsIcon}
+					</div>
+					{image}
+					<article className="story-show-body">{body}</article>
+					<footer>
+						<button>
+							<p>comment</p>
+						</button>
+						{bookmarkIcon}
+						{dotsIcon}
+					</footer>
+					<section>
+						<h2>{user.username}</h2>
+						<p>{user.about}</p>
+						<button>Follow</button>
+					</section>
+					{currClap ? (
+						<div>
+							<UpdateClapContainer clapId={currClap} />
+						</div>
+					) : (
+						<div>
+							<CreateClapContainer storyId={story.id} />
+						</div>
+					)}
 				</div>
-				{image}
-				<article className="story-show-body">{body}</article>
-				<footer>
-					<p>like!</p>
-					<p>comment</p>
-					{bookmarkIcon}
-					{dotsIcon}
-				</footer>
-				<section>
-					<h2>{user.username}</h2>
-					<p>{user.about}</p>
-					<button>Follow</button>
-				</section>
-				{currClap ? (
-					<div>
-						<UpdateClapContainer clapId={currClap} />
-					</div>
-				) : (
-					<div>
-						<CreateClapContainer storyId={story.id} />
-					</div>
-				)}
 			</div>
 		);
 	} else {
