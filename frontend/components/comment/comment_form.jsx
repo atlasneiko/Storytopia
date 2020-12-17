@@ -7,29 +7,12 @@ class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { comment: this.props.comment, display: this.props.display };
+		this.currIcon = icons[Math.floor(Math.random() * icons.length)];
+
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.toggleDisplay = this.toggleDisplay.bind(this);
 	}
-
-	// componentDidMount() {
-	// 	if (this.props.formTypes === "Edit a Comment") {
-	// 		this.props.fetchStory(this.props.storyId);
-	// 		if (this.props.story) {
-	// 			this.setState({ img_id: this.props.story.imgId });
-	// 		}
-	// 	}
-	// }
-
-	// componentDidUpdate() {
-	// 	if (
-	// 		this.props.formTypes === "Edit this Story" &&
-	// 		this.state.title === "" &&
-	// 		this.props.story.title !== ""
-	// 	) {
-	// 		this.setState({ ...this.props.story, img_id: this.props.story.imgId });
-	// 	}
-	// }
 
 	componentWillUnmount() {
 		this.props.eraseCommentErrors();
@@ -52,7 +35,10 @@ class SessionForm extends React.Component {
 	}
 
 	update(field) {
-		return (e) => this.setState({ [field]: e.target.value });
+		return (e) =>
+			this.setState({
+				comment: { ...this.state.comment, [field]: e.target.value },
+			});
 	}
 
 	renderErrors() {
@@ -65,8 +51,7 @@ class SessionForm extends React.Component {
 		);
 	}
 	render() {
-		const currIcon = icons[Math.floor(Math.random() * icons.length)];
-
+		console.log(this.state);
 		if (this.props.comment && this.state.display) {
 			return (
 				<div id="comment-form-page">
@@ -77,7 +62,7 @@ class SessionForm extends React.Component {
 							<button onClick={this.handleDelete}>{removeIcon}</button>
 						) : null}
 						<div className="comment-user-info">
-							{currIcon}
+							{this.currIcon}
 							{this.props.username}
 						</div>
 						{/* <DeleteButtonContainer commentId={this.props.comment.id} /> */}

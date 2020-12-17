@@ -20,6 +20,9 @@ export default ({
 		fetchStory(storyId);
 		getAllUsers();
 	}, []);
+	const [displayComment, toggleDisplay] = useState(false);
+	console.log(displayComment);
+	const handleToggle = () => toggleDisplay((displayComment) => !displayComment);
 
 	const icon = icons[Math.floor(Math.random() * icons.length)];
 	if (Object.keys(users).length > 1 && !!story) {
@@ -64,7 +67,9 @@ export default ({
 			<div id="user-show">
 				{/* {renderErrors()} */}
 				<SideProfile user={user} story={story} currUser={currUser} />
-				<PostCommentContainer storyId={story.id} username={user.username} />
+				{displayComment ? (
+					<PostCommentContainer storyId={story.id} username={user.username} />
+				) : null}
 				<div className="story-show">
 					<div className="story-show-header">
 						<h1>{story.title}</h1>
@@ -77,7 +82,7 @@ export default ({
 					{image}
 					<article className="story-show-body">{body}</article>
 					<footer>
-						<button>
+						<button onClick={() => handleToggle()}>
 							<p>comment</p>
 						</button>
 						{bookmarkIcon}
