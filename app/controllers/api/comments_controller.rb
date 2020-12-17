@@ -1,6 +1,7 @@
 class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
+    @comment.story_id = params[:story_id]
     if @comment.save
       render "api/comments/show"
     else
@@ -11,6 +12,7 @@ class Api::CommentsController < ApplicationController
 
   def update
     @comment = current_user.comments.find_by(id: params[:id])
+    @comment.story_id = params[:story_id]
     if @comment
       if @comment.update(comment_params)
         render "api/comments/show"
@@ -33,6 +35,6 @@ class Api::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :story_id, :body)
+    params.require(:comment).permit(:user_id, :body, :story_id, :id)
   end
 end
