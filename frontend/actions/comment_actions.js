@@ -16,7 +16,8 @@ const receiveComment = comment => ({
 })
 
 const deleteComment = commentId => ({
-  type: DELETE_COMMENT
+  type: DELETE_COMMENT,
+  commentId
 })
 
 const receiveErrors = errors => ({
@@ -43,7 +44,7 @@ export const updateComment = (comment) => dispatch => (
     )
 )
 
-export const deleteComment = (comment) => dispatch => (
+export const removeComment = (comment) => dispatch => (
   PostApiUtil.deleteComment
     .then(
       () => dispatch(deleteComment(comment.id)),
