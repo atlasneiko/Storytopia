@@ -8,7 +8,4 @@ module Clapable
       dependent: :destroy
   end
 
-  def receive_clap(name)
-    slef.claps.find_or_create_by(name)
-  end
 end
