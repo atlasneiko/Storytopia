@@ -18,6 +18,8 @@ class Following < ApplicationRecord
   belongs_to :follower,
     class_name: :User
 
+
+
   def no_narcissist
     if self.followee_id == self.follower_id
       self.errors[:User] << "No NARCISSISTS!"

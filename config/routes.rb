@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create, :destroy]
     resources :claps, only:[:create, :update, :show, :index]
     resources :stories, only: [:create, :update, :index, :show, :destroy]
-
+    post '/followings/:id', to: 'followings#create'
+    delete '/followings/:id', to: 'followings#destroy'
   end
 end
