@@ -20,15 +20,26 @@ class User < ApplicationRecord
   validates :password, length:{minimum: 6}, allow_nil: true
 
   has_many :stories
+  has_many :comments
   has_many :claps
 
-  # has_many :followees, 
-  #   foreign_key: followee_id, 
-  #   class_name: :Following
+  has_many :users_following,
+    foreign_key: :followee_id,
+    class_name: :Following
+  
+  has_many :user_follows,
+    foreign_key: :follower_id,
+    class_name: :Following
 
-  # has_many :followers, 
-  #   foreign_key: :follower_id, 
-  #   class_name: Following
+  has_many :followers,
+    through: :users_following,
+    source: :follower
+
+  has_many :followee,
+    through: :user_follows,
+    source: :followee
+
+
 
   attr_reader :password
   
