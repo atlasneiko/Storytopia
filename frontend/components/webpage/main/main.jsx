@@ -1,6 +1,6 @@
 import React from "react";
 import UserIndexContainer from "../../user/user_index_container";
-import TheFives from "./the_fives/the_fives";
+import TheFives from "./the_fives/the_fives_container";
 import TheSixes from "./the_hot_sixes/the_hot_sixes";
 import TheFeed from "./the_feed/the_feed";
 import Footer from "../footer/footer";

@@ -2,7 +2,7 @@ import TheFiveItem from "./the_five_item";
 import React, { useEffect } from "react";
 import { imgArr } from "../../../../util/img_utils";
 import { Link } from "react-router-dom";
-export default ({ stories, users }) => {
+export default ({ stories, users, getAllUsers, fetchAllStories }) => {
 	if (Object.keys(stories).length >= 115 && Object.keys(users).length >= 40) {
 		const theFives = [];
 		for (let i = 0; i < 5; i++) {

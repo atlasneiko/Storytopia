@@ -116,6 +116,7 @@ class SessionForm extends React.Component {
 								autoComplete="off"
 								placeholder="This is where the magic begins"
 							/>
+
 							{this.props.errors.includes("Body can't be blank") ? (
 								<p className="session-error">Body can't be blank</p>
 							) : null}

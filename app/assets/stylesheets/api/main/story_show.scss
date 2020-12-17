@@ -1,0 +1,25 @@
+#user-show {
+	grid-area: main;
+	display: grid;
+	width: 80vw;
+	margin: 0 auto;
+	grid-template-rows: 1fr 400px 350px;
+	grid-template-columns: 0.2fr 1fr 0.2fr;
+	grid-template-areas:
+		"sidebar story ."
+		". . ."
+		". . .";
+	.story-sidebar {
+		grid-area: sidebar;
+		position: sticky;
+		margin-top: 150px;
+		top: 300px;
+	}
+	.story-show {
+		grid-area: story;
+		img {
+			width: 90%;
+			margin: 0 auto;
+		}
+	}
+}

@@ -30,6 +30,28 @@
 #splash {
 	grid-area: feed-header;
 	background-color: #ffc017;
+	display: grid;
+	grid-template-columns: 0.5fr 1fr 0.5fr 1fr 0.5fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: ". quote . globe .";
+
+	.splash-quote {
+		grid-area: quote;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		h4 {
+			font-size: 35px;
+		}
+		p {
+			text-align: right;
+		}
+	}
+	.globe-icon {
+		margin-top: 85px;
+		grid-area: globe;
+		font-size: 300px;
+	}
 }
 
 #users-index {
