@@ -10,7 +10,6 @@ import ClapButton from "./clap_button";
 
 const mSTP = (state, ownProps) => {
 	const clap = state.entities.claps[ownProps.clapId];
-	console.log("update");
 	if (clap) {
 		const snakeClap = {
 			id: clap.id,

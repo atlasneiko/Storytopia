@@ -5,7 +5,7 @@ import { imgArr } from "../../util/img_utils";
 import CreateClapContainer from "../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
 import SideProfile from "./side_profile/side_profile";
-import PostCommentContainer from "../comment/comment_post_container.";
+import CommentPage from "../comment/comment_page";
 
 export default ({
 	storyId,
@@ -68,7 +68,11 @@ export default ({
 				{/* {renderErrors()} */}
 				<SideProfile user={user} story={story} currUser={currUser} />
 				{displayComment ? (
-					<PostCommentContainer storyId={story.id} username={user.username} />
+					<CommentPage
+						username={currUser.username}
+						storyId={storyId}
+						comments={story.comments}
+					/>
 				) : null}
 				<div className="story-show">
 					<div className="story-show-header">
