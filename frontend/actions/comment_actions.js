@@ -37,7 +37,7 @@ export const createComment = comment => dispatch => (
 )
 
 export const updateComment = (comment) => dispatch => (
-  PostApiUtil.updateComment(comment)
+  CommentAPI.updateComment(comment)
     .then(
       (comment) => dispatch(receiveComment(comment)),
       (err) => dispatch(receiveErrors(err.responseJSON))

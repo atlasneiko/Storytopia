@@ -9,6 +9,7 @@ export default ({ username, storyId, comments }) => {
 	let postForm = postFormDisplay ? (
 		<PostCommentContainer storyId={storyId} username={username} />
 	) : (
+		// <h1>hi</h1>
 		<button onClick={() => togglePost()}>Fake Post Form</button>
 	);
 	return (

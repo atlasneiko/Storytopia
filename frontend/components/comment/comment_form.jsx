@@ -6,7 +6,7 @@ import { closeIcon, removeIcon, icons } from "../../util/icon_util";
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { comment: this.props.comment, display: this.props.display };
+		this.state = { comment: this.props.comment };
 		this.currIcon = icons[Math.floor(Math.random() * icons.length)];
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,9 +20,15 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props
-			.action(this.state.comment)
-			.then((res) => this.props.history.push("/"));
+		const snakeComment = {
+			body: this.state.comment.body,
+			user_id: this.state.comment.userId,
+			story_id: this.state.comment.storyId,
+		};
+		console.log(snakeComment);
+		this.props.action(snakeComment);
+		this.props.toggleAction();
+		window.location.reload();
 	}
 
 	handleDelete() {
@@ -30,8 +36,7 @@ class SessionForm extends React.Component {
 	}
 
 	toggleDisplay(e) {
-		e.preventDefault();
-		this.setState({ display: !this.state.display });
+		this.props.toggleAction();
 	}
 
 	update(field) {
@@ -42,6 +47,7 @@ class SessionForm extends React.Component {
 	}
 
 	renderErrors() {
+		console.log(this.props.componentDisplay);
 		return (
 			<ul id="session-errors">
 				{this.props.errors.map((error, i) => (
@@ -51,12 +57,11 @@ class SessionForm extends React.Component {
 		);
 	}
 	render() {
-		console.log(this.state);
-		if (this.props.comment && this.state.display) {
+		if (this.props.comment) {
 			return (
 				<div id="comment-form-page">
 					<div id="comment-form-header">
-						<Link to="/">{closeIcon}</Link>
+						<button onClick={() => this.toggleDisplay()}>{closeIcon}</button>
 						<h1>{this.props.formTypes}</h1>
 						{this.props.formType === "Edit a Comment" ? (
 							<button onClick={this.handleDelete}>{removeIcon}</button>
@@ -89,7 +94,7 @@ class SessionForm extends React.Component {
 							<button type="submit">{this.props.formTypes}</button>
 						</div>
 					</form>
-					<button onClick={this.toggleDisplay}>Cancel</button>
+					<button onClick={() => this.toggleDisplay()}>Cancel</button>
 				</div>
 			);
 		} else {
