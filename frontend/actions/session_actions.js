@@ -5,6 +5,8 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
 export const RECEIVE_DEMO = 'RECEIVE_DEMO'
 export const ERASE_SESSION_ERRORS = 'ERASE_SESSION_ERRORS';
+export const TOGGLE_COMMENT_PAGE = 'TOGGLE_COMMENT_PAGE';
+export const TOGGLE_COMMENT_EDIT = 'TOGGLE_COMMENT_EDIT';
 
 export const receiveDemo = () => ({
   type: RECEIVE_DEMO
@@ -14,7 +16,13 @@ export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
 })
-
+// toggle comment components
+export const toggleCommentPage = () => ({
+  type: TOGGLE_COMMENT_PAGE
+})
+export const toggleCommentEidt = () => ({
+  type: TOGGLE_COMMENT_EDIT
+})
 
 
 export const logoutCurrentUser = () => ({

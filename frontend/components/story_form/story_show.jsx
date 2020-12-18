@@ -4,7 +4,8 @@ import { icons, bookmarkIcon, dotsIcon } from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
 import CreateClapContainer from "../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
-import SideProfile from "./side_profile/side_profile";
+import SideProfile from "./side_profile/side_profile_container";
+import CommentPage from "../comment/comment_page";
 
 export default ({
 	storyId,
@@ -14,12 +15,15 @@ export default ({
 	getAllUsers,
 	currUser,
 	errors,
+	toggleCommentPage,
+	commentPageDisplay,
 }) => {
 	useEffect(() => {
 		fetchStory(storyId);
 		getAllUsers();
 	}, []);
-
+	const handleToggle = () => toggleCommentPage();
+	// const [comments, setComments] = useState(story.comments);
 	const icon = icons[Math.floor(Math.random() * icons.length)];
 	if (Object.keys(users).length > 1 && !!story) {
 		const user = users[story.userId];
@@ -58,12 +62,19 @@ export default ({
 		const currClap = currUser
 			? currUser.claps.filter((clapId) => story.claps.includes(clapId))[0]
 			: undefined;
-		console.log("currClap", currClap);
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
+		// console.log(story);
 		return (
 			<div id="user-show">
 				{/* {renderErrors()} */}
 				<SideProfile user={user} story={story} currUser={currUser} />
+				{commentPageDisplay ? (
+					<CommentPage
+						username={currUser.username}
+						storyId={storyId}
+						comments={story.comments}
+					/>
+				) : null}
 				<div className="story-show">
 					<div className="story-show-header">
 						<h1>{story.title}</h1>
@@ -76,7 +87,7 @@ export default ({
 					{image}
 					<article className="story-show-body">{body}</article>
 					<footer>
-						<button>
+						<button onClick={() => handleToggle()}>
 							<p>comment</p>
 						</button>
 						{bookmarkIcon}

@@ -5,7 +5,7 @@ import { closeIcon, shuffleIcon } from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
 import DeleteButtonContainer from "./story_delete_button/delete_button_container";
 
-class SessionForm extends React.Component {
+class StoryForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = this.props.story;
@@ -50,7 +50,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
 		return (
-			<ul id="session-errors">
+			<ul id="story-errors">
 				{this.props.errors.map((error, i) => (
 					<li key={`error-${i}`}>{error}</li>
 				))}
@@ -118,12 +118,12 @@ class SessionForm extends React.Component {
 							/>
 
 							{this.props.errors.includes("Body can't be blank") ? (
-								<p className="session-error">Body can't be blank</p>
+								<p className="story-error">Body can't be blank</p>
 							) : null}
 						</label>
 						<br />
 
-						<div id="session-buttons">
+						<div id="story-buttons">
 							<button type="submit">{this.props.formTypes}</button>
 						</div>
 					</form>
@@ -135,4 +135,4 @@ class SessionForm extends React.Component {
 	}
 }
 
-export default SessionForm;
+export default StoryForm;

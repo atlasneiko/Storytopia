@@ -23,16 +23,12 @@ class ClapButton extends React.Component {
 					clap_count: this.props.clap.clap_count + 1,
 				};
 				this.props.updateClap(output);
-				console.log("adding claps");
-			} else {
-				console.log("no more claps");
 			}
 		}
 	}
 	render() {
 		if (this.props.clap && this.props.userId) {
 			if (this.props.clap.clap_count < 50) {
-				console.log(this.props.clap);
 				return <button onClick={() => this.handleClick()}>{clapIcon}</button>;
 			} else {
 				return <p>You have clapped 50 times for this story. Thank you!</p>;

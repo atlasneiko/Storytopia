@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				currentUser: {
 					id: window.currentUser.id,
 				},
+				commentPageDisplay: false,
+				commentEditDisplay: false,
 			},
 		};
 		store = configureStore(preloadedState);
