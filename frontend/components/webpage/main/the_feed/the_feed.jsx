@@ -35,7 +35,7 @@ export default function TheFeed({
 		[pageNumber]
 	);
 
-	if (storyArr.length >= 115 && Object.keys(users).length >= 40) {
+	if (storyArr.length >= 50 && Object.keys(users).length >= 20) {
 		return (
 			<div id="feed">
 				{currFeedArr.map((storyIdx) => (
