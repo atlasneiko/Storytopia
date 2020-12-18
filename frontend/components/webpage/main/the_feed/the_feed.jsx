@@ -46,9 +46,13 @@ export default function TheFeed({
 					/>
 				))}
 				{pageNumber < maxPage ? (
-					<h1 ref={loadMore}>Loading...</h1>
+					<div ref={loadMore} id="loading">
+						<h1>Loading...</h1>
+					</div>
 				) : (
-					<h1>The end</h1>
+					<div id="feed-bottom">
+						<h1>Welcome to the pit bottom</h1>
+					</div>
 				)}
 			</div>
 		);

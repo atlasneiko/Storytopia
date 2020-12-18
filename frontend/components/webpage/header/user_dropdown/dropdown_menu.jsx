@@ -31,33 +31,36 @@ export default ({ user, logout, currIcon }) => {
 				<h2>{currIcon}</h2>
 				<div>
 					<p id="dropdown-username">{user.username}</p>
-					<Link to={`/users/${user.id}`} id="dropdown-profile-link">
+					<Link
+						to={`/users/${user.id}`}
+						id="dropdown-profile-link"
+						className="dropdown-links"
+					>
 						<p>@{user.username}</p>
 					</Link>
 				</div>
 			</div>
 			<ul>
 				<li>
-					<Link to="/new-story">
-						<p>write a story</p>
+					<Link to="/new-story" className="dropdown-links">
+						write a story
+					</Link>
+				</li>
+				<li>stories</li>
+				<li>states</li>
+				<li>
+					<Link
+						to={`/users/${user.id}`}
+						className="dropdown-links"
+						id="to-profile"
+					>
+						profile
 					</Link>
 				</li>
 				<li>
-					<p>stories</p>
-				</li>
-				<li>
-					<p>states</p>
-				</li>
-				<li>
-					<Link to={`/users/${user.id}`}>profile</Link>
-				</li>
-				<li>
-					<Link to={`/users/${user.id}`}>
-						<p id="contact-me">get in touch 0w0</p>
-					</Link>
-				</li>
-				<li>
-					<button onClick={logout}>Log out</button>
+					<button onClick={logout} id="dropdown-logout">
+						Log out
+					</button>
 				</li>
 			</ul>
 		</nav>

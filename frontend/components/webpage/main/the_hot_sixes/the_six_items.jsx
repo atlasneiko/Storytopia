@@ -22,14 +22,17 @@ export default ({ story, user }) => {
 		<li className="sixes-item">
 			{/* need to hold everyting in a Link tag */}
 			<Link to={`/stories/${story.id}`}>
-				<p>
-					{user.username} {icon}
-				</p>
+				<h5>
+					{icon}
+					<span className="inline-space"></span>
+					{user.username}
+				</h5>
 				<h2>{story.title}</h2>
+
 				<h3>{story.subtitle}</h3>
 				{/* need to be a link tag too */}
 				<h4>Read More</h4>
-				<p>{readTime}</p>
+				<p>{readTime} read</p>
 			</Link>
 		</li>
 	);

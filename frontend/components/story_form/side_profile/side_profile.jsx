@@ -1,5 +1,5 @@
 import React from "react";
-import { bookmarkIcon } from "../../../util/icon_util";
+import { bookmarkIcon, commentIcon } from "../../../util/icon_util";
 import CreateClapContainer from "../../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../../webpage/clap_button/update_clap_container";
 export default ({
@@ -16,16 +16,17 @@ export default ({
 	const handleToggle = () => toggleCommentPage();
 	return (
 		<aside className="story-sidebar">
-			<h2>{user.username}</h2>
+			<h3>{user.username}</h3>
 			<p>{user.about}</p>
-			{currClapId ? (
-				<UpdateClapContainer clapId={currClapId} />
-			) : (
-				<CreateClapContainer storyId={story.id} />
-			)}
-			<p>comment button goes here</p>
-			{bookmarkIcon}
-			<button onClick={() => handleToggle()}>Comment</button>
+			<div>
+				{currClapId ? (
+					<UpdateClapContainer clapId={currClapId} />
+				) : (
+					<CreateClapContainer storyId={story.id} />
+				)}
+				{bookmarkIcon}
+				<button onClick={() => handleToggle()}>{commentIcon}</button>
+			</div>
 		</aside>
 	);
 };

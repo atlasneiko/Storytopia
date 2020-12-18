@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { fetchClap } from "../../actions/clap_actions";
-import { icons, bookmarkIcon, dotsIcon } from "../../util/icon_util";
+import {
+	icons,
+	bookmarkIcon,
+	dotsIcon,
+	commentIcon,
+} from "../../util/icon_util";
 import { imgArr } from "../../util/img_utils";
 import CreateClapContainer from "../webpage/clap_button/create_clap_container";
 import UpdateClapContainer from "../webpage/clap_button/update_clap_container";
@@ -76,24 +81,28 @@ export default ({
 					/>
 				) : null}
 				<div className="story-show">
+					<h1>{story.title}</h1>
 					<div className="story-show-header">
-						<h1>{story.title}</h1>
-						{icon}
-						<p>{user.username}</p>
-						<p>{date}</p>
-						{bookmarkIcon}
-						{dotsIcon}
+						<div id="story-header-info">
+							<span>{icon}</span>
+							<div>
+								<h5>{user.username}</h5>
+								<p> {date}</p>
+							</div>
+						</div>
+						<div id="story-header-nav">
+							{bookmarkIcon}
+							{dotsIcon}
+						</div>
 					</div>
 					{image}
 					<article className="story-show-body">{body}</article>
 					<footer>
-						<button onClick={() => handleToggle()}>
-							<p>comment</p>
-						</button>
+						<button onClick={() => handleToggle()}>{commentIcon}</button>
 						{bookmarkIcon}
 						{dotsIcon}
 					</footer>
-					<section>
+					{/* <section>
 						<h2>{user.username}</h2>
 						<p>{user.about}</p>
 						<button>Follow</button>
@@ -106,7 +115,7 @@ export default ({
 						<div>
 							<CreateClapContainer storyId={story.id} />
 						</div>
-					)}
+					)} */}
 				</div>
 			</div>
 		);

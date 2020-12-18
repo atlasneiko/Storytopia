@@ -16,16 +16,21 @@ export default ({ comment, user, getUser }) => {
 		if (!editDisplay) {
 			return (
 				<div className="comment-item">
-					<header></header>
-					{currIcon}
-					{user.username}
-					{date}
-					<section>{comment.body}</section>
-					<aside>
-						{clapIcon}
-						<br />
-						{commentIcon}
-					</aside>
+					<header>
+						{currIcon}
+						<span className="inline-space" />
+						{user.username}
+						<span className="inline-space" />
+						{date}
+					</header>
+					<div>
+						<section>{comment.body}</section>
+						<aside>
+							{clapIcon}
+							<br />
+							{commentIcon}
+						</aside>
+					</div>
 					<button onClick={() => toggleDisplay()}>Edit this post</button>
 				</div>
 			);

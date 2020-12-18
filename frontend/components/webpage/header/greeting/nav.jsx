@@ -42,11 +42,11 @@ export default ({ currentUser, logout, loggedIn }) => {
 		let date = new Date();
 		let hour = date.getHours();
 		if (hour >= 5 && hour <= 12) {
-			return "Good morning. ";
+			return <p>Good morning.</p>;
 		} else if (hour > 12 && hour < 18) {
-			return "Good afternoon. ";
+			return <p>Good afternoon.</p>;
 		} else {
-			return "Good evening. ";
+			return <p>Good evening.</p>;
 		}
 	};
 
@@ -56,6 +56,9 @@ export default ({ currentUser, logout, loggedIn }) => {
 			<div id="nav-util">
 				{bookmarkIcon}
 				{bellIcon}
+				<Link to="/new-story" id="write-button">
+					Write
+				</Link>
 				<UserDropdown currIcon={currIcon} />
 			</div>
 		</div>

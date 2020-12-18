@@ -10,7 +10,9 @@ export default ({ username, storyId, comments }) => {
 		<PostCommentContainer storyId={storyId} username={username} />
 	) : (
 		// <h1>hi</h1>
-		<button onClick={() => togglePost()}>Fake Post Form</button>
+		<button onClick={() => togglePost()} id="post-form-toggle">
+			<h3>Post a comment?</h3>
+		</button>
 	);
 	return (
 		<div className="comment-page">

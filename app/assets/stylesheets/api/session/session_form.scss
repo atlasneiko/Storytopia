@@ -6,6 +6,7 @@
 	height: 550px;
 	margin: 0 auto;
 	box-shadow: 2px 2px gray;
+	border-radius: 5px;
 	#session-form-header {
 		a {
 			width: 100%;
@@ -22,25 +23,43 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		border-radius: 5px;
 		label {
 			text-align: center;
 			height: 70px;
+			color: #5f6468;
+			font-weight: 400;
 		}
 		.session-error {
 			color: red;
 			margin: 0;
 		}
-
+		input {
+			margin-top: 5px;
+		}
 		#session-buttons {
 			width: 50%;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 			margin-bottom: 50px;
+			font-weight: 600px;
+			button {
+				border: 0;
+				font-weight: 700;
+				p {
+					color: #5f6468;
+				}
+			}
 		}
 	}
 }
 
 #demo-button {
 	cursor: pointer;
+	font-weight: 600;
+	color: lightgrey;
+	background-color: #44a341;
+	padding: 5px;
+	border-radius: 5px;
 }

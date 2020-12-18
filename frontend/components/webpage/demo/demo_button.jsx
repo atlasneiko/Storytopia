@@ -5,7 +5,7 @@ export default (props) => {
 	const { user, login, receiveDemo } = props;
 	return (
 		<div id="demo-button" onClick={() => login(user)}>
-			Demo Login
+			Demo
 		</div>
 	);
 };
