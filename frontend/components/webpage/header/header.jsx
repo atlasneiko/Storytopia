@@ -10,9 +10,9 @@ export default () => {
 		<div id="entrance-header">
 			<Link to="/" className="logo">
 				<h1>
-					<span>
-						<FontAwesomeIcon icon={faBroom} />
-					</span>
+					{/* <span> */}
+					<FontAwesomeIcon icon={faBroom} />
+					{/* </span> */}
 					Storytopia
 				</h1>
 			</Link>
@@ -21,4 +21,3 @@ export default () => {
 		</div>
 	);
 };
-

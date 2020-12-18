@@ -31,9 +31,9 @@ class UserShow extends React.Component {
 		return (
 			<div className="profile">
 				{icons[Math.floor(Math.random() * icons.length)]}
-				<h1>Username: {user.username}</h1>
-				<h3>Email: {user.email}</h3>
-				<h4>About: {user.about}</h4>
+				<p>About</p>
+				<h3>{user.username}</h3>
+				<p>{user.about}</p>
 			</div>
 		);
 	}

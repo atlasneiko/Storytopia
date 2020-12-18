@@ -24,6 +24,7 @@ class SessionForm extends React.Component {
 			body: this.state.comment.body,
 			user_id: this.state.comment.userId,
 			story_id: this.state.comment.storyId,
+			id: this.state.comment.id,
 		};
 		console.log(snakeComment);
 		this.props.action(snakeComment);
@@ -58,6 +59,8 @@ class SessionForm extends React.Component {
 	}
 	render() {
 		if (this.props.comment) {
+			console.log(this.props.formType);
+			console.log(this.state);
 			return (
 				<div id="comment-form-page">
 					<div id="comment-form-header">
@@ -66,10 +69,14 @@ class SessionForm extends React.Component {
 						{this.props.formType === "Edit a Comment" ? (
 							<button onClick={this.handleDelete}>{removeIcon}</button>
 						) : null}
-						<div className="comment-user-info">
-							{this.currIcon}
-							{this.props.username}
-						</div>
+
+						{this.props.formType !== "Edit a Comment" ? (
+							<p>
+								{this.currIcon}
+								<span className="inline-space"></span>
+								{this.props.username}
+							</p>
+						) : null}
 						{/* <DeleteButtonContainer commentId={this.props.comment.id} /> */}
 					</div>
 					<form onSubmit={this.handleSubmit} id="comment-form">
@@ -81,7 +88,7 @@ class SessionForm extends React.Component {
 								onChange={this.update("body")}
 								id="story-body"
 								autoComplete="off"
-								placeholder="What's in your beautiful mind?"
+								// placeholder="What's in your beautiful mind?"
 							/>
 
 							{this.props.errors.includes("Body can't be blank") ? (
@@ -91,10 +98,10 @@ class SessionForm extends React.Component {
 						<br />
 
 						<div id="form-buttons">
-							<button type="submit">{this.props.formTypes}</button>
+							<button type="submit">Post</button>
+							<button onClick={() => this.toggleDisplay()}>Cancel</button>
 						</div>
 					</form>
-					<button onClick={() => this.toggleDisplay()}>Cancel</button>
 				</div>
 			);
 		} else {

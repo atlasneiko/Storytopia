@@ -6,10 +6,10 @@ export default ({ stories, users }) => {
 		theSixes = theSixes.slice(theSixes.length - 6, theSixes.length);
 		return (
 			<div id="the-sixes">
-				<h1>The sixes</h1>
+				<h1>Trending from Storytopia</h1>
 				<ul>
 					{theSixes.map((story, i) => (
-						<div id="six-{i}" key={`the-six-${i}`}>
+						<div id={`six-${i}`} key={`the-six-${i}`}>
 							<TheSixItem story={story} user={users[story.userId]} />
 						</div>
 					))}

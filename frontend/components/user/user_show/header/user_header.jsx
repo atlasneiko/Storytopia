@@ -14,8 +14,9 @@ class UserHeader extends React.Component {
 			<header id="user-header">
 				<div className="user-h-info">
 					<h1>{user.username}</h1>
-					<h4>{user.stories.length} stories</h4>
-					<h4># of followers</h4>
+					<p>
+						has written <span>{user.stories.length}</span> stories
+					</p>
 					<Link to={`/users/${user.id}/about`}>About</Link>
 				</div>
 				<nav>

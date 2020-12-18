@@ -110,7 +110,9 @@ class SessionForm extends React.Component {
 						</>
 					) : null}
 					<div id="session-buttons">
-						<button type="submit">{this.props.formTypes}</button>
+						<button type="submit">
+							<p>{this.props.formTypes}</p>
+						</button>
 						<DemoButton />
 					</div>
 

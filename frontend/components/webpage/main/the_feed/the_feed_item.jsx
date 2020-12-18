@@ -28,16 +28,22 @@ export default ({ story, user }) => {
 				{/* need to hold everyting in a Link tag */}
 				<div className="feed-item-info">
 					<p>
-						{icon} {user.username}
+						{icon}
+						<span className="inline-space"></span>
+						{user.username}
 					</p>
 					<h2>{story.title}</h2>
 					<h3>{story.subtitle}</h3>
 					{/* need to be a link tag too */}
 					<div className="feed-item-footer">
-						<p>{date}</p>
-						<p>{readTime}</p>
-						<p>{bookmarkIcon}</p>
-						<p>{dotsIcon}</p>
+						<div className="feed-footer-info">
+							<p>{date}</p>
+							<p>{readTime}</p>
+						</div>
+						<div className="feed-footer-icon">
+							<p>{bookmarkIcon}</p>
+							<p>{dotsIcon}</p>
+						</div>
 					</div>
 				</div>
 			</Link>

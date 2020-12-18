@@ -46,8 +46,8 @@ class IndexItem extends React.Component {
 				<img className="story-img" src={imgArr[imgNum]} alt="ghibli img" />
 			);
 			return (
-				<li>
-					<p>{date}</p>
+				<li className="profile-story-item">
+					<h5>Published on {date}</h5>
 					<h3>{story.title}</h3>
 					<h4>{story.subtitle}</h4>
 					{currImg}
