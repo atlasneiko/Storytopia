@@ -1,12 +1,5 @@
 # Storytopia README
 
-[Link to the live page](https://storytopia.herokuapp.com/#/)
-<<<<<<< HEAD
-=======
-
-Storytopia is a website that allows authors to publish their own stories. And of course, for readers to explore creative minds that haven't be discovered by publishers.
-
-> > > > > > > ba5ce2f63a502dfabeb2928f408e2e4483b59de1
 
 Storytopia is a website that allows authors to publish their own stories. And of course, for readers to explore creative minds that haven't be discovered by publishers.
 

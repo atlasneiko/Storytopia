@@ -17,7 +17,6 @@ class UserIndx extends React.Component {
 							<UserIndexItem user={user} />
 						</div>
 					))}
-					
 				</div>
 			</div>
 		);

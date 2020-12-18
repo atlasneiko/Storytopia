@@ -16,7 +16,7 @@ class Main extends React.Component {
 
 	render() {
 		const { users, stories, loggedIn } = this.props;
-		if (Object.keys(stories).length >= 100 && Object.keys(users).length >= 20) {
+		if (Object.keys(stories).length >= 50 && Object.keys(users).length >= 20) {
 			// if (stories !== {}) {
 			return (
 				<div id="main">
