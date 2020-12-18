@@ -2,7 +2,7 @@ class Api::FollowingsController < ApplicationController
   def create
     @following = Following.new
     @following.follower_id = current_user.id
-    @following.followee_id = params[:id]
+    @following.followee_id = params[:following][:followee_id]
     if @following.save
       render 'api/followings/show'
     else
@@ -12,7 +12,7 @@ class Api::FollowingsController < ApplicationController
 
   def destroy
     @following = Following.where(
-      followee_id: params[:id],
+      followee_id: params[:following][:followee_id],
       follower_id: current_user.id
     )
     if @following.destory
@@ -21,5 +21,5 @@ class Api::FollowingsController < ApplicationController
       render json: @following.errors.full_messages, status: 422
     end
   end
-  
+  private
 end
