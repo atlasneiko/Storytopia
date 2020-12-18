@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { imgArr } from "../../../../util/img_utils";
 import { Link } from "react-router-dom";
 export default ({ stories, users, getAllUsers, fetchAllStories }) => {
-	if (Object.keys(stories).length >= 115 && Object.keys(users).length >= 40) {
+	if (Object.keys(stories).length >= 100 && Object.keys(users).length >= 20) {
 		const theFives = [];
 		for (let i = 0; i < 5; i++) {
 			theFives.push(
