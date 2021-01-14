@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 export default ({ user, logout, currIcon }) => {
 	const [isShow, setIsShow] = useState(false);
+
+	// this.state = {isShow: false}
 	const handleClick = () => setIsShow(!isShow);
+	
 	const dropdownRef = useRef(null);
 	useEffect(() => {
 		const pageClick = (event) => {
