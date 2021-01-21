@@ -13,6 +13,7 @@ const mSTP = (state, ownProps) => ({
 	currUser: state.entities.users[state.session.currentUser.id],
 	errors: state.errors.clap,
 	commentPageDisplay: state.session.commentPageDisplay,
+	loggedIn: state.session.currentUser.id !== null,
 });
 
 const mDTP = (dispatch) => ({

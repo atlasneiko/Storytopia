@@ -10,6 +10,7 @@ import {
 const mSTP = (state, ownProps) => ({
 	commentDisplay: state.session.commentDisplay,
 	claps: Object.values(state.entities.claps),
+	loggedIn: state.session.currentUser.id !== null,
 });
 
 const mDTP = (dispatch) => ({

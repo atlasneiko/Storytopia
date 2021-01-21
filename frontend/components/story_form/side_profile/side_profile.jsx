@@ -9,7 +9,15 @@ class SideProfile extends React.Component {
 		this.handleUpdateClap = this.handleUpdateClap.bind(this);
 	}
 	componentDidMount() {
-		const { user, claps, currUser, story, fetchClap, createClap } = this.props;
+		const {
+			user,
+			claps,
+			currUser,
+			story,
+			fetchClap,
+			createClap,
+			loggedIn,
+		} = this.props;
 		story.claps.forEach((clapId, i) => {
 			fetchClap(clapId)
 				.then((res) => {
@@ -28,7 +36,8 @@ class SideProfile extends React.Component {
 					// console.log(i);
 					if (
 						i === story.claps.length - 1 &&
-						!this.state.hasOwnProperty("currClap")
+						!this.state.hasOwnProperty("currClap") &&
+						loggedIn
 					) {
 						const newClap = {
 							user_id: currUser.id,
@@ -43,7 +52,7 @@ class SideProfile extends React.Component {
 					}
 				});
 		});
-		if (story.claps.length === 0) {
+		if (story.claps.length === 0 && loggedIn) {
 			console.log("create!");
 			const newClap = {
 				user_id: currUser.id,
@@ -75,25 +84,41 @@ class SideProfile extends React.Component {
 		}
 	}
 	render() {
-		const { user, claps, currUser, story, toggleCommentPage } = this.props;
+		const {
+			user,
+			claps,
+			currUser,
+			story,
+			toggleCommentPage,
+			loggedIn,
+		} = this.props;
 		// console.log(this.props);
 		// console.log(this.state);
-		return this.state.hasOwnProperty("currClap") ? (
+		return (
 			<aside className="story-sidebar">
-				{console.log("clapCount", this.state.currClap.clapCount)}
+				{/* {console.log("clapCount", this.state.currClap.clapCount)} */}
 				<h3>{user.username}</h3>
 				<p>{user.about}</p>
-				{this.state.currClap.clapCount >= 50 ? (
-					<h3 style={{ color: "red" }}>{this.state.totalClapCount}</h3>
+
+				{loggedIn ? (
+					this.state.currClap.clapCount >= 50 ? (
+						<h3 style={{ color: "red" }}>{this.state.totalClapCount}</h3>
+					) : (
+						<h3>{this.state.totalClapCount}</h3>
+					)
 				) : (
 					<h3>{this.state.totalClapCount}</h3>
 				)}
 				<div>
-					<button onClick={() => this.handleUpdateClap()}>{clapIcon}</button>
+					{loggedIn ? (
+						<button onClick={() => this.handleUpdateClap()}>{clapIcon}</button>
+					) : (
+						<p>{clapIcon}</p>
+					)}
 					<button onClick={() => toggleCommentPage()}>{commentIcon}</button>
 				</div>
 			</aside>
-		) : null;
+		);
 	}
 }
 export default SideProfile;

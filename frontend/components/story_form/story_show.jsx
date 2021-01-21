@@ -22,6 +22,7 @@ export default ({
 	errors,
 	toggleCommentPage,
 	commentPageDisplay,
+	loggedIn,
 }) => {
 	useEffect(() => {
 		fetchStory(storyId);
@@ -64,15 +65,19 @@ export default ({
 				</ul>
 			);
 		};
-		const currClap = currUser
-			? currUser.claps.filter((clapId) => story.claps.includes(clapId))[0]
-			: undefined;
+		// const currClap = currUser
+		// 	? currUser.claps.filter((clapId) => story.claps.includes(clapId))[0]
+		// 	: undefined;
+		// // console.log(story);
 		const image = <img src={imgArr[story.imgId]} alt="ghibli image" />;
-		// console.log(story);
 		return (
 			<div id="user-show">
 				{/* {renderErrors()} */}
-				<SideProfile user={user} story={story} currUser={currUser} />
+				<SideProfile
+					user={user}
+					story={story}
+					currUser={currUser ? currUser : { id: undefined }}
+				/>
 				{commentPageDisplay ? (
 					<CommentPage
 						username={currUser ? currUser.username : ""}
