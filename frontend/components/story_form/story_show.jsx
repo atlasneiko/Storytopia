@@ -75,7 +75,7 @@ export default ({
 				<SideProfile user={user} story={story} currUser={currUser} />
 				{commentPageDisplay ? (
 					<CommentPage
-						username={currUser.username}
+						username={currUser ? currUser.username : ""}
 						storyId={storyId}
 						comments={story.comments}
 					/>

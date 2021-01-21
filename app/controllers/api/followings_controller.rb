@@ -9,16 +9,13 @@ class Api::FollowingsController < ApplicationController
       render json: @following.errors.full_messages, status: 422
     end
   end
-
+  
   def destroy
-    @following = Following.where(
-      followee_id: params[:following][:followee_id],
-      follower_id: current_user.id
-    )
-    if @following.destory
-      render 'api/followings/show'
+    @following = Following.find_by(id: params[:id])
+    if @following.destroy
+      render 'api/following/show'
     else
-      render json: @following.errors.full_messages, status: 422
+      render json["You cannot unfollow this person."]
     end
   end
   private

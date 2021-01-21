@@ -26,7 +26,6 @@ const mDTP = (dispatch) => ({
 	eraseClapErrors: () => dispatch(eraseClapErrors()),
 	createClap: (clap) => dispatch(createClap(clap)),
 	updateClap: (clap) => dispatch(updateClap(clap)),
-	fetchClap: () => {},
 });
 
 export default connect(mSTP, mDTP)(ClapButton);

@@ -5,6 +5,7 @@ class ClapButton extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
+		this.state = { clapCount: 0 };
 	}
 	componentDidMount() {
 		if (this.props.typeForm !== "create") {
@@ -29,7 +30,11 @@ class ClapButton extends React.Component {
 	render() {
 		if (this.props.clap && this.props.userId) {
 			if (this.props.clap.clap_count < 50) {
-				return <button onClick={() => this.handleClick()}>{clapIcon}</button>;
+				return (
+					<div>
+						<button onClick={() => this.handleClick()}>{clapIcon}</button>
+					</div>
+				);
 			} else {
 				return <p>You have clapped 50 times for this story. Thank you!</p>;
 			}

@@ -2,7 +2,8 @@ class Api::ClapsController < ApplicationController
   before_action :required_logged_in, except: [:index, :show]
 
   def index
-    @claps = Clap.all
+    @claps = Clap.find_by(clapable_id: params[:story_id])
+    print @claps
     render 'api/claps/index'
   end
 
@@ -11,7 +12,7 @@ class Api::ClapsController < ApplicationController
     if @clap
       render 'api/claps/show'
     else
-      render json: @clap.errors.full_messages, status: 422
+      render json["clap not exist."]
     end
   end
 

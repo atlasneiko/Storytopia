@@ -11,7 +11,6 @@ class SessionForm extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
-		this.toggleDisplay = this.toggleDisplay.bind(this);
 	}
 
 	componentWillUnmount() {
@@ -28,16 +27,11 @@ class SessionForm extends React.Component {
 		};
 		console.log(snakeComment);
 		this.props.action(snakeComment);
-		this.props.toggleAction();
 		window.location.reload();
 	}
 
 	handleDelete() {
 		this.props.removeComment(this.props.comment.id);
-	}
-
-	toggleDisplay(e) {
-		this.props.toggleAction();
 	}
 
 	update(field) {
@@ -59,12 +53,12 @@ class SessionForm extends React.Component {
 	}
 	render() {
 		if (this.props.comment) {
-			console.log(this.props.formType);
-			console.log(this.state);
 			return (
 				<div id="comment-form-page">
 					<div id="comment-form-header">
-						<button onClick={() => this.toggleDisplay()}>{closeIcon}</button>
+						<button onClick={() => this.props.toggleDisplay()}>
+							{closeIcon}
+						</button>
 						<h1>{this.props.formTypes}</h1>
 						{this.props.formType === "Edit a Comment" ? (
 							<button onClick={this.handleDelete}>{removeIcon}</button>
@@ -99,7 +93,7 @@ class SessionForm extends React.Component {
 
 						<div id="form-buttons">
 							<button type="submit">Post</button>
-							<button onClick={() => this.toggleDisplay()}>Cancel</button>
+							<button onClick={() => this.props.toggleDisplay()}>Cancel</button>
 						</div>
 					</form>
 				</div>

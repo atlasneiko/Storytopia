@@ -39,3 +39,11 @@ end
     body: Faker::Books::Lovecraft.sentence 
   )
 end
+100.times do
+  Clap.create(
+    user_id: rand(1..21),
+    clapable_id: rand(1..100),
+    clapable_type: "Comment",
+    clap_count: rand(1..20)
+  )
+end

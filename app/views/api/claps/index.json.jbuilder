@@ -3,7 +3,3 @@
     json.partial! 'api/claps/clap', clap: clap
   end
 end
-
-$.ajax({
-    url: `/api/stories/200`
-  })

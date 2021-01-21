@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 2020_12_17_163036) do
 
   create_table "claps", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "clap_count", default: 1, null: false
+    t.integer "clap_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "clapable_type"
     t.bigint "clapable_id"
-    t.index ["clapable_id", "clapable_type"], name: "index_claps_on_clapable_id_and_clapable_type", unique: true
     t.index ["clapable_type", "clapable_id"], name: "index_claps_on_clapable_type_and_clapable_id"
+    t.index ["user_id", "clapable_id"], name: "index_claps_on_user_id_and_clapable_id", unique: true
     t.index ["user_id"], name: "index_claps_on_user_id"
   end
 

@@ -14,9 +14,9 @@ export const updateClap = (clap) => (
   })
 )
 
-export const fetchAllClaps = () => (
+export const fetchAllClaps = (storyId) => (
   $.ajax({
-    url: `api/claps`
+    url: `api/stories/${storyId}/claps`
   })
 )
 
