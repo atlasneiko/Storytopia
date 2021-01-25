@@ -96,6 +96,7 @@ class SideProfile extends React.Component {
 		// console.log(this.state);
 		return (
 			<aside className="story-sidebar">
+				{console.log(this.props)}
 				{/* {console.log("clapCount", this.state.currClap.clapCount)} */}
 				<h3>{user.username}</h3>
 				<p>{user.about}</p>
