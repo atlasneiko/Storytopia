@@ -11,6 +11,6 @@ Rails.application.routes.draw do
       resources :claps, only:[:index]
     end
     post '/followings/', to: 'followings#create'
-    delete '/followings/:id', to: 'followings#destroy'
+    delete '/followings/', to: 'followings#destroy'
   end
 end

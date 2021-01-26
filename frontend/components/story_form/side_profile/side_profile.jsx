@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { bookmarkIcon, commentIcon, clapIcon } from "../../../util/icon_util";
+import FollowingBtn from "../../following_button/following_btn_container";
 class SideProfile extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			totalClapCount: 0,
+			currClap: {},
 		};
 		this.handleUpdateClap = this.handleUpdateClap.bind(this);
 	}
@@ -101,7 +103,7 @@ class SideProfile extends React.Component {
 				<h3>{user.username}</h3>
 				<p>{user.about}</p>
 
-				{loggedIn ? (
+				{loggedIn && this.state.currClap.hasOwnProperty("clapCount") ? (
 					this.state.currClap.clapCount >= 50 ? (
 						<h3 style={{ color: "red" }}>{this.state.totalClapCount}</h3>
 					) : (
@@ -112,7 +114,12 @@ class SideProfile extends React.Component {
 				)}
 				<div>
 					{loggedIn ? (
-						<button onClick={() => this.handleUpdateClap()}>{clapIcon}</button>
+						<div>
+							<FollowingBtn userId={user.id} />
+							<button onClick={() => this.handleUpdateClap()}>
+								{clapIcon}
+							</button>
+						</div>
 					) : (
 						<p>{clapIcon}</p>
 					)}

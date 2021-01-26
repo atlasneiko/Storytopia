@@ -9,14 +9,23 @@ class Api::FollowingsController < ApplicationController
       render json: @following.errors.full_messages, status: 422
     end
   end
+
+  
+  
   
   def destroy
-    @following = Following.find_by(id: params[:id])
+    @following = Following.find_by(
+      follower_id: following_params[:follower_id],
+      followee_id: following_params[:followee_id]
+    )
     if @following.destroy
-      render 'api/following/show'
+      render 'api/followings/show'
     else
       render json["You cannot unfollow this person."]
     end
   end
-  private
+  private 
+  def following_params
+    params.require(:following).permit(:follower_id, :followee_id)
+  end
 end
