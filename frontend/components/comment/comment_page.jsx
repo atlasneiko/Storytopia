@@ -7,21 +7,23 @@ export default ({ username, storyId, comments, loggedIn }) => {
 	const togglePost = () =>
 		togglePostDisplay((postFormDisplay) => !postFormDisplay);
 
-	let postForm = postFormDisplay ? (
-		<PostCommentContainer
-			storyId={storyId}
-			username={username}
-			toggleDisplay={togglePostDisplay}
-		/>
-	) : // <h1>hi</h1>
-	username !== "" ? (
-		<button onClick={() => togglePost()} id="post-form-toggle">
-			<h3>Post a comment?</h3>
-		</button>
-	) : null;
+	let postForm =
+		postFormDisplay && loggedIn ? (
+			<PostCommentContainer
+				storyId={storyId}
+				username={username}
+				toggleDisplay={togglePostDisplay}
+			/>
+		) : username !== "" ? (
+			<button onClick={() => togglePost()} id="post-form-toggle">
+				<h3>Post a comment?</h3>
+			</button>
+		) : null;
 	return (
 		<div className="comment-page">
+			{console.log("comment_page")}
 			{postForm}
+			<h1>hi</h1>
 			<CommentIndex comments={comments} />
 		</div>
 	);

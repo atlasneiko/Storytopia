@@ -11,7 +11,6 @@ import {
 	faSearch,
 	faBell,
 	faEllipsisH,
-	far,
 	faTimes,
 	faGlobeAmericas,
 	faRandom,

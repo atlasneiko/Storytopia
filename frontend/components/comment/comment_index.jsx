@@ -2,6 +2,7 @@ import React from "react";
 import CommentItemContainer from "./comment_item_container";
 export default ({ comments }) => {
 	const commentArr = comments.map((comment, i) => {
+		console.log("comment_index", comment);
 		return (
 			<CommentItemContainer
 				key={`comment-${i}`}

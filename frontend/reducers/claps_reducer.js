@@ -7,7 +7,7 @@ import {
 export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_CLAPS:
-      return action.claps
+      return { ...state, ...action.claps }
     case RECEIVE_CLAP:
       return { ...state, [action.clap.id]: action.clap }
     default:

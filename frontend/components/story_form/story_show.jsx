@@ -83,6 +83,7 @@ export default ({
 						username={currUser ? currUser.username : ""}
 						storyId={storyId}
 						comments={story.comments}
+						loggedIn={loggedIn}
 					/>
 				) : null}
 				<div className="story-show">

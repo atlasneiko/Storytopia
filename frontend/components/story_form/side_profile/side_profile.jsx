@@ -105,12 +105,15 @@ class SideProfile extends React.Component {
 
 				{loggedIn && this.state.currClap.hasOwnProperty("clapCount") ? (
 					this.state.currClap.clapCount >= 50 ? (
-						<h3 style={{ color: "red" }}>{this.state.totalClapCount}</h3>
+						<h3>
+							claps received:{" "}
+							<span style={{ color: "red" }}>{this.state.totalClapCount}</span>
+						</h3>
 					) : (
-						<h3>{this.state.totalClapCount}</h3>
+						<h3>claps received: {this.state.totalClapCount}</h3>
 					)
 				) : (
-					<h3>{this.state.totalClapCount}</h3>
+					<h3>claps received: {this.state.totalClapCount}</h3>
 				)}
 				<div>
 					{loggedIn ? (
@@ -120,10 +123,10 @@ class SideProfile extends React.Component {
 								{clapIcon}
 							</button>
 						</div>
-					) : (
-						<p>{clapIcon}</p>
-					)}
-					<button onClick={() => toggleCommentPage()}>{commentIcon}</button>
+					) : null}
+					{loggedIn || story.comments.length > 0 ? (
+						<button onClick={() => toggleCommentPage()}>{commentIcon}</button>
+					) : null}
 				</div>
 			</aside>
 		);

@@ -56,10 +56,12 @@
 
 #users-index {
 	grid-area: user-index;
+	margin-left: 15px;
 	// border: 1px solid gray;
 	h3 {
 		text-align: center;
 	}
+
 	#user-index-list {
 		list-style-type: none;
 
@@ -116,6 +118,28 @@
 		#user-item-8 {
 			grid-area: uii9;
 		}
+		#user-item-0,
+		#user-item-1,
+		#user-item-2,
+		#user-item-3,
+		#user-item-4,
+		#user-item-5,
+		#user-item-6,
+		#user-item-7,
+		#user-item-8 {
+			transition: box-shadow 0.3s ease-out;
+		}
+		#user-item-0:hover,
+		#user-item-1:hover,
+		#user-item-2:hover,
+		#user-item-3:hover,
+		#user-item-4:hover,
+		#user-item-5:hover,
+		#user-item-6:hover,
+		#user-item-7:hover,
+		#user-item-8:hover {
+			box-shadow: 1px 1px 10px gray;
+		}
 	}
 }
 
@@ -147,12 +171,14 @@
 		height: 120px;
 		overflow: hidden;
 	}
+
 	#the-fives-0 {
 		grid-area: big;
 		height: auto;
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: flex-end;
+
 		div {
 			overflow: hidden;
 			height: 50%;
@@ -199,6 +225,20 @@
 	}
 	#the-fives-4 {
 		grid-area: s4;
+	}
+	#the-fives-0,
+	#the-fives-1,
+	#the-fives-2,
+	#the-fives-3,
+	#the-fives-4 {
+		transition: box-shadow 0.3s ease-in;
+	}
+	#the-fives-0:hover,
+	#the-fives-1:hover,
+	#the-fives-2:hover,
+	#the-fives-3:hover,
+	#the-fives-4:hover {
+		box-shadow: 3px 3px 5px gray;
 	}
 
 	#the-fives-1,
@@ -284,6 +324,9 @@
 		#six-3,
 		#six-4,
 		#six-5 {
+			transition: box-shadow 0.3s ease-out;
+			margin: 5px;
+			padding: 10px;
 			p {
 				color: #5f6468;
 			}
@@ -298,6 +341,14 @@
 			}
 			h5 {
 			}
+		}
+		#six-0:hover,
+		#six-1:hover,
+		#six-2:hover,
+		#six-3:hover,
+		#six-4:hover,
+		#six-5:hover {
+			box-shadow: 2px 2px 10px gray;
 		}
 		#six-0 {
 			grid-area: six-1;
@@ -333,11 +384,17 @@
 
 	grid-area: feed;
 	list-style-type: none;
+	.feed-item:hover {
+		box-shadow: 2px 2px 10px gray;
+	}
 	.feed-item {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin-bottom: 3px;
+		margin-bottom: 10px;
+		padding: 20px 5px;
+		transition: box-shadow 0.3s ease-out;
+
 		.feed-item-info {
 			width: 40vw;
 			min-width: 300px;
@@ -395,6 +452,36 @@
 		li {
 			margin-right: 2vw;
 			color: gray;
+		}
+	}
+	.about {
+		display: flex;
+		justify-content: space-evenly;
+		.about-link {
+			height: 50px;
+			width: 50px;
+		}
+		.tooltip a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			.tooltip-text {
+				opacity: 0;
+				transition: opacity 0.3s ease-out;
+				text-align: center;
+				background: #44a341;
+				border-radius: 5px;
+				color: white;
+				padding: 10px;
+				margin-top: 10px;
+			}
+		}
+		.tooltip:hover {
+			.tooltip-text {
+				opacity: 1;
+			}
 		}
 	}
 }

@@ -1,16 +1,33 @@
 import React from "react";
 import WrongLink from "../../../webpage/404";
+import FollowingBtn from "../../../following_button/following_btn_container";
 import { withRouter } from "react-router-dom";
 import { icons } from "../../../../util/icon_util";
 class UserShow extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = this.props.user;
+		this.state = {
+			user: this.props.user,
+			stories: Object.values(this.props.stories),
+		};
+
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.getUser(this.props.profileId);
+		this.props.getUser(this.props.profileId).then((res) => {
+			this.setState({ user: this.props.user });
+			this.props.user.stories.forEach((storyId, i) => {
+				this.props.fetchStory(storyId).then(() => {
+					if (i === this.props.user.stories.length - 1) {
+						this.setState({
+							...this.state,
+							stories: Object.values(this.props.stories),
+						});
+					}
+				});
+			});
+		});
 	}
 
 	componentWillUnmount() {
@@ -18,16 +35,26 @@ class UserShow extends React.Component {
 	}
 
 	update(field) {
-		return (e) => this.setState({ [field]: e.target.value });
+		return (e) =>
+			this.setState({ user: { ...this.state.user, [field]: e.target.value } });
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.update(this.state);
+		this.props.update(this.state.user);
 		this.props.history.push("/");
 	}
 
 	profile() {
+		let totalWordCount = 0;
+		let totalClapCount = 0;
+		this.state.stories.forEach((story) => {
+			totalWordCount += story.body.split(" ").length;
+			totalClapCount += story.claps.length;
+		});
+		console.log(totalWordCount);
+		console.log(totalClapCount);
+		console.log(this.state);
 		const { user, currentUserId, profileId } = this.props;
 		if (currentUserId == profileId && currentUserId !== 1) {
 			return (
@@ -38,7 +65,7 @@ class UserShow extends React.Component {
 							<br />
 							<input
 								type="text"
-								value={this.state.username}
+								value={this.state.user.username}
 								onChange={this.update("username")}
 							/>
 						</label>
@@ -48,7 +75,7 @@ class UserShow extends React.Component {
 							<br />
 							<input
 								type="text"
-								value={this.state.email}
+								value={this.state.user.email}
 								onChange={this.update("email")}
 							/>
 						</label>
@@ -57,7 +84,7 @@ class UserShow extends React.Component {
 							About
 							<br />
 							<textarea
-								value={this.state.about}
+								value={this.state.user.about}
 								onChange={this.update("about")}
 							/>
 						</label>
@@ -69,7 +96,18 @@ class UserShow extends React.Component {
 		} else {
 			return (
 				<div className="profile-about">
+					{console.log(this.state)}
+					<div className="profile-about-header">
+						<p>has {this.props.user.followers.length} followers</p>
+						<p>has been following {this.props.user.followees.length} authors</p>
+						<p>has given {this.props.user.claps.length} claps</p>
+						<p>has written {totalWordCount} words in total</p>
+						<p>has received {totalClapCount} claps</p>
+					</div>
 					{icons[Math.floor(Math.random() * icons.length)]}
+					{profileId !== currentUserId ? (
+						<FollowingBtn userId={profileId} />
+					) : null}
 					<h1>Username: {user.username}</h1>
 					<h3>Email: {user.email}</h3>
 					<h4>About: {user.about}</h4>

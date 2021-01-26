@@ -68,22 +68,21 @@ class CommentItem extends React.Component {
 	}
 	handleUpdateClap() {
 		console.log("update");
-		// while (this.state.currClap.clapCount <= 50) {
-		// 	this.setState({
-		// 		...this.state,
-		// 		totalClapCount: this.state.totalClapCount + 1,
-		// 		currClap: {
-		// 			...this.state.currClap,
-		// 			clapCount: this.state.currClap.clapCount + 1,
-		// 		},
-		// 	});
-		// 	this.props
-		// 		.updateClap({
-		// 			...this.state.currClap,
-		// 			clap_count: this.state.currClap.clapCount + 1,
-		// 		})
-		// 		.then((res) => console.log(res.clap));
-		// }
+		const newClap = {
+			...this.state.currClap,
+			clapCount: this.state.currClap.clapCount + 1,
+		};
+		if (this.state.currClap.clapCount < 50) {
+			this.setState({
+				...this.state,
+				totalClapCount: this.state.totalClapCount + 1,
+				currClap: newClap,
+			});
+			this.props.updateClap({
+				...this.state.currClap,
+				clap_count: this.state.currClap.clapCount + 1,
+			});
+		}
 	}
 	toggleDisplay() {
 		this.setState({ editDisplay: !this.state.editDisplay });
