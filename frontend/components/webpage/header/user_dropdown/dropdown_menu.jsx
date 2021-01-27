@@ -6,7 +6,7 @@ export default ({ user, logout, currIcon }) => {
 
 	// this.state = {isShow: false}
 	const handleClick = () => setIsShow(!isShow);
-	
+
 	const dropdownRef = useRef(null);
 	useEffect(() => {
 		const pageClick = (event) => {
@@ -49,8 +49,7 @@ export default ({ user, logout, currIcon }) => {
 						write a story
 					</Link>
 				</li>
-				<li>stories</li>
-				<li>states</li>
+
 				<li>
 					<Link
 						to={`/users/${user.id}`}

@@ -1,3 +1,30 @@
 // Place all the styles related to the api/claps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.clap-btn {
+	border: 0;
+	font-size: 26px !important;
+	color: #5f6468;
+	.clap-count {
+		opacity: 0;
+		position: relative;
+		transition: opacity 0.1s ease-in-out;
+		top: 30px;
+		left: 45px;
+	}
+}
+
+.clap-btn:active {
+	.clap-count {
+		color: #44a341;
+		font-size: 30px;
+		transition: all 0.005s linear;
+	}
+}
+
+.clap-btn:hover {
+	.clap-count {
+		opacity: 1;
+		transition: all 0.5s ease-in-out;
+	}
+}

@@ -101,11 +101,16 @@ export default ({
 					</div>
 					{image}
 					<article className="story-show-body">{body}</article>
-					<footer>
-						<button onClick={() => handleToggle()}>{commentIcon}</button>
+					{/* <footer>
+						{loggedIn ? (
+							<button onClick={() => handleToggle()} className="comment-btn">
+								{commentIcon}
+							</button>
+						) : null}
+
 						{/* {bookmarkIcon}
 						{dotsIcon} */}
-					</footer>
+					{/* </footer>  */}
 					{/* <section>
 						<h2>{user.username}</h2>
 						<p>{user.about}</p>

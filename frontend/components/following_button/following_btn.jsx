@@ -51,14 +51,15 @@ class FollowingBtn extends React.Component {
 	}
 
 	render() {
+		console.log("following", this.props);
 		return this.state.currUser.followees.includes(this.props.user.id) ||
 			this.state.user.followers.includes(this.props.currUser.id) ? (
 			<button className="following-btn" onClick={this.handleClick}>
-				Unfollow
+				Unfollow me
 			</button>
 		) : (
 			<button className="following-btn" onClick={this.handleClick}>
-				Follow
+				Follow me
 			</button>
 		);
 	}

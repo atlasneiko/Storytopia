@@ -96,28 +96,50 @@ class UserShow extends React.Component {
 		} else {
 			return (
 				<div className="profile-about">
-					{console.log(this.state)}
-					<div className="profile-about-header">
-						<p>has {this.props.user.followers.length} followers</p>
-						<p>has been following {this.props.user.followees.length} authors</p>
-						<p>has given {this.props.user.claps.length} claps</p>
-						<p>has written {totalWordCount} words in total</p>
-						<p>has received {totalClapCount} claps</p>
-					</div>
 					{icons[Math.floor(Math.random() * icons.length)]}
-					{profileId !== currentUserId ? (
+
+					<h1>Username: {user.username}</h1>
+					{profileId !== currentUserId && currentUserId !== null ? (
 						<FollowingBtn userId={profileId} />
 					) : null}
-					<h1>Username: {user.username}</h1>
 					<h3>Email: {user.email}</h3>
 					<h4>About: {user.about}</h4>
+					<div className="profile-about-header">
+						<p>
+							has{" "}
+							<span className="about-num">
+								{this.props.user.followers.length}
+							</span>{" "}
+							followers
+						</p>
+						<p>
+							has been following{" "}
+							<span className="about-num">
+								{this.props.user.followees.length}
+							</span>{" "}
+							authors
+						</p>
+						<p>
+							has given{" "}
+							<span className="about-num">{this.props.user.claps.length}</span>{" "}
+							claps
+						</p>
+						<p>
+							has written <span className="about-num">{totalWordCount}</span>{" "}
+							words in total
+						</p>
+						<p>
+							has received <span className="about-num">{totalClapCount}</span>{" "}
+							claps
+						</p>
+					</div>
 				</div>
 			);
 		}
 	}
 
 	render() {
-		// console.log(this.props);
+		console.log(this.props);
 		// console.log();
 		if (this.props.profileId === undefined) {
 			return <WrongLink />;

@@ -1,7 +1,7 @@
 import React from "react";
 export default ({ storyId, removeStory, history }) => {
 	const handleClick = () => {
-		removeStory(storyId).then(history.push("/"));
+		removeStory(storyId).then(history.goBack());
 	};
 
 	return storyId ? (

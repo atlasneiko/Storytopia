@@ -10,5 +10,5 @@ export default ({ comments }) => {
 			/>
 		);
 	});
-	return <ul>{commentArr}</ul>;
+	return <ul id="comment-index">{commentArr}</ul>;
 };

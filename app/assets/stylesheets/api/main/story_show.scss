@@ -1,7 +1,7 @@
 #user-show {
 	grid-area: main;
 	display: grid;
-	width: 80vw;
+	width: 90vw;
 	margin: 0 auto;
 	grid-template-rows: 1fr 400px 350px;
 	grid-template-columns: 0.2fr 1fr 0.2fr;
@@ -14,6 +14,7 @@
 		position: sticky;
 		margin-top: 150px;
 		top: 300px;
+		min-width: 200px;
 	}
 	.story-show {
 		grid-area: story;
@@ -83,6 +84,9 @@
 
 	.story-show-body {
 		color: #131917;
+		width: 90%;
+		margin: 0 auto;
+
 		p {
 			line-height: 1.5em;
 			margin-bottom: 20px;
@@ -123,8 +127,15 @@
 	height: 150px;
 	width: 167px;
 	cursor: pointer;
+	transition: background 0.3s linear;
 }
-
+#post-form-toggle:hover {
+	background: #44a341;
+	border-radius: 20px;
+	h3 {
+		color: lightgrey;
+	}
+}
 #comment-form-page {
 	margin: 0 auto;
 	width: 100%;
@@ -166,9 +177,10 @@
 			width: 70%;
 		}
 		aside {
-			position: sticky;
 			color: #5f6468;
 			font-size: 1.2em;
+			top: -5px;
+			right: 5px;
 		}
 	}
 }

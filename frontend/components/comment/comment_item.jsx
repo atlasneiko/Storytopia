@@ -102,6 +102,7 @@ class CommentItem extends React.Component {
 							{/* {currIcon} */}
 							<span className="inline-space" />
 							{user.username}
+							<br />
 							<span className="inline-space" />
 							{date}
 						</header>
@@ -109,11 +110,21 @@ class CommentItem extends React.Component {
 							<section>{comment.body}</section>
 							<aside>
 								{this.state.currClap.clapCount >= 50 ? (
-									<h3 style={{ color: "red" }}>{this.state.totalClapCount}</h3>
+									<h3 style={{ color: "red" }} className="comment-clap-count">
+										{this.state.totalClapCount}
+									</h3>
 								) : (
-									<h3>{this.state.totalClapCount}</h3>
+									<h3 className="comment-clap-count">
+										{this.state.totalClapCount}
+									</h3>
 								)}
-								<button onClick={() => this.handleUpdateClap()}>
+								<button
+									onClick={() => this.handleUpdateClap()}
+									className="clap-btn"
+								>
+									<div className="clap-count">
+										{this.state.currClap.clapCount}
+									</div>
 									{clapIcon}
 								</button>
 								<br />

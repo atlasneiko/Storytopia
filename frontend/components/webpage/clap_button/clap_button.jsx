@@ -31,7 +31,7 @@ class ClapButton extends React.Component {
 		if (this.props.clap && this.props.userId) {
 			if (this.props.clap.clap_count < 50) {
 				return (
-					<div>
+					<div className="clap-btn">
 						<button onClick={() => this.handleClick()}>{clapIcon}</button>
 					</div>
 				);

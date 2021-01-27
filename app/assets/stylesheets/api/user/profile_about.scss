@@ -1,3 +1,17 @@
 .profile-about {
 	grid-area: main;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 50px;
+	.about-num {
+		color: rgb(47, 192, 47);
+		font-weight: bold;
+		margin-top: 10px;
+		display: inline-block;
+	}
+	.user-icon {
+		font-size: 50px;
+		margin-bottom: 20px;
+		margin-left: 30px;
+	}
 }

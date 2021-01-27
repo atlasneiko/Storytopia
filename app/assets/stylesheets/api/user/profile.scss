@@ -25,3 +25,36 @@
 		height: auto;
 	}
 }
+.following-btn {
+	transition: all 0.5s linear;
+	border: none;
+	color: gray;
+	font-size: 25px;
+}
+.following-btn:hover {
+	color: #44a341;
+	transform: scale(1.1, 1.1);
+	text-shadow: 1px 1px gray;
+}
+.comment-btn {
+}
+.comment-text {
+	position: absolute;
+	font-size: 20px !important;
+	left: 45px;
+	top: 276px;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+	from {
+		opacity: 0.3;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.total-clap-count {
+	position: absolute;
+	top: 120px;
+}

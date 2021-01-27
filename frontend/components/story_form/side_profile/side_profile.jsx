@@ -98,34 +98,55 @@ class SideProfile extends React.Component {
 		// console.log(this.state);
 		return (
 			<aside className="story-sidebar">
-				{console.log(this.props)}
 				{/* {console.log("clapCount", this.state.currClap.clapCount)} */}
 				<h3>{user.username}</h3>
 				<p>{user.about}</p>
 
-				{loggedIn && this.state.currClap.hasOwnProperty("clapCount") ? (
-					this.state.currClap.clapCount >= 50 ? (
-						<h3>
-							claps received:{" "}
-							<span style={{ color: "red" }}>{this.state.totalClapCount}</span>
-						</h3>
-					) : (
-						<h3>claps received: {this.state.totalClapCount}</h3>
-					)
-				) : (
-					<h3>claps received: {this.state.totalClapCount}</h3>
-				)}
 				<div>
+					{loggedIn && this.state.currClap.hasOwnProperty("clapCount") ? (
+						this.state.currClap.clapCount >= 50 ? (
+							<div>
+								<FollowingBtn userId={user.id} />
+								<h3 className="total-clap-count">
+									claps received: <br />
+									<span style={{ color: "red" }}>
+										{this.state.totalClapCount}
+									</span>
+								</h3>
+							</div>
+						) : (
+							<h3 className="total-clap-count">
+								claps received: <br />
+								{this.state.totalClapCount}
+							</h3>
+						)
+					) : (
+						<h3 className="total-clap-count">
+							claps received: {this.state.totalClapCount}
+						</h3>
+					)}
 					{loggedIn ? (
 						<div>
-							<FollowingBtn userId={user.id} />
-							<button onClick={() => this.handleUpdateClap()}>
-								{clapIcon}
-							</button>
+							{this.state.currClap.clapCount < 50 ? (
+								<button
+									onClick={() => this.handleUpdateClap()}
+									className="clap-btn"
+								>
+									<div className="clap-count">
+										{this.state.currClap.clapCount}
+									</div>
+									{clapIcon}
+								</button>
+							) : (
+								<p>max clap reached</p>
+							)}
 						</div>
 					) : null}
 					{loggedIn || story.comments.length > 0 ? (
-						<button onClick={() => toggleCommentPage()}>{commentIcon}</button>
+						<button onClick={() => toggleCommentPage()} className="comment-btn">
+							{commentIcon}
+							<p className="comment-text">comments!</p>
+						</button>
 					) : null}
 				</div>
 			</aside>
