@@ -16,6 +16,14 @@
 		font-size: 1.3vw;
 		margin-top: auto;
 	}
+	.logo h1 {
+		transition: all 0.3s linear;
+		width: fit-content;
+	}
+	.logo h1:hover {
+		text-shadow: 3px 3px #68f863;
+		color: rgb(109, 109, 109);
+	}
 
 	.nav-links {
 		width: 15vw;
@@ -141,4 +149,12 @@
 #write-button {
 	background-color: #44a341;
 	color: lightgrey;
+	transition: all 0.5s linear;
+	border-radius: 50px;
+}
+#write-button:hover {
+	color: rgb(22, 22, 22);
+	transform: scale(1.2);
+	border: 1px double black;
+	background: white;
 }

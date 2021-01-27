@@ -41,8 +41,8 @@ export default ({ story, user }) => {
 							<p>{readTime}</p>
 						</div>
 						<div className="feed-footer-icon">
-							<p>{bookmarkIcon}</p>
-							<p>{dotsIcon}</p>
+							{/* <p>{bookmarkIcon}</p>
+							<p>{dotsIcon}</p> */}
 						</div>
 					</div>
 				</div>

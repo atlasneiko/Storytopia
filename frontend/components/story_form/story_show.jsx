@@ -96,17 +96,15 @@ export default ({
 								<p> {date}</p>
 							</div>
 						</div>
-						<div id="story-header-nav">
-							{bookmarkIcon}
-							{dotsIcon}
-						</div>
+						<div id="story-header-nav">{/* {bookmarkIcon}
+							{dotsIcon} */}</div>
 					</div>
 					{image}
 					<article className="story-show-body">{body}</article>
 					<footer>
 						<button onClick={() => handleToggle()}>{commentIcon}</button>
-						{bookmarkIcon}
-						{dotsIcon}
+						{/* {bookmarkIcon}
+						{dotsIcon} */}
 					</footer>
 					{/* <section>
 						<h2>{user.username}</h2>

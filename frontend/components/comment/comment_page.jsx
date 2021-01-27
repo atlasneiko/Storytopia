@@ -23,7 +23,6 @@ export default ({ username, storyId, comments, loggedIn }) => {
 		<div className="comment-page">
 			{console.log("comment_page")}
 			{postForm}
-			<h1>hi</h1>
 			<CommentIndex comments={comments} />
 		</div>
 	);

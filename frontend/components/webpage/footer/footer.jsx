@@ -3,7 +3,7 @@ import React from "react";
 export default function () {
 	return (
 		<div id="footer">
-			<ul>
+			{/* <ul>
 				<li key="footer-1">Help</li>
 				<li key="footer-2">Status</li>
 				<li key="footer-3">Writers</li>
@@ -12,7 +12,7 @@ export default function () {
 				<li key="footer-6">Privacy</li>
 				<li key="footer-7">Term</li>
 				<li key="footer-8">About</li>
-			</ul>
+			</ul> */}
 			<div className="about">
 				<div className="tooltip">
 					<a href="https://github.com/atlasneiko" target="_blank">

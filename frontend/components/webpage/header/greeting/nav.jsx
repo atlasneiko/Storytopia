@@ -54,8 +54,6 @@ export default ({ currentUser, logout, loggedIn }) => {
 		<div className="message">
 			{greeting()}
 			<div id="nav-util">
-				{bookmarkIcon}
-				{bellIcon}
 				<Link to="/new-story" id="write-button">
 					Write
 				</Link>
