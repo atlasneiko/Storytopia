@@ -31,7 +31,6 @@ export default ({ story, user }) => {
 
 				<h3>{story.subtitle}</h3>
 				{/* need to be a link tag too */}
-				<h4>Read More</h4>
 				<p>{readTime} read</p>
 			</Link>
 		</li>

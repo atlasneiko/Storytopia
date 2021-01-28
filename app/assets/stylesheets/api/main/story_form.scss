@@ -81,11 +81,30 @@
 			textarea {
 				width: 100%;
 				margin: 0 auto;
-				height: 1500px;
+				height: 550px;
 				font-size: 2em;
 				border: 0;
-				border-left: 0.5px solid lightgrey;
-				border-right: 0.5px solid lightgrey;
+				border: 0.5px solid lightgrey;
+				border-radius: 10px;
+				overflow: auto;
+			}
+		}
+		#story-buttons {
+			button {
+				border: 0;
+				padding: 15px;
+				font-size: 1.2em;
+				border-radius: 5px;
+				background-color: green;
+				color: lightgrey;
+				margin: 20px auto;
+				transition: all 0.5s linear;
+				border: solid 1px transparent;
+			}
+			button:hover {
+				background-color: white;
+				color: darkgreen;
+				border: solid 1px darkgreen;
 			}
 		}
 	}

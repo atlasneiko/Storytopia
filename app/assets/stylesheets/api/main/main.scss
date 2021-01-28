@@ -8,7 +8,7 @@
 	height: auto;
 	width: 100vw;
 	margin: 0 auto;
-	grid-gap: 10px;
+	grid-gap: 75px;
 	grid-template-areas:
 		"feed-header feed-header feed-header"
 		"the-sixes the-sixes the-sixes"
@@ -25,6 +25,7 @@
 	grid-template-rows: 1fr;
 	grid-template-columns: 4fr 2fr;
 	grid-template-areas: "the-fives user-index";
+	grid-gap: 30px;
 }
 
 #splash {
@@ -461,7 +462,7 @@
 	.about {
 		display: flex;
 		justify-content: space-evenly;
-		margin-top: 150px;
+		// margin-top: 150px;
 		.about-link {
 			height: 50px;
 			width: 50px;

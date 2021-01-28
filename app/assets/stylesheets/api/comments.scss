@@ -7,10 +7,16 @@
 }
 #comment-index {
 	position: relative;
+	height: 800px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 .comment-item {
 	position: relative;
 	aside {
 		position: absolute;
 	}
+}
+.comment-page {
+	width: 250px;
 }

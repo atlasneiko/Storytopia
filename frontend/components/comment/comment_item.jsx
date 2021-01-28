@@ -88,9 +88,10 @@ class CommentItem extends React.Component {
 		this.setState({ editDisplay: !this.state.editDisplay });
 	}
 	render() {
-		console.log(this.props);
 		const { comment, user, getUser, currentUserId, commentUserId } = this.props;
 		const currIcon = icons[Math.floor(Math.random() * icons.length)];
+
+		console.log("item_date", comment);
 		let date = comment.updatedAt.slice(0, 10).split("-");
 		[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 		date = date.join("/");
@@ -142,6 +143,8 @@ class CommentItem extends React.Component {
 					<CommentEditContainer
 						comment={comment}
 						toggleDisplay={this.toggleDisplay}
+						comments={this.props.comments}
+						setCurrComments={this.props.setCurrComments}
 					/>
 				);
 			}

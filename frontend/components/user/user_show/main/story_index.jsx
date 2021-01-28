@@ -8,9 +8,13 @@ class StoryIndex extends React.Component {
 			return (
 				<div className="profile-index">
 					<ul>
-						{this.props.user.stories.map((storyId) => (
+						{this.props.user.stories.map((storyId, i) => (
 							<IndexItemContainer
-								storyId={storyId}
+								storyId={
+									this.props.user.stories[
+										this.props.user.stories.length - (1 + i)
+									]
+								}
 								key={`story-index-${storyId}`}
 							/>
 						))}

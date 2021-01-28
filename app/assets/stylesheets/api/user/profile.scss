@@ -37,12 +37,12 @@
 	text-shadow: 1px 1px gray;
 }
 .comment-btn {
+	display: flex;
+	justify-content: space-between;
+	width: 75%;
 }
 .comment-text {
-	position: absolute;
 	font-size: 20px !important;
-	left: 45px;
-	top: 276px;
 	animation: glow 1s ease-in-out infinite alternate;
 }
 

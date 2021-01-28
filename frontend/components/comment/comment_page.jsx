@@ -4,15 +4,17 @@ import React, { useState } from "react";
 
 export default ({ username, storyId, comments, loggedIn }) => {
 	const [postFormDisplay, togglePostDisplay] = useState(false);
+	const [currComments, setCurrComments] = useState(comments);
 	const togglePost = () =>
 		togglePostDisplay((postFormDisplay) => !postFormDisplay);
-
 	let postForm =
 		postFormDisplay && loggedIn ? (
 			<PostCommentContainer
 				storyId={storyId}
 				username={username}
 				toggleDisplay={togglePostDisplay}
+				comments={currComments}
+				setCurrComments={setCurrComments}
 			/>
 		) : username !== "" ? (
 			<button onClick={() => togglePost()} id="post-form-toggle">
@@ -21,9 +23,9 @@ export default ({ username, storyId, comments, loggedIn }) => {
 		) : null;
 	return (
 		<div className="comment-page">
-			{console.log("comment_page")}
+			{console.log("comment_page", currComments)}
 			{postForm}
-			<CommentIndex comments={comments} />
+			<CommentIndex comments={currComments} setCurrComments={setCurrComments} />
 		</div>
 	);
 };

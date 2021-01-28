@@ -19,15 +19,30 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
 		const snakeComment = {
 			body: this.state.comment.body,
 			user_id: this.state.comment.userId,
 			story_id: this.state.comment.storyId,
 			id: this.state.comment.id,
 		};
-		console.log(snakeComment);
-		this.props.action(snakeComment);
-		window.location.reload();
+		// console.log("handleSubmit", this.props.comments);
+
+		this.props.action(snakeComment).then((res) => {
+			// console.log("res.comment", res.comment);
+			let newComments = this.props.comments.filter(
+				(currComment) => Object.values(currComment)[0].id !== res.comment.id
+			);
+			newComments.push({ [res.comment.id]: res.comment });
+			// console.log("comments", this.props.comments);
+			// console.log("newComments", newComments);
+			this.props.comments.forEach((currComment) => {
+				// console.log(Object.values(currComment)[0].id === res.comment.id);
+			});
+			this.props.setCurrComments(newComments);
+		});
+		this.props.toggleDisplay();
+		// window.location.reload();
 	}
 
 	handleDelete() {
@@ -42,7 +57,7 @@ class SessionForm extends React.Component {
 	}
 
 	renderErrors() {
-		console.log(this.props.componentDisplay);
+		// console.log(this.props.componentDisplay);
 		return (
 			<ul id="session-errors">
 				{this.props.errors.map((error, i) => (
@@ -55,6 +70,7 @@ class SessionForm extends React.Component {
 		if (this.props.comment) {
 			return (
 				<div id="comment-form-page">
+					{/* {console.log(this.props)} */}
 					<div id="comment-form-header">
 						<button onClick={() => this.props.toggleDisplay()}>
 							{closeIcon}
@@ -78,7 +94,7 @@ class SessionForm extends React.Component {
 
 						<label id="story-body">
 							<textarea
-								value={this.state.body}
+								value={this.state.comment.body}
 								onChange={this.update("body")}
 								id="story-body"
 								autoComplete="off"

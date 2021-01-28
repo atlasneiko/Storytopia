@@ -61,8 +61,14 @@ class SessionForm extends React.Component {
 						{this.props.errors.includes("Username can't be blank") ? (
 							<p className="session-error">Username can't be blank</p>
 						) : null}
+						{this.props.errors.includes("invalid credentials") ? (
+							<p className="session-error" className="session-error">
+								invalid credentials
+							</p>
+						) : null}
 					</label>
 					<br />
+
 					<label id="session-password">
 						Password
 						<br />
@@ -88,7 +94,7 @@ class SessionForm extends React.Component {
 								Email
 								<br />
 								<input
-									type="text"
+									type="email"
 									value={this.state.email}
 									onChange={this.update("email")}
 									placeholder="Email"
@@ -115,12 +121,6 @@ class SessionForm extends React.Component {
 						</button>
 						<DemoButton />
 					</div>
-
-					{this.props.errors.includes("invalid credentials") ? (
-						<p className="session-error" className="session-error">
-							invalid credentials
-						</p>
-					) : null}
 				</form>
 			</div>
 		);
