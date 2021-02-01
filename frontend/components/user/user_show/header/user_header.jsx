@@ -17,7 +17,7 @@ class UserHeader extends React.Component {
 					<p>
 						has written <span>{user.stories.length}</span> stories
 					</p>
-					<Link to={`/users/${user.id}/about`}>About</Link>
+					{/* <Link to={`/users/${user.id}/about`}>About</Link> */}
 				</div>
 				<nav>
 					<Link to="/">
