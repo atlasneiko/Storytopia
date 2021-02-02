@@ -7,7 +7,7 @@ export const createComment = (comment) =>
 
 
 export const updateComment = (comment) => {
-  console.log(comment);
+  // console.log(comment);
   return $.ajax({
     method: "patch",
     url: `/api/stories/${comment.story_id}/comments/${comment.id}`,

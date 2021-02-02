@@ -52,9 +52,9 @@ class UserShow extends React.Component {
 			totalWordCount += story.body.split(" ").length;
 			totalClapCount += story.claps.length;
 		});
-		console.log(totalWordCount);
-		console.log(totalClapCount);
-		console.log(this.state);
+		// console.log(totalWordCount);
+		// console.log(totalClapCount);
+		// console.log(this.state);
 		const { user, currentUserId, profileId } = this.props;
 		if (currentUserId == profileId && currentUserId !== 1) {
 			return (
@@ -139,7 +139,7 @@ class UserShow extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		// console.log();
 		if (this.props.profileId === undefined) {
 			return <WrongLink />;

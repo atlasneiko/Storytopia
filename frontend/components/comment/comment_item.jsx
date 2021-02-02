@@ -54,7 +54,7 @@ class CommentItem extends React.Component {
 				});
 		});
 		if (comment.claps.length === 0) {
-			console.log("create!");
+			// console.log("create!");
 			const newClap = {
 				user_id: currentUserId,
 				clapable_id: comment.id,
@@ -67,7 +67,7 @@ class CommentItem extends React.Component {
 		}
 	}
 	handleUpdateClap() {
-		console.log("update");
+		// console.log("update");
 		const newClap = {
 			...this.state.currClap,
 			clapCount: this.state.currClap.clapCount + 1,
@@ -91,7 +91,7 @@ class CommentItem extends React.Component {
 		const { comment, user, getUser, currentUserId, commentUserId } = this.props;
 		const currIcon = icons[Math.floor(Math.random() * icons.length)];
 
-		console.log("item_date", comment);
+		// console.log("item_date", comment);
 		let date = comment.updatedAt.slice(0, 10).split("-");
 		[date[0], date[1], date[2]] = [date[1], date[2], date[0]];
 		date = date.join("/");
@@ -102,7 +102,7 @@ class CommentItem extends React.Component {
 						<header>
 							{/* {currIcon} */}
 							<span className="inline-space" />
-							{user.username}
+							<p className="comment-item-username">{user.username}</p>
 							<br />
 							<span className="inline-space" />
 							{date}

@@ -8,12 +8,12 @@ class FollowingBtn extends React.Component {
 	}
 
 	handleClick() {
-		console.log(this.state.currUser.id, this.state.user.followers);
-		console.log(this.state.user.id, this.state.currUser.followees);
-		console.log(
-			this.props.currUser.followees.includes(this.state.user.id) &&
-				this.props.user.followers.includes(this.state.currUser.id)
-		);
+		// console.log(this.state.currUser.id, this.state.user.followers);
+		// console.log(this.state.user.id, this.state.currUser.followees);
+		// console.log(
+		// 	this.props.currUser.followees.includes(this.state.user.id) &&
+		// 		this.props.user.followers.includes(this.state.currUser.id)
+		// );
 		if (
 			this.props.currUser.followees.includes(this.state.user.id) &&
 			this.props.user.followers.includes(this.state.currUser.id)
@@ -28,7 +28,7 @@ class FollowingBtn extends React.Component {
 						this.setState({ currUser: this.props.currUser });
 						this.props.getUser(this.state.user.id).then(() => {
 							this.setState({ user: this.props.user });
-							console.log(this.state);
+							// console.log(this.state);
 						});
 					});
 				});
@@ -43,7 +43,7 @@ class FollowingBtn extends React.Component {
 						this.setState({ currUser: this.props.currUser });
 						this.props.getUser(this.state.user.id).then(() => {
 							this.setState({ user: this.props.user });
-							console.log(this.state);
+							// console.log(this.state);
 						});
 					});
 				});
@@ -51,7 +51,7 @@ class FollowingBtn extends React.Component {
 	}
 
 	render() {
-		console.log("following", this.props);
+		// console.log("following", this.props);
 		return this.state.currUser.followees.includes(this.props.user.id) ||
 			this.state.user.followers.includes(this.props.currUser.id) ? (
 			<button className="following-btn" onClick={this.handleClick}>

@@ -55,7 +55,7 @@ class SideProfile extends React.Component {
 				});
 		});
 		if (story.claps.length === 0 && loggedIn) {
-			console.log("create!");
+			// console.log("create!");
 			const newClap = {
 				user_id: currUser.id,
 				clapable_id: story.id,
@@ -68,7 +68,7 @@ class SideProfile extends React.Component {
 		}
 	}
 	handleUpdateClap() {
-		console.log("update!!");
+		// console.log("update!!");
 		const newClap = {
 			...this.state.currClap,
 			clapCount: this.state.currClap.clapCount + 1,

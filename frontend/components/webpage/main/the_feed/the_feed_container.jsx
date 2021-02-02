@@ -6,7 +6,7 @@ import { fetchAllStories } from "../../../../actions/story_actions";
 import TheFeed from "./the_feed";
 
 const mSTP = (state, ownProps) => {
-	console.log("props", ownProps);
+	// console.log("props", ownProps);
 	return {
 		stories: state.entities.stories,
 		users: state.entities.users,

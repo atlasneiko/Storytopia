@@ -2,9 +2,9 @@ import CommentIndex from "./comment_index";
 import PostCommentContainer from "./comment_post_container";
 import React, { useState } from "react";
 
-export default ({ username, storyId, comments, loggedIn }) => {
+export default ({ username, storyId, comments, loggedIn, setComments }) => {
 	const [postFormDisplay, togglePostDisplay] = useState(false);
-	const [currComments, setCurrComments] = useState(comments);
+	// const [currComments, setCurrComments] = useState(comments);
 	const togglePost = () =>
 		togglePostDisplay((postFormDisplay) => !postFormDisplay);
 	let postForm =
@@ -13,8 +13,8 @@ export default ({ username, storyId, comments, loggedIn }) => {
 				storyId={storyId}
 				username={username}
 				toggleDisplay={togglePostDisplay}
-				comments={currComments}
-				setCurrComments={setCurrComments}
+				comments={comments}
+				setCurrComments={setComments}
 			/>
 		) : username !== "" ? (
 			<button onClick={() => togglePost()} id="post-form-toggle">
@@ -23,9 +23,9 @@ export default ({ username, storyId, comments, loggedIn }) => {
 		) : null;
 	return (
 		<div className="comment-page">
-			{console.log("comment_page", currComments)}
+			{/* {console.log("comment_page", currComments)} */}
 			{postForm}
-			<CommentIndex comments={currComments} setCurrComments={setCurrComments} />
+			<CommentIndex comments={comments} setCurrComments={setComments} />
 		</div>
 	);
 };

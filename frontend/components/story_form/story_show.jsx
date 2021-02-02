@@ -24,12 +24,16 @@ export default ({
 	commentPageDisplay,
 	loggedIn,
 }) => {
+	const [comments, setComments] = useState({});
+
 	useEffect(() => {
-		fetchStory(storyId);
+		fetchStory(storyId).then((res) =>
+			console.log("fetchStory", setComments(res.story.comments))
+		);
 		getAllUsers();
 	}, []);
+
 	const handleToggle = () => toggleCommentPage();
-	// const [comments, setComments] = useState(story.comments);
 	const icon = icons[Math.floor(Math.random() * icons.length)];
 	if (Object.keys(users).length > 1 && !!story) {
 		const user = users[story.userId];
@@ -82,7 +86,8 @@ export default ({
 					<CommentPage
 						username={currUser ? currUser.username : ""}
 						storyId={storyId}
-						comments={story.comments}
+						comments={comments}
+						setComments={setComments}
 						loggedIn={loggedIn}
 					/>
 				) : null}
